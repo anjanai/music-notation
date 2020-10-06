@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script
+      src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+      integrity="sha256-4+XzXVhsDmqanXGHaHvgh1gMQKX40OUvDEBTu8JcmNs="
+      crossorigin="anonymous"></script>
+    <script src=notate-music.js></script>
+  </head>
+  <body onload="addButtons()">
+
+    <p> Use round brackets for grouping, curly brackets for kan swars.
+    <br>  For lyrics, begin the line with a ~
+      <span id=swaras></span>
+    <!-- सा़ -->
+    <table>
+      <tr>
+	<td >
+	  
+	</td>
+	<td>
+	  <form>
+	    <textarea id="notation" rows="10" cols="80">साध़प़ सासासा सासारे रेग रेगम (पध)प 
+~झनन झनन झनन नन झनन नन
+
+मगमरे नि़रेसा-  पगमरे नि़रेसा- 
+~बा--जे बिछुआ बा----  --जे-
+	    </textarea>
+	  </form>
+	  	
+	  <button onclick="createVishwamohini()"> Create Vishwamohini Notation </button>
+	  <br>
+	  <pre><span id=vishwa></span>
+	  </pre>
+	  
+	</td>
+      </tr>
+	</table>    
+  </body>
+</html>
