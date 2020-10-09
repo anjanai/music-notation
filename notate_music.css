@@ -1,0 +1,119 @@
+*, *:before, *:after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 10px;
+  font-family: 'Open Sans', 'sans-serif';
+  background-color: #fff;
+  color: #444;
+}
+
+h1, p {
+  margin: 0 0 1em 0;
+}
+
+.wrapper {
+  max-width: 1000px;
+  margin: 0 20px;
+  display: grid;
+  grid-gap: 10px;
+}
+
+button.swar {
+    border-radius: 12px;
+    padding: 8px;
+}
+
+@media screen and (min-width: 500px) {
+
+  /* no grid support? */
+  .sidebar {
+    float: left;
+    width: 22%;
+  }
+
+  .content {
+    float: right;
+  }
+
+  .wrapper {
+    margin: 0 auto;
+    grid-template-columns: 222px 3fr;
+  }
+  
+  .header, .footer {
+    grid-column: 1 / -1;
+    /* needed for the floated layout */
+    clear: both;
+  }
+
+}
+
+.wrapper > * {
+  background-color: #777;
+  color: #fff;
+  border-radius: 5px;
+  padding: 20px;
+  font-size: 100%;
+  /* needed for the floated layout*/
+  margin-bottom: 10px;
+}
+
+/* We need to set the widths used on floated items back to auto, and remove the bottom margin as when we have grid we have gaps. */
+@supports (display: grid) {
+  .wrapper > * {
+    width: auto;
+    margin: 0;
+  }
+}
+
+/* Style the button that is used to open and close the collapsible content */
+.collapsible {
+  background-color: #eee;
+  color: #444;
+  cursor: pointer;
+  padding: 18px;
+  width: 100%;
+  border: none;
+  text-align: left;
+  outline: none;
+  font-size: 15px;
+}
+
+/* Add a background color to the button if it is clicked on (add the .active class with JS), and when you move the mouse over it (hover) */
+.active, .collapsible:hover {
+  background-color: #ccc;
+}
+
+/* Style the collapsible content. Note: hidden by default */
+.coll_content {
+  padding: 0 18px;
+  display: none;
+  overflow: hidden;
+ /* background-color: #f1f1f1; */
+}
+
+.collapsible:after {
+  content: '\02795'; /* Unicode character for "plus" sign (+) */
+  font-size: 13px;
+  color: white;
+  float: right;
+  margin-left: 5px;
+}
+
+.active:after {
+  content: "\2796"; /* Unicode character for "minus" sign (-) */
+}
+
+  .zui-table {
+    border: solid 1px #DDEEEE;
+    border-collapse: collapse;
+    border-spacing: 0;
+    font: normal 13px Arial, sans-serif;
+  }
+  
+  .zui-table tbody td {
+    border: solid 1px #DDEEEE;
+    padding: 10px;
+  }

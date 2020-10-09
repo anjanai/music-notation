@@ -92,6 +92,7 @@ function addButtons() {
 		id: note+i,
 		click: function () { insertNote(this.id); }
 	    });
+	    b.addClass("swar");
 	    $("#swaras").append(b);
 	    hindi_notes[note+i] = notenames[j];
 	    english_notes[notenames[j]] = note+i;
@@ -120,6 +121,8 @@ function lyricsLine(line) {
 }
 
 $(document).ready(function () {
+    addButtons();
+    
     jQuery.fn.extend({
         insertAtCaret: function (myValue) {
             return this.each(function (i) {

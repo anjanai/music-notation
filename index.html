@@ -1,40 +1,54 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <title> Notate.Music </title>
     <script
       src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
       integrity="sha256-4+XzXVhsDmqanXGHaHvgh1gMQKX40OUvDEBTu8JcmNs="
       crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="notate_music.css">
     <script src=notate-music.js></script>
   </head>
-  <body onload="addButtons()">
-
-    <p> Use round brackets for grouping, curly brackets for kan swars.
-    <br>  For lyrics, begin the line with a ~
-      <span id=swaras></span>
-    <!-- सा़ -->
-    <table>
-      <tr>
-	<td >
-	  
-	</td>
-	<td>
-	  <form>
-	    <textarea id="notation" rows="10" cols="80">साध़प़ सासासा सासारे रेग रेगम (पध)प 
+  
+  <body>
+    <div class="wrapper">
+      <header class="header">
+	<big>Notate.Music</big>
+      </header>
+      <aside class="sidebar">
+	<span id=swaras></span>
+      </aside>
+      <article class="content">
+	Use round brackets for grouping, curly brackets for kan swars.
+	<textarea id="notation" rows="10" cols="100">
+साध़प़ सासासा सासारे रेग रेगम (पध)प 
 ~झनन झनन झनन नन झनन नन
 
 मगमरे नि़रेसा-  पगमरे नि़रेसा- 
 ~बा--जे बिछुआ बा----  --जे-
-	    </textarea>
-	  </form>
-	  	
-	  <button onclick="createVishwamohini()"> Create Vishwamohini Notation </button>
-	  <br>
-	  <pre><span id=vishwa></span>
-	  </pre>
-	  
-	</td>
-      </tr>
-	</table>    
+	</textarea>
+	
+	<p></p>
+	<button onclick="createNotation()"> Create Formatted Text </button>
+	
+      <button onclick="copyNotation()">Copy Formatted text as HTML</button>
+      <button type="button" class="collapsible">Show Formatted Text</button>
+      <div class="coll_content">
+	<table class=zui-table id=formatted border=1 cellspacing=0 ><tbody></tbody></table>
+      </div>
+
+      </p>
+      <button onclick="createVishwamohini()"> Create Vishwamohini Notation </button>
+      <button onclick="copyVishwamohini()">Copy Vishwamohini Notation</button>
+      <button type="button" class="collapsible">Show Vishwamohini Notation</button>
+      <div class="coll_content">
+	<pre><span id=converted></span></pre>
+      </div>
+      
+      </article>
+    <footer class="footer">
+      <a href=README.html target="_blank">Help</a>
+    </footer>
+    </div>
   </body>
 </html>
