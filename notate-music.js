@@ -2,6 +2,9 @@ var hindi_notes = {};
 var english_notes = {};
 var notenames = [];
 
+function swarSubset() {
+
+}
 
 function vishwaLine(line) {
     line = line.replace(/(-|\d)/g, '$1|');
@@ -99,7 +102,15 @@ function addButtons() {
 	    j++;
 	}
     }
-    
+    $( "#swaras" ).clone().appendTo( "#popup_swaras" );
+
+}
+
+function limitNotes() {
+    if (! window.focus)return true;
+    var href;
+    window.open(href, windowname, 'width=400,height=200,scrollbars=yes');
+    return false;
 }
 
 
@@ -149,5 +160,15 @@ $(document).ready(function () {
                 }
             })
         }
+    });
+
+    $(".trigger_popup_fricc").click(function(){
+       $('.hover_bkgr_fricc').show();
+    });
+    $('.hover_bkgr_fricc').click(function(){
+        $('.hover_bkgr_fricc').hide();
+    });
+    $('.popupCloseButton').click(function(){
+        $('.hover_bkgr_fricc').hide();
     });
 });
