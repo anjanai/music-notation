@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <meta charset="utf-8"/>
     <title> Notate.Music </title>
     <script
       src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
@@ -13,43 +14,36 @@
   <body>
     <div class="wrapper">
       <header class="header">
-	<big>Notate.Music</big>
+	<big>Notate.Music </big>
       </header>
 
       <article class="content">
-	Use round brackets for grouping, curly brackets for kan swars.
-	<textarea id="notation" rows="10" cols="100">
-साध़प़ सासासा सासारे रेग रेगम (पध)प 
-~झनन झनन झनन नन झनन नन
-
-मगमरे नि़रेसा-  पगमरे नि़रेसा- 
-~बा--जे बिछुआ बा----  --जे-
+	For lyrics, start each line with a ~
+	<textarea id="notation" rows="14" cols="100">
 	</textarea>
 	
 	<p></p>
 	<button onclick="createNotation()"> Create Formatted Text </button>
+	<button onclick="copyNotationText()">Copy Formatted text as Text</button>
+	<button onclick="copyNotationHtml()">Copy Formatted text as HTML</button>
+	<button type="button" class="collapsible">Show Formatted Text</button>
+	<div class="coll_content">
+	  <table class=zui-table id=formatted cellspacing=0 ><tbody></tbody></table>
+	</div>
 	
-      <button onclick="copyNotation()">Copy Formatted text as HTML</button>
-      <button type="button" class="collapsible">Show Formatted Text</button>
-      <div class="coll_content">
-	<table class=zui-table id=formatted border=1 cellspacing=0 ><tbody></tbody></table>
-      </div>
+	<p></p>
+	<button onclick="createVishwamohini()"> Create Vishwamohini Notation </button>
+	<button onclick="copyVishwamohini()">Copy Vishwamohini Notation</button>
+	<button type="button" class="collapsible">Show Vishwamohini Notation</button>
+	<div class="coll_content">
+	  <pre><span id=converted></span></pre>
+	</div>
+      </article>
 
-      </p>
-      <button onclick="createVishwamohini()"> Create Vishwamohini Notation </button>
-      <button onclick="copyVishwamohini()">Copy Vishwamohini Notation</button>
-      <button type="button" class="collapsible">Show Vishwamohini Notation</button>
-      <div class="coll_content">
-	<pre><span id=converted></span></pre>
-      </div>
-
-      
-
-</article>
-<aside class="sidebar">
+      <aside class="sidebar">
 	<span id=swaras></span>
 	<p></p>
-		<a class="trigger_popup_subset">Click here to create subset of notes</a>
+	<a class="trigger_popup_subset">Click here to create subset of notes</a>
 	
 	<div class="hover_bkgr_subset">
 	  <span class="helper"></span>
@@ -61,9 +55,7 @@
 	    <button onClick="createSubset()">Apply</button> 
 	  </div>
 	</div>
-	
-
-</aside>
+      </aside>
       
     <footer class="footer">
       <a href=README.html target="_blank">Help</a>

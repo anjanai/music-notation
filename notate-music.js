@@ -3,6 +3,11 @@ var english_notes = {};
 var notenames = [];
 var yellow = 'rgb(255, 255, 0)';
 var gray = 'rgb(239, 239, 239)';
+var inactive_notes = [];
+var notes = `सां  रें॒  रें  गं॒  गं  मं॑  मं  पं  धं॒  धं  निं॒  निं
+सा़  रे़॒  रे़  ग़॒  ग़  म़॑  म़  प़  ध़॒  ध़   नि़॒  नि़ 
+सा  रे॒  रे  ग॒  ग  म॑  म  प  ध॒  ध  नि॒  नि`.split(/\s+/);;
+
 
 function vishwaline(line) {
     line = line.replace(/(-|\d)/g, '$1|');
@@ -24,11 +29,56 @@ function vishwaline(line) {
     return line;
 }
 
+function createNotation() {
+    tbody = $("#formatted tbody"); 
+    tbody.empty();
+    var orig;
+    orig = $("#notation").val().trim();
+
+    for (let key in notes) {
+	orig = orig.replace(new RegExp(key, "g"), english_notes[key]);
+    }
+    
+    var lines = orig.split("\n");
+    var matras = [4, 4, 4, 4];
+    
+    $.each(lines, function (i, line) {
+	if (line[0] === '~') line = line.substring(1);
+	if (line.trim() === '') {
+	    return tbody.append("<tr></tr>")
+	}
+	line = line.trim().split(/\s+/);
+
+	markup = "<tr>";
+	var from_beat = 0;
+	$.each(matras, function (j, beats_per_matra) {
+	    var vibhag = line.slice(from_beat, from_beat + beats_per_matra);
+	    $.each(vibhag, function (k, matra) {
+		markup += "<td>" + matra + "</td>"
+	    });
+	    markup += "<td> | </td>";
+	    from_beat += beats_per_matra
+	});
+	markup += "</tr>\n";
+	tbody.append(markup); 
+    });
+    
+}
+
+function copyNotationHtml() {
+    createNotation();
+    var html = document.getElementById("formatted").outerHTML;
+    navigator.clipboard.writeText(html);
+}
+function copyNotationText() {
+    createNotation();
+    var txt = document.getElementById("formatted").innerHTML;
+    txt = txt.replace(/<.*?>/g, " ");
+    navigator.clipboard.writeText(txt);
+}
+
 
 function createvishwamohini() {
-    notes = `सां  रें॒  रें  गं॒  गं  मं॑  मं  पं  धं॒  धं  निं॒  निं
-सा़  रे़॒  रे़  ग़॒  ग़  म़॑  म़  प़  ध़॒  ध़   नि़॒  नि़ 
-सा  रे॒  रे  ग॒  ग  म॑  म  प  ध॒  ध  नि॒  नि`.split(/\s+/);;
     orig = $("#notation").val().trim();
 
     for (let key of notes) {
@@ -68,7 +118,7 @@ function createvishwamohini() {
 
 function insertnote(id) {
     id = hindi_notes[id];
-    $("#notation").insertatcaret(id);
+    $("#notation").insertAtCaret(id);
 }
 
 
@@ -79,8 +129,6 @@ function addButtons() {
 सा़  रे़॒  रे़  ग़॒  ग़  म़  म़॑  प़  ध़॒  ध़   नि़॒  नि़ 
 `.split(/\s+/);
 
-    notes = [];
-    var i=0;
     var note;
     
     var j=0;
@@ -119,14 +167,19 @@ function addButtons() {
 
 
 function createSubset() {
+    inactive_notes = [];
     $("#popup_swaras button").each(function() {
 	id = $(this).attr('id').substring(1);
-	if ($(this).css("background-color") === yellow)
+	if ($(this).css("background-color") === yellow) {
 	    $("#"+id).hide();
-	else
+	    inactive_notes.push(id);
+	} else {
+	    // active_notes.push(id);
 	    $("#"+id).show();
+	}
     });
     
+    localStorage.setItem('inactiveNotes', inactive_notes);
 }
 
 function lyricsLine(line) {
@@ -147,7 +200,28 @@ function lyricsLine(line) {
 
 $(document).ready(function () {
     addButtons();
+
+    var coll = document.getElementsByClassName("collapsible");
+    var i;
     
+    for (i = 0; i < coll.length; i++) {
+	coll[i].addEventListener("click", function() {
+	    var content = this.nextElementSibling;
+	    var txt = $(this).text().split(' ');
+	    if (txt[0]=="Hide") txt[0] = "Show";
+	    else txt[0] = "Hide";
+	    txt = txt.join(' ')
+	    $(this).html(txt);
+	    this.classList.toggle("active");
+	    if (content.style.display === "block") {
+		content.style.display = "none";
+	    } else {
+		content.style.display = "block";
+	    }
+	});
+    }
+    
+
     jQuery.fn.extend({
         insertAtCaret: function (myValue) {
             return this.each(function (i) {
@@ -176,6 +250,12 @@ $(document).ready(function () {
         }
     });
 
+
+    $("#notation").on('change keyup paste', function() {
+	localStorage.setItem('textarea', $(this).val());
+    });
+
+    
     $(".trigger_popup_subset").click(function(){
        $('.hover_bkgr_subset').show();
     });
@@ -183,4 +263,16 @@ $(document).ready(function () {
     $('.popupCloseButton').click(function(){
         $('.hover_bkgr_subset').hide();
     });
+
+    inactive_notes = localStorage.getItem('inactiveNotes').split(',');
+
+    jQuery.each(inactive_notes, function(i, id) {
+	$("#"+id).hide();
+	$("#A"+id).css({
+	    'background-color': yellow,
+	    'text-decoration': 'line-through'
+	});
+    });
+
+    $('#notation').val(localStorage.getItem('textarea'));
 });

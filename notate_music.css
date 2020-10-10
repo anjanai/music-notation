@@ -73,7 +73,7 @@ button.swar {
   background-color: #eee;
   color: #444;
   cursor: pointer;
-  padding: 18px;
+  padding: 8px;
   width: 100%;
   border: none;
   text-align: left;
@@ -107,15 +107,13 @@ button.swar {
 }
 
   .zui-table {
-    border: solid 1px #DDEEEE;
     border-collapse: collapse;
     border-spacing: 0;
     font: normal 13px Arial, sans-serif;
   }
   
   .zui-table tbody td {
-    border: solid 1px #DDEEEE;
-    padding: 10px;
+      padding: 10px;
   }
 
   /* Popup box BEGIN */
