@@ -8,53 +8,63 @@ var notes = `सां  रें॒  रें  गं॒  गं  मं॑  �
 सा़  रे़॒  रे़  ग़॒  ग़  म़॑  म़  प़  ध़॒  ध़   नि़॒  नि़ 
 सा  रे॒  रे  ग॒  ग  म॑  म  प  ध॒  ध  नि॒  नि`.split(/\s+/);;
 
+const matras = {
+    'Teentaal' : [4, 4, 4, 4],
+    'Ektaal' : [2, 2, 2, 2, 2, 2],
+    'Jhaptaal' : [2, 3, 2, 3],
+    'Rupak': [3, 2, 2],
+    'Keherva': [4, 4],
+};
+
 
 function createNotation() {
-    tbody = $("#formatted tbody"); 
-    tbody.empty();
-    var orig;
-    orig = $("#notation").val().trim();
+    let taal = $("#taal" ).val();
 
-    for (let key in notes) {
-	orig = orig.replace(new RegExp(key, "g"), english_notes[key]);
+    let tbody = $("#formatted tbody"); 
+    let markup = "<tr>";
+    let beat=1;
+    let beats = [];
+    for (const beats_per_matra of matras[taal]) {
+	for (k=0; k<beats_per_matra; k++, beat++)
+	    beats.push(beat);
+	beats.push('|');
     }
-    
-    var lines = orig.split("\n");
-    var matras = [4, 4, 4, 4];
-    
-    $.each(lines, function (i, line) {
+    for (beat of beats) {
+	markup += "<td>" + beat + "</td>"
+    }
+    markup += "</tr>\n<tr>";
+
+    let lines = $("#notation").val().trim().split("\n");
+
+    for (let line of lines) {
 	if (line[0] === '~') line = line.substring(1);
-	if (line.trim() === '') {
-	    return tbody.append("<tr></tr>")
-	}
 	line = line.trim().split(/\s+/);
 
-	markup = "<tr>";
-	var from_beat = 0;
-	$.each(matras, function (j, beats_per_matra) {
-	    var vibhag = line.slice(from_beat, from_beat + beats_per_matra);
-	    $.each(vibhag, function (k, matra) {
-		markup += "<td>" + matra + "</td>"
-	    });
-	    markup += "<td> | </td>";
-	    from_beat += beats_per_matra
-	});
+	for (beat of beats) {
+	    if (beat !== '|') {
+		if (line[beat-1] === undefined) break;
+		beat = line[beat-1];
+	    }
+	    markup += "<td>" + beat + "</td>";
+	}
 	markup += "</tr>\n";
-	tbody.append(markup); 
-    });
-    
+    }
+    tbody.html(markup); 
 }
 
 function copyNotationHtml() {
     createNotation();
-    var html = document.getElementById("formatted").outerHTML;
+    let html = document.getElementById("formatted").outerHTML;
     navigator.clipboard.writeText(html);
 }
 function copyNotationText() {
     createNotation();
-    var txt = document.getElementById("formatted").innerHTML;
+    let txt = document.getElementById("formatted").innerHTML;
+    txt = txt.replace (/<.tr>\s+<tr><td><.td><.tr>/g, "__BR__");
     txt = txt.replace(/<.*?>/g, " ");
+    txt = txt.replace(/\|/g, "\t|");
     txt = txt.replace(/^\s+/gm, ""); // m matches the beginning of each line a multi-line string
+    txt = txt.replace(/__BR__/g, "\n");
     navigator.clipboard.writeText(txt);
 }
 
@@ -63,10 +73,10 @@ function createVishwamohini() {
     orig = $("#notation").val().trim();
 
     repl = orig.replace(/\|/g, "");
-    var lines = repl.split("\n");
+    let lines = repl.split("\n");
     converted = "[melody start]\n" ;
 
-    var type = "lyrics"
+    let type = "lyrics"
     $.each(lines, function (i, line) {
 	line = line.trim();
 	if (line == "") {
@@ -112,13 +122,13 @@ function addButtons() {
 सा़  रे़॒  रे़  ग़॒  ग़  म़  म़॑  प़  ध़॒  ध़   नि़॒  नि़ 
 `.split(/\s+/);
 
-    var note;
+    let note;
     
-    var j=0;
+    let j=0;
     for (const i of [2, 1, 0]) {
 	$("#swaras").append("<p>");
 	for (note of notelist.split(" ")) {
-	    var b = $('<button/>', {
+	    let b = $('<button/>', {
 		text: notenames[j],
 		id: note+i,
 		click: function () { insertnote(this.id); }
@@ -168,13 +178,16 @@ function createSubset() {
 $(document).ready(function () {
     addButtons();
 
-    var coll = document.getElementsByClassName("collapsible");
-    var i;
+    let coll = document.getElementsByClassName("collapsible");
+    let i;
     
     for (i = 0; i < coll.length; i++) {
 	coll[i].addEventListener("click", function() {
-	    var content = this.nextElementSibling;
-	    var txt = $(this).text().split(' ');
+	    let content = this.nextElementSibling;
+	    if ($(this).attr('id') == "show_text") createNotation();
+	    else createVishwamohini();
+	    
+	    let txt = $(this).text().split(' ');
 	    if (txt[0]=="Hide") txt[0] = "Show";
 	    else txt[0] = "Hide";
 	    txt = txt.join(' ')
@@ -201,9 +214,9 @@ $(document).ready(function () {
                 }
                 else if (this.selectionStart || this.selectionStart == '0') {
                     //For browsers like Firefox and Webkit based
-                    var startPos = this.selectionStart;
-                    var endPos = this.selectionEnd;
-                    var scrollTop = this.scrollTop;
+                    let startPos = this.selectionStart;
+                    let endPos = this.selectionEnd;
+                    let scrollTop = this.scrollTop;
                     this.value = this.value.substring(0, startPos) + myValue + this.value.substring(endPos, this.value.length);
                     this.focus();
                     this.selectionStart = startPos + myValue.length;

@@ -19,22 +19,26 @@
 
       <article class="content">
 	For lyrics, start each line with a ~
-	<textarea id="notation" rows="14" cols="100">
-	</textarea>
+	<textarea id="notation" rows="14" cols="100"></textarea>
+	Taal: <select id="taal" size="1">
+	  <option selected>Teentaal</option>
+	  <option>Ektaal</option>
+	  <option>Jhaptaal</option>
+	  <option>Rupak</option>
+	  <option>Keherva</option>
+	</select>
 	
 	<p></p>
-	<button onclick="createNotation()"> Create Formatted Text </button>
 	<button onclick="copyNotationText()">Copy Formatted text as Text</button>
 	<button onclick="copyNotationHtml()">Copy Formatted text as HTML</button>
-	<button type="button" class="collapsible">Show Formatted Text</button>
+	<button id="show_text" type="button" class="collapsible">Show Formatted Text</button>
 	<div class="coll_content">
 	  <table class=zui-table id=formatted cellspacing=0 ><tbody></tbody></table>
 	</div>
 	
 	<p></p>
-	<button onclick="createVishwamohini()"> Create Vishwamohini Notation </button>
 	<button onclick="copyVishwamohini()">Copy Vishwamohini Notation</button>
-	<button type="button" class="collapsible">Show Vishwamohini Notation</button>
+	<button id="show_vishwa" type="button" class="collapsible">Show Vishwamohini Notation</button>
 	<div class="coll_content">
 	  <pre><span id=vishwa></span></pre>
 	</div>
