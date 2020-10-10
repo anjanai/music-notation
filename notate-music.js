@@ -42,6 +42,11 @@ function createNotation() {
     let lines = $("#notation").val().trim().split("\n");
 
     for (let line of lines) {
+	if (line[0] == '#') {
+	    markup += "<td colspan=" + beats.length + ">" + line + "</td></tr>\n"
+	    continue;
+	}
+	    
 	if (line[0] === '~') line = line.substring(1);
 	line = line.trim().split(/\s+/);
 
@@ -93,6 +98,8 @@ function createVishwamohini() {
 	    converted += line;
 	    return true;
 	}
+	if (line[0] == '#') return true;
+	
 	if (line[0] !=  '~') {
 	    for (let key of notes) {
 		line = line.replace(new RegExp(key, "g"), english_notes[key]);
@@ -256,7 +263,7 @@ $(document).ready(function () {
 
     inactive_notes = localStorage.getItem('inactiveNotes');
     if (inactive_notes !== null)
-	inactive_notes = .split(',');
+	inactive_notes = inactive_notes.split(',');
 
     jQuery.each(inactive_notes, function(i, id) {
 	$("#"+id).hide();
