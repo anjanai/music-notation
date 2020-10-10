@@ -119,7 +119,7 @@ button.swar {
   }
 
   /* Popup box BEGIN */
-.hover_bkgr_fricc{
+.hover_bkgr_subset{
     background:rgba(0,0,0,.4);
     color: black;
     cursor:pointer;
@@ -131,12 +131,12 @@ button.swar {
     width:100%;
     z-index:10000;
 }
-.hover_bkgr_fricc .helper{
+.hover_bkgr_subset .helper{
     display:inline-block;
     height:100%;
     vertical-align:middle;
 }
-.hover_bkgr_fricc > div {
+.hover_bkgr_subset > div {
     background-color: #fff;
     box-shadow: 10px 10px 60px #555;
     display: inline-block;
@@ -169,7 +169,7 @@ button.swar {
 .popupCloseButton:hover {
     background-color: #ccc;
 }
-.trigger_popup_fricc {
+.trigger_popup_subset {
     cursor: pointer;
     font-size: 20px;
     margin: 20px;
@@ -177,4 +177,16 @@ button.swar {
     font-weight: bold;
     text-decoration: underline;
 }
-/* Popup box BEGIN */
+a:link, a:visited {
+  background-color: #999;
+  color: white;
+  padding: 8px 8px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+}
+
+a:hover, a:active {
+  background-color: #777;
+}
+    

@@ -1,15 +1,17 @@
 var hindi_notes = {};
 var english_notes = {};
 var notenames = [];
+var yellow = 'rgb(255, 255, 0)';
+var gray = 'rgb(239, 239, 239)';
 
-function swarSubset() {
-
+function removeswar() {
+    console.log($(this).attr('id'));
 }
 
-function vishwaLine(line) {
+function vishwaline(line) {
     line = line.replace(/(-|\d)/g, '$1|');
     
-    //Remove all the | chars inside brackets
+    //remove all the | chars inside brackets
     line = line.replace(/(\(.*?\))/g, function(m, match) {
 	return m.replace(/\|/g, "");
     });
@@ -27,14 +29,14 @@ function vishwaLine(line) {
 }
 
 
-function createVishwamohini() {
+function createvishwamohini() {
     notes = `सां  रें॒  रें  गं॒  गं  मं॑  मं  पं  धं॒  धं  निं॒  निं
 सा़  रे़॒  रे़  ग़॒  ग़  म़॑  म़  प़  ध़॒  ध़   नि़॒  नि़ 
 सा  रे॒  रे  ग॒  ग  म॑  म  प  ध॒  ध  नि॒  नि`.split(/\s+/);;
     orig = $("#notation").val().trim();
 
     for (let key of notes) {
-	orig = orig.replace(new RegExp(key, "g"), english_notes[key]);
+	orig = orig.replace(new regexp(key, "g"), english_notes[key]);
 	
     }
     repl = orig.replace(/\|/g, "");
@@ -51,10 +53,10 @@ function createVishwamohini() {
 
 	
 	if (line[0] !=  '~') {
-	    line = vishwaLine(line);
+	    line = vishwaline(line);
 	    type = "notations";
 	} else {
-	    line = lyricsLine(line.substring(1));
+	    line = lyricsline(line.substring(1));
 	    type = "lyrics";
 	}
 
@@ -68,14 +70,14 @@ function createVishwamohini() {
     $("#vishwa").text(converted);
 }
 
-function insertNote(id) {
+function insertnote(id) {
     id = hindi_notes[id];
-    $("#notation").insertAtCaret(id);
+    $("#notation").insertatcaret(id);
 }
 
 
 function addButtons() {
-    notelist = "S r R g G m M P d D n N";
+    notelist = "s r r g g m m p d d n n";
     notenames = `सां  रें॒  रें  गं॒  गं  मं  मं॑  पं  धं॒  धं  निं॒  निं
 सा  रे॒  रे  ग॒  ग  म  म॑  प  ध॒  ध  नि॒  नि  
 सा़  रे़॒  रे़  ग़॒  ग़  म़  म़॑  प़  ध़॒  ध़   नि़॒  नि़ 
@@ -84,16 +86,15 @@ function addButtons() {
     notes = [];
     var i=0;
     var note;
-
+    
     var j=0;
     for (const i of [2, 1, 0]) {
 	$("#swaras").append("<p>");
 	for (note of notelist.split(" ")) {
-	    //notes.push(note+i);
 	    var b = $('<button/>', {
 		text: notenames[j],
 		id: note+i,
-		click: function () { insertNote(this.id); }
+		click: function () { insertnote(this.id); }
 	    });
 	    b.addClass("swar");
 	    $("#swaras").append(b);
@@ -102,18 +103,21 @@ function addButtons() {
 	    j++;
 	}
     }
-    $( "#swaras" ).clone().appendTo( "#popup_swaras" );
 
+    $("#popup_swaras").html($("#swaras").html());
+    $( "#popup_swaras button" ).on( "click", function() {
+	color = $( this ).css('background-color');
+	if (color == gray) $( this ).css({
+	    'background-color': yellow,
+	    'text-decoration': 'line-through'
+	}); else $( this ).css({
+	    'background-color': gray,
+	    'text-decoration': 'none'
+	});
+
+	
+    });
 }
-
-function limitNotes() {
-    if (! window.focus)return true;
-    var href;
-    window.open(href, windowname, 'width=400,height=200,scrollbars=yes');
-    return false;
-}
-
-
 
 function lyricsLine(line) {
     str = "";
@@ -162,13 +166,11 @@ $(document).ready(function () {
         }
     });
 
-    $(".trigger_popup_fricc").click(function(){
-       $('.hover_bkgr_fricc').show();
+    $(".trigger_popup_subset").click(function(){
+       $('.hover_bkgr_subset').show();
     });
-    $('.hover_bkgr_fricc').click(function(){
-        $('.hover_bkgr_fricc').hide();
-    });
+    
     $('.popupCloseButton').click(function(){
-        $('.hover_bkgr_fricc').hide();
+        $('.hover_bkgr_subset').hide();
     });
 });
