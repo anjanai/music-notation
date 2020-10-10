@@ -254,7 +254,9 @@ $(document).ready(function () {
         $('.hover_bkgr_subset').hide();
     });
 
-    inactive_notes = localStorage.getItem('inactiveNotes').split(',');
+    inactive_notes = localStorage.getItem('inactiveNotes');
+    if (inactive_notes !== null)
+	inactive_notes = .split(',');
 
     jQuery.each(inactive_notes, function(i, id) {
 	$("#"+id).hide();
