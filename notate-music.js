@@ -16,6 +16,8 @@ const matras = {
     'Keherva': [4, 4],
 };
 
+const isUpperCase = (string) => /^[A-Z]*$/.test(string)
+
 function getBeats () {
     let beats = [];
     let beat=1;
@@ -28,24 +30,80 @@ function getBeats () {
     return beats;
 }
 
+function toDevanagari (line, beats) {
+    let all = Object.keys(hindi_notes);
+    let active = all.filter(x => !inactive_notes.includes(x));
+    line = line.replace(/\s+/g, '');
+    let arr = [];
+    let prev_note = "";
+    let near_N1 = ['S2', 'R1', 'N1']; // temporary hard-coded stuff
+
+    for (note of line) {
+	if (note === "-") {
+	    arr.push(note);
+	    continue;
+	}
+	if (isUpperCase(note)) {
+	    if (note == 'N') {
+		if (near_N1.includes(prev_note)) note += 1; // this needs to be tweaked as necessary
+		else note += 0;
+	    }
+	    else note += 2;
+	    if (!active.includes(note)) note = note.toLowerCase();
+	} else {
+	    note += 1;
+	    if (!active.includes(note)) note = note.toUpperCase();
+	}
+	prev_note = note;
+	if(active.includes(note)) arr.push( hindi_notes[note]);
+    }
+
+    let ret = "";
+    while (arr.length) {
+	for (beat of beats) {
+	    if (beat !== '|') {
+		if (arr.length) beat = arr.shift() + arr.shift();
+		else beat = "";
+	    }
+	    ret += "<td>" + beat + "</td>";
+	}
+	ret += "</tr>\n";
+    }
+    return ret;
+}
+
 function createNotation() {
     let beats = getBeats();
     let tbody = $("#formatted tbody"); 
     let markup = "<tr>";
     let beat=1;
     
-    for (beat of beats) {
+    for (beat of beats)
 	markup += "<td>" + beat + "</td>"
-    }
+    
     markup += "</tr>\n<tr>";
 
     let lines = $("#notation").val().trim().split("\n");
-
+    let ai_line = "";
+    
     for (let line of lines) {
 	if (line[0] == '#') {
 	    markup += "<td colspan=" + beats.length + ">" + line + "</td></tr>\n"
 	    continue;
 	}
+
+	if (line[0] === ';') {
+	    ai_line += line.substring(1);
+	    continue;
+	}
+	
+	if (ai_line !== ""){
+	    markup += toDevanagari(ai_line, beats);
+	    ai_line == "";
+	    continue;
+	}
+	
+
 	    
 	if (line[0] === '~') line = line.substring(1);
 	line = line.trim().split(/\s+/);
@@ -99,7 +157,7 @@ function createVishwamohini() {
 	    return true;
 	}
 	if (line[0] == '#') return true;
-	
+
 	if (line[0] !=  '~') {
 	    for (let key of notes) {
 		line = line.replace(new RegExp(key, "g"), english_notes[key]);
@@ -184,7 +242,6 @@ function createSubset() {
 	    $("#"+id).hide();
 	    inactive_notes.push(id);
 	} else {
-	    // active_notes.push(id);
 	    $("#"+id).show();
 	}
     });
