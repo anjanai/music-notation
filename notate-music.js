@@ -9,26 +9,6 @@ var notes = `सां  रें॒  रें  गं॒  गं  मं॑  �
 सा  रे॒  रे  ग॒  ग  म॑  म  प  ध॒  ध  नि॒  नि`.split(/\s+/);;
 
 
-function vishwaline(line) {
-    line = line.replace(/(-|\d)/g, '$1|');
-    
-    //remove all the | chars inside brackets
-    line = line.replace(/(\(.*?\))/g, function(m, match) {
-	return m.replace(/\|/g, "");
-    });
-    line = line.replace(/(\{.*?\})/g, function(m, match) {
-	return m.replace(/\|/g, "");
-    });
-    
-    line = line.replace(/\}/g, '}|');
-    
-    line = line.replace(/\)/g, ')|');
-    
-    line = line.replace(/\|$/, '');
-
-    return line;
-}
-
 function createNotation() {
     tbody = $("#formatted tbody"); 
     tbody.empty();
@@ -74,17 +54,14 @@ function copyNotationText() {
     createNotation();
     var txt = document.getElementById("formatted").innerHTML;
     txt = txt.replace(/<.*?>/g, " ");
+    txt = txt.replace(/^\s+/gm, ""); // m matches the beginning of each line a multi-line string
     navigator.clipboard.writeText(txt);
 }
 
 
-function createvishwamohini() {
+function createVishwamohini() {
     orig = $("#notation").val().trim();
 
-    for (let key of notes) {
-	orig = orig.replace(new regexp(key, "g"), english_notes[key]);
-	
-    }
     repl = orig.replace(/\|/g, "");
     var lines = repl.split("\n");
     converted = "[melody start]\n" ;
@@ -96,15 +73,16 @@ function createvishwamohini() {
 	    converted += line;
 	    return true;
 	}
-
-	
 	if (line[0] !=  '~') {
-	    line = vishwaline(line);
+	    for (let key of notes) {
+		line = line.replace(new RegExp(key, "g"), english_notes[key]);
+	    }
 	    type = "notations";
 	} else {
-	    line = lyricsline(line.substring(1));
+	    line = line.substring(1);
 	    type = "lyrics";
 	}
+	line = line.split(/\s+/).join('|');
 
 	line = line.replace(/((.+|){4})/g, '$1    '); 
 
@@ -116,6 +94,11 @@ function createvishwamohini() {
     $("#vishwa").text(converted);
 }
 
+function copyVishwamohini() {
+    createVishwamohini();
+    console.log(navigator.clipboard.writeText($("#vishwa").html()));
+}
+
 function insertnote(id) {
     id = hindi_notes[id];
     $("#notation").insertAtCaret(id);
@@ -123,7 +106,7 @@ function insertnote(id) {
 
 
 function addButtons() {
-    notelist = "s r R g G m M P d D n N";
+    notelist = "S r R g G m M P d D n N";
     notenames = `सां  रें॒  रें  गं॒  गं  मं  मं॑  पं  धं॒  धं  निं॒  निं
 सा  रे॒  रे  ग॒  ग  म  म॑  प  ध॒  ध  नि॒  नि  
 सा़  रे़॒  रे़  ग़॒  ग़  म़  म़॑  प़  ध़॒  ध़   नि़॒  नि़ 
@@ -180,22 +163,6 @@ function createSubset() {
     });
     
     localStorage.setItem('inactiveNotes', inactive_notes);
-}
-
-function lyricsLine(line) {
-    str = "";
-    line = line.split("");
-    for (i=0; i<line.length; i++) {
-	syll = line[i];
-	next = line[i+1];
-	str += syll;
-	
-	if (next == ' ' || next == '\t') continue
-	if ((next > "ऄ" && next < "ह") || next < '{' ) {
-	    str += "|";
-	}
-    }
-    return str;
 }
 
 $(document).ready(function () {
