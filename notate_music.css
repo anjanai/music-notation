@@ -39,7 +39,7 @@ button.swar {
 
   .wrapper {
     margin: 0 auto;
-    grid-template-columns: 222px 3fr;
+    grid-template-columns: 3fr 222px ;
   }
   
   .header, .footer {
@@ -128,6 +128,7 @@ button.swar {
     position:fixed;
     text-align:center;
     top:0;
+    left:0;
     width:100%;
     z-index:10000;
 }

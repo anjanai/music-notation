@@ -15,24 +15,7 @@
       <header class="header">
 	<big>Notate.Music</big>
       </header>
-      <aside class="sidebar">
-	<span id=swaras></span>
-	<p></p>
 
-	<a class="trigger_popup_subset">Click here to create subset of notes</a>
-	
-	<div class="hover_bkgr_subset">
-	  <span class="helper"></span>
-	  <div>
-            <div class="popupCloseButton">&times;</div>
-	    Click on any note to include/exclude it.
-	    <div id=popup_swaras></div>
-	    <p></p>
-	    <button onClick="createSubset()">Apply</button> 
-	  </div>
-	</div>
-	
-      </aside>
       <article class="content">
 	Use round brackets for grouping, curly brackets for kan swars.
 	<textarea id="notation" rows="10" cols="100">
@@ -59,8 +42,29 @@
       <div class="coll_content">
 	<pre><span id=converted></span></pre>
       </div>
+
       
-      </article>
+
+</article>
+<aside class="sidebar">
+	<span id=swaras></span>
+	<p></p>
+		<a class="trigger_popup_subset">Click here to create subset of notes</a>
+	
+	<div class="hover_bkgr_subset">
+	  <span class="helper"></span>
+	  <div>
+            <div class="popupCloseButton">&times;</div>
+	    Click on any note to include/exclude it.
+	    <div id=popup_swaras></div>
+	    <p></p>
+	    <button onClick="createSubset()">Apply</button> 
+	  </div>
+	</div>
+	
+
+</aside>
+      
     <footer class="footer">
       <a href=README.html target="_blank">Help</a>
     </footer>
