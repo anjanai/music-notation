@@ -4,10 +4,6 @@ var notenames = [];
 var yellow = 'rgb(255, 255, 0)';
 var gray = 'rgb(239, 239, 239)';
 
-function removeswar() {
-    console.log($(this).attr('id'));
-}
-
 function vishwaline(line) {
     line = line.replace(/(-|\d)/g, '$1|');
     
@@ -77,7 +73,7 @@ function insertnote(id) {
 
 
 function addButtons() {
-    notelist = "s r r g g m m p d d n n";
+    notelist = "s r R g G m M P d D n N";
     notenames = `सां  रें॒  रें  गं॒  गं  मं  मं॑  पं  धं॒  धं  निं॒  निं
 सा  रे॒  रे  ग॒  ग  म  म॑  प  ध॒  ध  नि॒  नि  
 सा़  रे़॒  रे़  ग़॒  ग़  म़  म़॑  प़  ध़॒  ध़   नि़॒  नि़ 
@@ -104,7 +100,9 @@ function addButtons() {
 	}
     }
 
-    $("#popup_swaras").html($("#swaras").html());
+    html = $("#swaras").html();
+    html = html.replace(/id="/g, 'id="A');
+    $("#popup_swaras").html(html);
     $( "#popup_swaras button" ).on( "click", function() {
 	color = $( this ).css('background-color');
 	if (color == gray) $( this ).css({
@@ -117,6 +115,18 @@ function addButtons() {
 
 	
     });
+}
+
+
+function createSubset() {
+    $("#popup_swaras button").each(function() {
+	id = $(this).attr('id').substring(1);
+	if ($(this).css("background-color") === yellow)
+	    $("#"+id).hide();
+	else
+	    $("#"+id).show();
+    });
+    
 }
 
 function lyricsLine(line) {
