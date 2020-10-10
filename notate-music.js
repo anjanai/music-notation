@@ -16,19 +16,24 @@ const matras = {
     'Keherva': [4, 4],
 };
 
-
-function createNotation() {
-    let taal = $("#taal" ).val();
-
-    let tbody = $("#formatted tbody"); 
-    let markup = "<tr>";
-    let beat=1;
+function getBeats () {
     let beats = [];
+    let beat=1;
+    let taal = $("#taal" ).val();
     for (const beats_per_matra of matras[taal]) {
 	for (k=0; k<beats_per_matra; k++, beat++)
 	    beats.push(beat);
 	beats.push('|');
     }
+    return beats;
+}
+
+function createNotation() {
+    let beats = getBeats();
+    let tbody = $("#formatted tbody"); 
+    let markup = "<tr>";
+    let beat=1;
+    
     for (beat of beats) {
 	markup += "<td>" + beat + "</td>"
     }
@@ -76,6 +81,11 @@ function createVishwamohini() {
     let lines = repl.split("\n");
     converted = "[melody start]\n" ;
 
+    let beats = getBeats().join('|');
+    beats = beats.replace (/\|+/g, '|');
+    beats = beats.replace (/.$/, '');
+    converted += "[ " + beats + "] [lyrics]\n";
+    
     let type = "lyrics"
     $.each(lines, function (i, line) {
 	line = line.trim();
