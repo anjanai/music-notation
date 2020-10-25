@@ -138,9 +138,21 @@ function copyNotationText() {
 
 
 function createVishwamohini() {
-    orig = $("#notation").val().trim();
+    let orig = $("#notation").val().trim();
 
-    repl = orig.replace(/\|/g, "");
+    if (orig[0] == ';') {
+	// Anjana style line;
+	var repl = toDevanagari(orig, getBeats());
+	
+	repl = repl.replace(/\|<.td>/g, '');
+	repl = repl.replace(/<td>/g, '');
+	repl = repl.replace(/<.td>/g, '|');;
+	repl = repl.replace(/.<.tr>/g, '');
+	console.log(repl);
+    } else {
+	var repl = orig.replace(/\|/g, "");
+    }
+    
     let lines = repl.split("\n");
     converted = "[melody start]\n" ;
 
