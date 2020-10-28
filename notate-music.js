@@ -88,7 +88,8 @@ function createNotation() {
 
     let lines = $("#notation").val().trim().split("\n");
     let ai_line = "";
-    
+
+    let linenum = 1;
     for (let line of lines) {
 	if (line[0] == '#') {
 	    markup += "<td colspan=" + beats.length + ">" + line + "</td></tr>\n"
@@ -97,16 +98,15 @@ function createNotation() {
 
 	if (line[0].match(/[a-z]/i)) {
 	    ai_line += line;
-	    continue;
+	    if (linenum++ != lines.length) continue;
+	    markup += toDevanagari(ai_line, beats);
+	    break;
 	}
 	
 	if (ai_line !== ""){
 	    markup += toDevanagari(ai_line, beats);
 	    ai_line == "";
-	    continue;
 	}
-	
-
 	    
 	if (line[0] === '~') line = line.substring(1);
 	line = line.trim().split(/\s+/);
@@ -155,7 +155,6 @@ function createVishwamohini() {
 	repl = repl.replace(/<td>/g, '');
 	repl = repl.replace(/<.td>/g, '|');
 	repl = repl.replace(/.<.tr>/g, '');
-	console.log(repl);
     } else {
 	var repl = orig.replace(/\|/g, "");
     }
@@ -200,7 +199,7 @@ function createVishwamohini() {
 
 function copyVishwamohini() {
     createVishwamohini();
-    console.log(navigator.clipboard.writeText($("#vishwa").html()));
+    navigator.clipboard.writeText($("#vishwa").html());
 }
 
 function insertnote(id) {
@@ -359,5 +358,7 @@ $(document).ready(function () {
 	});
     });
 
-    $('#notation').val(localStorage.getItem('textarea'));
+    let txt = localStorage.getItem('textarea');
+    if (txt == null) txt = "सासा रेरे मम गग सासा रेरे मम गग सासा रेरे गग रेरे गग रेरे सा सासा रेरे मम गग सासा रेरे मम गग सासा रेरे गग रेरे गग रेरे सा";
+    $('#notation').val(txt);
 });
