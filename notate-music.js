@@ -92,8 +92,8 @@ function createNotation() {
 	    continue;
 	}
 
-	if (line[0] === ';') {
-	    ai_line += line.substring(1);
+	if (line[0].match(/[a-z]/i)) {
+	    ai_line += line;
 	    continue;
 	}
 	
@@ -146,7 +146,7 @@ function createVishwamohini() {
 	
 	repl = repl.replace(/\|<.td>/g, '');
 	repl = repl.replace(/<td>/g, '');
-	repl = repl.replace(/<.td>/g, '|');;
+	repl = repl.replace(/<.td>/g, '|');
 	repl = repl.replace(/.<.tr>/g, '');
 	console.log(repl);
     } else {
@@ -201,6 +201,17 @@ function insertnote(id) {
     $("#notation").insertAtCaret(id);
 }
 
+function addSwar(text, id) {
+    let b = $('<button/>', {
+	text: (text === " " ? "SPC" : text),
+	id: id,
+	click: function () { insertnote(this.id); }
+    });
+    b.addClass("swar");
+    $("#swaras").append(b);
+    hindi_notes[id] = text;
+    english_notes[text] = id;
+}
 
 function addButtons() {
     notelist = "S r R g G m M P d D n N";
@@ -215,19 +226,16 @@ function addButtons() {
     for (const i of [2, 1, 0]) {
 	$("#swaras").append("<p>");
 	for (note of notelist.split(" ")) {
-	    let b = $('<button/>', {
-		text: notenames[j],
-		id: note+i,
-		click: function () { insertnote(this.id); }
-	    });
-	    b.addClass("swar");
-	    $("#swaras").append(b);
-	    hindi_notes[note+i] = notenames[j];
-	    english_notes[notenames[j]] = note+i;
+	    addSwar(notenames[j], note+i);
 	    j++;
 	}
     }
 
+    $("#swaras").append("<p>");
+    addSwar(" ", 'spc');
+    addSwar("-", '-');
+    addSwar("ऽ", 'avagraha');
+    
     html = $("#swaras").html();
     html = html.replace(/id="/g, 'id="A');
     $("#popup_swaras").html(html);
@@ -331,8 +339,10 @@ $(document).ready(function () {
     });
 
     inactive_notes = localStorage.getItem('inactiveNotes');
-    if (inactive_notes !== null)
-	inactive_notes = inactive_notes.split(',');
+    
+    if (inactive_notes === null)
+	inactive_notes = 'd2,D2,n2,N2,S0,r0,R0,g0,G0';
+    inactive_notes = inactive_notes.split(',');
 
     jQuery.each(inactive_notes, function(i, id) {
 	$("#"+id).hide();
