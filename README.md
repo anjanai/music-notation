@@ -2,10 +2,9 @@ https://anjanai.github.io/music-notation/
 
 **Notate.Music** is a simple html-based tool that allows you to notate Indian music using the Indian system of solfege (sa re ga ma ...). This is intended for musicians who prefer to read and write their notations in the devanagari script. Access the tool [here](https://anjanai.github.io/music-notation/).
 
-In a few minutes, you can notate a composition on this page, and also generate the composition in other formats.
-## Quick Start:  Create a simple vilambit teentaal theka.
+## Quick Start:  Create a simple teentaal-based melody
 
-### Step 1) Type the bols
+### Step 1) You can use the buttons to type in your text, or copy some sample text.
 In the text-area box on the page, copy and paste the following:
 ```
 धा - - त   धिं - - त   धिं - धिं -   धा - - -
