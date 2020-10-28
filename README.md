@@ -18,7 +18,8 @@ For instance if you've selected the 12-beat ektaal, you will see the following:
 <html>
 <table class="zui-table" id="formatted" cellspacing="0"><tbody><tr><td>1</td><td>2</td><td>|</td><td>3</td><td>4</td><td>|</td><td>5</td><td>6</td><td>|</td><td>7</td><td>8</td><td>|</td><td>9</td><td>10</td><td>|</td><td>11</td><td>12</td><td>|</td></tr>
 <tr><td>सासा</td><td>रेरे</td><td>|</td><td>मम</td><td>गग</td><td>|</td><td>सासा</td><td>रेरे</td><td>|</td><td>मम</td><td>गग</td><td>|</td><td>सासा</td><td>रेरे</td><td>|</td><td>गग</td><td>रेरे</td><td>|</td></tr>
-<tr><td>गग</td><td>सासा</td><td>|</td><td>रेरे</td><td>मम</td><td>|</td><td>गग</td><td>सासा</td><td>|</td><td>रेरे</td><td>गग</td><td>|</td><td>रेरे</td><td>गग</td><td>|</td><td>रेरे</td><td>सा</td><td>|</td></tr>
+<tr><td>गग</td><td>रेरे</td><td>|</td><td>सा</td><td>सासा</td><td>|</td><td>रेरे</td><td>मम</td><td>|</td><td>गग</td><td>सासा</td><td>|</td><td>रेरे</td><td>मम</td><td>|</td><td>गग</td><td>सासा</td><td>|</td></tr>
+<tr><td>रेरे</td><td>गग</td><td>|</td><td>रेरे</td><td>गग</td><td>|</td><td>रेरे</td><td>सा</td><td>|</td></tr>
 </tbody></table>
 </html>
 

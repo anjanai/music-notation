@@ -77,9 +77,12 @@ function createNotation() {
     let tbody = $("#formatted tbody"); 
     let markup = "<tr>";
     let beat=1;
-    
-    for (beat of beats)
+
+    let num_beats = 0;
+    for (beat of beats) {
 	markup += "<td>" + beat + "</td>"
+	if (beat !== '|') num_beats++;
+    }
     
     markup += "</tr>\n<tr>";
 
@@ -109,7 +112,6 @@ function createNotation() {
 	line = line.trim().split(/\s+/);
 
 	while (line) {
-	    console.log (line);
 	    for (beat of beats) {
 		if (beat !== '|') {
 		    if (line[beat-1] === undefined) break;
@@ -118,7 +120,7 @@ function createNotation() {
 		markup += "<td>" + beat + "</td>";
 	    }
 	    markup += "</tr>\n";
-	    line = line.slice(beats.length);
+	    line = line.slice(num_beats);
 	    if (line.length == 0) break;
 	}
     }
