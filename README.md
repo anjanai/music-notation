@@ -7,42 +7,24 @@ https://anjanai.github.io/music-notation/
 ### Step 1) You can use the buttons to type in your text, or copy some sample text.
 In the text-area box on the page, copy and paste the following:
 ```
-धा - - त   धिं - - त   धिं - धिं -   धा - - -
-धा - - त   धिं - - त   धिं - धिं -   धा - - -
-धा - - त   तिं - - त   तिं - तिं -   ता - - -
-ति र कि ट   धिं - - त   धिं - धिं -   धा - - -
+सासा रेरे मम गग सासा रेरे मम गग सासा रेरे गग रेरे गग रेरे सा सासा रेरे मम गग सासा रेरे मम गग सासा रेरे गग रेरे गग रेरे सा
 ```
 
-### Step 2) Set bols-per-beat
-Set the *Bols per beat* number to 4 since we want 4 bols per beat.
+### Step 2) Select taal of your choice
 
 ### Step 3) Create formatted text
-Click on the *Create Formatted Text* button and then on "Show Formatted Text"; you will see the following:
+Click on the *Show Formatted Text* button and you will see the notes divided into the taal structure selected.
+For instance if you've selected the 12-beat ektaal, you will see the following:
 <html>
-<table id="formatted" border="1" cellspacing="0"><tbody>
-<tr><td>धा - - त </td><td>धिं - - त </td><td>धिं - धिं - </td><td>धा - - - </td></tr>
-<tr><td>धा - - त </td><td>धिं - - त </td><td>धिं - धिं - </td><td>धा - - - </td></tr>
-<tr><td>धा - - त </td><td>तिं - - त </td><td>तिं - तिं - </td><td>ता - - - </td></tr>
-<tr><td>ति र कि ट </td><td>धिं - - त </td><td>धिं - धिं - </td><td>धा - - - </td></tr>
+<table class="zui-table" id="formatted" cellspacing="0"><tbody><tr><td>1</td><td>2</td><td>|</td><td>3</td><td>4</td><td>|</td><td>5</td><td>6</td><td>|</td><td>7</td><td>8</td><td>|</td><td>9</td><td>10</td><td>|</td><td>11</td><td>12</td><td>|</td></tr>
+<tr><td>सासा</td><td>रेरे</td><td>|</td><td>मम</td><td>गग</td><td>|</td><td>सासा</td><td>रेरे</td><td>|</td><td>मम</td><td>गग</td><td>|</td><td>सासा</td><td>रेरे</td><td>|</td><td>गग</td><td>रेरे</td><td>|</td></tr>
+<tr><td>गग</td><td>सासा</td><td>|</td><td>रेरे</td><td>मम</td><td>|</td><td>गग</td><td>सासा</td><td>|</td><td>रेरे</td><td>गग</td><td>|</td><td>रेरे</td><td>गग</td><td>|</td><td>रेरे</td><td>सा</td><td>|</td></tr>
 </tbody></table>
 </html>
 
-### Step 4) Copy formatted text
+### Step 4) Copy Formatted text as Text
 You can copy and paste this formatted text into a document (try doing it in a google doc).
 
-### Step 5) Copy html
-Click on the *Copy Formatted text as HTML* button, then paste into a new text file which you can call teentaal.html.
-The contents of your teentaal.html file should look like:
-
-```
-<table id="formatted" border="1" cellspacing="0"><tbody>
-<tr><td>धा - - त </td><td>धिं - - त </td><td>धिं - धिं - </td><td>धा - - - </td></tr>
-<tr><td>धा - - त </td><td>धिं - - त </td><td>धिं - धिं - </td><td>धा - - - </td></tr>
-<tr><td>धा - - त </td><td>तिं - - त </td><td>तिं - तिं - </td><td>ता - - - </td></tr>
-<tr><td>ति र कि ट </td><td>धिं - - त </td><td>धिं - धिं - </td><td>धा - - - </td></tr>
-</tbody></table>
-```
-
 The tool also generates notation for the Vishwamohini tool. This tool is another free web-based tool for tabla notation, which also lets you hear the tabla sounds online.
-Please see [vishwamohini.com](http://vishwamohini.com/) and [Vishwamohini Demo](http://vishwamohini.com/music/demo.php) for more. You will need to sign up to be able to save something new, but you can play around with things using my [Vishwamohini Sandbox](http://vishwamohini.com/music/music.php?id=871).
+Please see [vishwamohini.com](http://vishwamohini.com/) and [Vishwamohini Demo](http://vishwamohini.com/music/demo.php) for more. 
 

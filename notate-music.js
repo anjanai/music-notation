@@ -108,14 +108,19 @@ function createNotation() {
 	if (line[0] === '~') line = line.substring(1);
 	line = line.trim().split(/\s+/);
 
-	for (beat of beats) {
-	    if (beat !== '|') {
-		if (line[beat-1] === undefined) break;
-		beat = line[beat-1];
+	while (line) {
+	    console.log (line);
+	    for (beat of beats) {
+		if (beat !== '|') {
+		    if (line[beat-1] === undefined) break;
+		    beat = line[beat-1];
+		}
+		markup += "<td>" + beat + "</td>";
 	    }
-	    markup += "<td>" + beat + "</td>";
+	    markup += "</tr>\n";
+	    line = line.slice(beats.length);
+	    if (line.length == 0) break;
 	}
-	markup += "</tr>\n";
     }
     tbody.html(markup); 
 }
