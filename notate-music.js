@@ -77,14 +77,11 @@ function normalize (lines) {
     let normalized = lines;
     let xx = 0
     while (normalized.indexOf('(') >= 0) {
-	console.log (normalized);
 	let capture = normalized.match(/\(([^\(]*?)\)x(\d+)/);
-	console.log (capture);
 	if (capture.length == 3) {
 	    normalized = normalized.substring(0, capture.index) +
 		capture[1].repeat( capture[2]) +
 		normalized.substring(capture.index + capture[0].length);
-	    xx++;
 	    if (xx++ > 13) break;
 	}
     }
