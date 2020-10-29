@@ -74,24 +74,19 @@ function toDevanagari (line, beats) {
 
 function normalize (lines) {
     let open_brackets = [];
-    for (i=0; i<lines.length; i++) {
-	let patt = /[x()\d]/g;
-	if (!lines[i].match(patt)) continue;
-	switch (lines[i]) {
-	case '(' :
-	    open_brackets.push(i);
-	    break;
-	case ')': end = i; break;
-	case 'x': break;
-	default:
-	    begin = open_brackets.pop();
-	    num = lines[i];
-	    console.log (begin, end, num);
-	    substr = lines.substr(begin, end);
-	    console.log (substr);
+    let normalized = lines;
+    let xx = 0
+    while (normalized.indexOf('(') >= 0) {
+	capture = normalized.match(/\(([^\(]*?)\)x(\d+)/);
+	if (capture.length == 3) {
+	    normalized = normalized.substring(0, capture.index) +
+		capture[1].repeat( capture[2]) +
+		normalized.substring(capture.index + capture[0].length);
+	    xx++;
+	    if (xx++ > 13) break;
 	}
     }
-    return lines;
+    return normalized;
 }
 
 function createNotation() {
@@ -382,6 +377,6 @@ $(document).ready(function () {
     });
 
     let txt = localStorage.getItem('textarea');
-    if (txt == null) txt = "सासा रेरे मम गग सासा रेरे मम गग सासा रेरे गग रेरे गग रेरे सा सासा रेरे मम गग सासा रेरे मम गग सासा रेरे गग रेरे गग रेरे सा";
+    if (txt == null) txt = "((सासा रेरे मम गग )x2 सासा (रेरे गग )x2  रेरे सा )x2";
     $('#notation').val(txt);
 });

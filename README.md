@@ -7,7 +7,7 @@ https://anjanai.github.io/music-notation/
 ### Step 1) You can use the buttons to type in your text, or copy some sample text.
 In the text-area box on the page, copy and paste the following:
 ```
-सासा रेरे मम गग सासा रेरे मम गग सासा रेरे गग रेरे गग रेरे सा सासा रेरे मम गग सासा रेरे मम गग सासा रेरे गग रेरे गग रेरे सा
+((सासा रेरे मम गग )x2 सासा (रेरे गग )x2  रेरे सा )x2
 ```
 
 ### Step 2) Select taal of your choice
