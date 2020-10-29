@@ -72,6 +72,28 @@ function toDevanagari (line, beats) {
     return ret;
 }
 
+function normalize (lines) {
+    let open_brackets = [];
+    for (i=0; i<lines.length; i++) {
+	let patt = /[x()\d]/g;
+	if (!lines[i].match(patt)) continue;
+	switch (lines[i]) {
+	case '(' :
+	    open_brackets.push(i);
+	    break;
+	case ')': end = i; break;
+	case 'x': break;
+	default:
+	    begin = open_brackets.pop();
+	    num = lines[i];
+	    console.log (begin, end, num);
+	    substr = lines.substr(begin, end);
+	    console.log (substr);
+	}
+    }
+    return lines;
+}
+
 function createNotation() {
     let beats = getBeats();
     let tbody = $("#formatted tbody"); 
@@ -86,7 +108,8 @@ function createNotation() {
     
     markup += "</tr>\n<tr>";
 
-    let lines = $("#notation").val().trim().split("\n");
+    let lines = normalize($("#notation").val().trim());
+    lines = lines.split("\n");
     let ai_line = "";
 
     let linenum = 1;
