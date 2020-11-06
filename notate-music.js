@@ -78,7 +78,8 @@ function normalize (lines) {
     let xx = 0
     while (normalized.indexOf('(') >= 0) {
 	let capture = normalized.match(/\(([^\(]*?)\)x(\d+)/);
-	if (capture.length == 3) {
+	if (capture == null) break;
+	if ( capture.length == 3) {
 	    normalized = normalized.substring(0, capture.index) +
 		capture[1].repeat( capture[2]) +
 		normalized.substring(capture.index + capture[0].length);
@@ -108,7 +109,11 @@ function createNotation() {
 
     let linenum = 1;
     for (let line of lines) {
-	if (line.trim() == "") continue
+	if (line.trim() == "") {
+	    markup += "</tr><td>&nbsp;</td></tr>\n"
+	    continue;
+	}
+	
 	if (line[0] == '#') {
 	    markup += "<td colspan=" + beats.length + ">" + line + "</td></tr>\n"
 	    continue;
@@ -125,10 +130,13 @@ function createNotation() {
 	    markup += toDevanagari(ai_line, beats);
 	    ai_line == "";
 	}
+
+	line = line.replace(/\{(.*?)\}/g, "<sup>$1</sup>&nbsp;");
 	    
 	if (line[0] === '~') line = line.substring(1);
 	line = line.trim().split(/\s+/);
 
+	
 	while (line) {
 	    for (beat of beats) {
 		if (beat !== '|') {
@@ -154,10 +162,12 @@ function copyNotationText() {
     createNotation();
     let txt = document.getElementById("formatted").innerHTML;
     txt = txt.replace (/<.tr>\s+<tr><td><.td><.tr>/g, "__BR__");
+    txt = txt.replace(/<sup>(.*?)<.sup>/g, "{$1}");
     txt = txt.replace(/<.*?>/g, " ");
     txt = txt.replace(/\|/g, "\t|");
     txt = txt.replace(/^\s+/gm, ""); // m matches the beginning of each line a multi-line string
     txt = txt.replace(/__BR__/g, "\n");
+    txt = txt.replace(/&nbsp;/g, " ");
     navigator.clipboard.writeText(txt);
 }
 
