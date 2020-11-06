@@ -108,6 +108,7 @@ function createNotation() {
 
     let linenum = 1;
     for (let line of lines) {
+	if (line.trim() == "") continue
 	if (line[0] == '#') {
 	    markup += "<td colspan=" + beats.length + ">" + line + "</td></tr>\n"
 	    continue;
