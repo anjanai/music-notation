@@ -1,5 +1,3 @@
-var notes = 'S r g m P d n'.split(' ');
-
 var scales = [];
 var derived_scales = [];
 
@@ -11,7 +9,7 @@ function combinations(array) {
 function toScale(n) {
     let notes = 'R G M D N'. split(' ');
     let bin = 0;
-    let rem, i = 1, step = 1;
+    let rem, i = 1;
     let index=notes.length-1;
     let x = n;
     while (x != 0) {
@@ -27,35 +25,28 @@ function toScale(n) {
     notes.splice(0, 0, "S");
     notes.splice(4, 0, "P");
     scales.push(notes);
-    return notes.join(" ");
+    
+    let combos = combinations(notes).filter(a => a.length == 5 || a.length==6);
+    for (let scale of combos) {
+	if (scale[0] != "S") continue;
+	let str = scale.join( " ");
+	if (derived_scales.includes(str)) continue;
+	derived_scales.push(str);
+    }
+    return notes.join(' ');
 }
 
 function createScales(n, ol) {
-    switch (n) {
-    case 7:
+    if (n == 7)  {
 	for (let i=0; i<32; i++) {
 	    $(ol).append( '<li>' + toScale(i) + '</li>');
 	}
-	break;
+	return;
+    }
 
-    case 5:
-    case 6:
-	for (let i=0; i<32; i++) {
-	    notes = scales[i].join(' ');
-	    //$(ol).append("<h6>From " + notes + ':</h6>');
-	    combos = combinations(scales[i]).filter(a => a.length == n);
-	    for (let scale of combos) {
-		if (scale[0] != "S") continue;
-		str = scale.join( " ");
-		if (derived_scales.includes(str)) continue;
-		derived_scales.push(str);
-		if (str.toLowerCase().indexOf('m') < 0 &&
-		    str.toLowerCase().indexOf('p') < 0)
-		    str += " (No M/P)"
-		$(ol).append('<li>' + str + '</li>');
-	    }
-
-	}
+    for (let str of derived_scales.filter(a => a.length == n+n-1)) {
+	if (str.match(/g d/i)) str += " (No M/P)"
+	$(ol).append('<li>' + str + '</li>');
     }
 }
 
