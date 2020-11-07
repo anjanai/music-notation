@@ -42,13 +42,16 @@ function createScales(n, ol) {
     case 6:
 	for (let i=0; i<32; i++) {
 	    notes = scales[i].join(' ');
-	    $(ol).append("</br><h6>From " + notes + ':</h6>');
+	    //$(ol).append("<h6>From " + notes + ':</h6>');
 	    combos = combinations(scales[i]).filter(a => a.length == n);
 	    for (let scale of combos) {
 		if (scale[0] != "S") continue;
 		str = scale.join( " ");
 		if (derived_scales.includes(str)) continue;
 		derived_scales.push(str);
+		if (str.toLowerCase().indexOf('m') < 0 &&
+		    str.toLowerCase().indexOf('p') < 0)
+		    str += " (No M/P)"
 		$(ol).append('<li>' + str + '</li>');
 	    }
 
