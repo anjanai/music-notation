@@ -174,7 +174,7 @@ $(document).ready(function () {
 	    '<td>' +  nums + '</td>' +
 	    '<td>' + vals +  '</td>' +
 	    '<td>' + notes + '</td>' +
-	    '<td>' + chakras[quotient] + "</td>" +
+	    '<td>' + parseInt(quotient+1) + ": " + chakras[quotient] + "</td>" +
 	    '</tr>';
 
 	
