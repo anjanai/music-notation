@@ -14,22 +14,64 @@
 	  display: grid;
 	  grid-gap: 10px;
       }
+
     </style>
   </head>
   
   <body>
     <div class="wrapper">
-      <h3> Katapayadi Table </h3>
+      <h1> Melakarta names, numbers and notes </h1>
+      The melakarta names are based on a mnemonic system, where:
+      <ul>
+	<li> the first two letters of the name tell you the melakarta number </li>
+	<li> the number itself then tells you the notes in the scale:
+	  <ol>
+	    <li> If the number is less than 37, the scale has M1 else M2. </li>
+	    <li> The integer quotient of this number divided by 6 tells you which chakra the scale belongs to, and hence which R & G are used.
+	      <br> Let RG = Integer((N-1)/6) % 6. The following are the possible values of RG:
+	      <ul>
+		<li> 0: R1, G1 </li>
+		<li> 1: R1, G2 </li>
+		<li> 2: R1, G3 </li>
+		<li> 3: R2, G2 </li>
+		<li> 4: R2, G3 </li>
+		<li> 5: R3, G3 </li>
+		</ul>
+	    </li>
+	    <li> The remainder of the number divided by 6 tells you which D & N are used.
+	      <br> Let DN = (N-1) % 6. The following are the possible values of DN:
+	      <ul>
+		<li> 0: D1, N1 </li>
+		<li> 1: D1, N2 </li>
+		<li> 2: D1, N3 </li>
+		<li> 3: D2, N2 </li>
+		<li> 4: D2, N3 </li>
+		<li> 5: D3, N3 </li>
+		</ul>
+	    </li>
+	  </ol>
+	</li>
+      </ul>
+	
+
+      The table below shows the mapping between numbers and
+      syllables. The name of the table <i>Katapayadi</i> is based on
+      the syllables in the first column in the table.
+      
+      <h3> Katapayadi ( कटपयादि ) Table </h3>
       <table id="katapayadi_table" class="table table-striped">
 	<thead></thead>
 	<tbody></tbody>
       </table>
-      
+
+      Here is the table listing the 72 melakartas:
       <h3> Melakartas Table </h3>
       <table id="mela_table" class="table table-striped">
-	<thead></thead>
+	<thead></thead> 
 	<tbody></tbody>
       </table>
+
+      <img src="https://upload.wikimedia.org/wikipedia/commons/9/92/Melakarta.katapayadi.sankhya.72.devanagari.png"/>
     </div>
   </body>
 </html>

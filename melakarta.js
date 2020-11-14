@@ -1,9 +1,87 @@
-var names = `kanakangi ka na
-ratnangi ra na
-gaanamoorti ga na
-vanaspati va na
-maanavati ma na
-taanaroopi ta na
+var names = `Kanakangi ka na 
+Ratnangi ra na
+Gaanamurti ga na
+Vanaspati va na
+Manavati ma na
+Tanarupi ta na
+
+Senavati sa na
+Hanumatodi ha na
+Dhenuka dha na
+Natakapriya na ṭa
+Kokilapriya ka ka
+Rupavati ra pa
+
+Gaayakapriyaa ga ya
+Vakulaabharanam va ka
+Maayamalavagowla ma ya
+Chakravakam ca ka
+Suryakaantam sa ya
+Haatakaambari ha ṭa
+
+Jhankaradhwani jha ka
+Nathabhairavi na ṭha
+Keeravani ka ra
+Kharaharapriya kha ra
+Gourimanohari ga ra
+Varunapriya va ra
+
+Mararanjani ma ra
+Charukesi ca ra
+Sarasangi sa ra
+Harikambhoji ha ra 
+Dheerasankarabaranam dha ra
+Naganandini na ga
+
+Yagapriya  ya ga
+Ragavardhini ra ga
+Gangeyabhushani ga ga
+Vagadheeswari va ga
+Shulini śha la
+Chalanata ca la 
+
+Salagam sa la
+Jalarnavam ja la
+Jhalavarali jha la
+Navaneetam na va
+Pavani pa va
+Raghupriya ra gha
+
+Gavambhodi ga va
+Bhavapriya bha va
+Shubhapantuvarali śha bha
+Shadvidamargini sha va
+Suvarnangi sa va
+Divyamani da va
+
+Dhavalambari dha va
+Nāmanarayani na ma
+Kamavardhini ka ma
+Ramapriya ra ma
+Gamanashrama ga ma
+Vishwambari va śha
+
+Shāmalangi śha  ma
+Shanmukhapriya sha ma
+Simhendramadhyamam sa ma
+Hemavati ha ma
+Dharmavati dha ma
+Neetimati na ta
+
+Kantamani  ka ta
+Rishabhapriya ra sha
+Latangi la ta
+Vachaspati va ca
+Mechakalyani ma ca
+Chitrambari ca ta
+
+Sucharitra sa ca
+Jyotiswarupini ja ta
+Dhatuvardani dha ta
+Nāsikabhushini na sa
+Kōsalam ka sa
+Rasikapriya ra sa
+
 `.split(/\s+/);
 
 var letters = `ka क	kha ख	ga ग 	gha घ 	nga ङ 	ca च 	cha छ 	ja ज 	jha झ 	nya ञ - - 
@@ -66,21 +144,25 @@ $(document).ready(function () {
 	let notes = 'S ';
 	let quotient = Math.floor(i/3/6);
 	let remainder = i/3 % 6;
-	notes += rg[quotient];
+
+	notes += rg[quotient% rg.length];
 	if (index <= 36)
 	    notes += " M1 P ";
 	else
 	    notes += " M2 P ";
 	notes += dn[remainder] ;
-	
+
+	let vals = n1.toString() + "+" + n2.toString() + '*10 = ' + index;
+
 	markup = '<tr><td>' + index + '</td>' +
 	    '<td>' + names[i] + '</td>' +
 	    '<td>' +  nums + '</td>' +
-	    '<td>' + n1.toString() + "+" + n2.toString() + '*10 = ' + index +  '</td>' +
+	    '<td>' + vals +  '</td>' +
 	    '<td>' + notes + '</td>' +
 	    '<td>' + chakras[quotient] + "</td>" +
 	    '</tr>';
 
+	
 	
 	tbody.append(markup);
     }
