@@ -4,10 +4,32 @@
     <meta charset="utf-8"/>
     <title>Leheras </title>
     <script src="https://unpkg.com/tone"></script>
+    <link rel="stylesheet" href="https://unpkg.com/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="notate_music.css">
     <script src="leheras.js"></script>
   </head>
   
   <body>
-    <button onclick="play()">Play/Stop</button>
+    <h2>Select Lehera:</h2>
+    <div class="radio">
+      <label>
+	<input type="radio" name="lehera" id="Radios1" value="rupak" checked> Rupak
+      </label>
+    </div>
+ 
+    <div class="radio">
+      <label>
+	<input type="radio" name="lehera" id="Radios2" value="teentaal/bhairavi">Teentaal/Bhairavi
+      </label>
+    </div>
+ 
+    <div class="radio disabled">
+      <label>
+	<input type="radio" name="lehera" id="Radios3" value="Notsure" disabled>Teentaal/Other
+      </label>
+    </div>
+
+      <button onclick="play()">Play/Stop</button>
+
   </body>
 </html>

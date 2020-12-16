@@ -1,8 +1,11 @@
+const synth = new Tone.Synth().toDestination();
+
 var stopped = true;
 
 function stop() {
     Tone.Transport.stop();
     Tone.Transport.cancel(0);
+    stopped = true;
 }
 
 const srgm = "S r R g G m M P d D n N".split(' ');
@@ -16,7 +19,6 @@ const notemap =  abcd.reduce(function(notemap, field, index) {
 
 var sargam = "G1|S1|R1|S1n0|S1|n0|D0".split('|');
 const bpm = 120;
-const spb = 60/bpm; 		// seconds per beat
 
 function createSequence() {
     let note = "";
@@ -45,7 +47,6 @@ function createSequence() {
     }
     console.log (beats);
 
-    let synth = new Tone.Synth().toDestination();
     const seq = new Tone.Sequence((time, note) => {
 	synth.triggerAttackRelease(note, 0.1, time);
 	// subdivisions are given as subarrays
@@ -59,6 +60,10 @@ function createSequence() {
 }
 
 function play() {
+    if (Tone.context.state !== 'running') {
+        Tone.context.resume();
+    }
+    
     if (stopped)
 	createSequence(sargam);
     else
