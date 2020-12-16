@@ -32,7 +32,7 @@ function getFreq(note) {
     return S * Math.pow(2, n/12);
 }
 
-async function play(note) {
+async function xplay(note) {
     context = new AudioContext();
     
     for (note of document.URL.split('?')[1].split('')) {
@@ -41,4 +41,9 @@ async function play(note) {
 	await sleep(800);
     }
 }
+
+
+const synth = new Tone.Synth();
+synth.oscillator.type = "sine";
+synth.toMaster();
 
