@@ -1,0 +1,109 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<meta charset='utf-8'>
+	<meta http-equiv="content-type" content="text/html" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="icon" href="favicon.ico" type="image/x-icon"/>
+	<title>abcjs editor</title>
+
+	<link href="https://www.abcjs.net/abcjs-audio.css" media="all" rel="stylesheet" type="text/css" />
+	<script src="https://www.abcjs.net/abcjs-basic-min.js" type="text/javascript"></script>
+	<style>
+		.abcjs-inline-audio {
+			max-width: 770px;
+		}
+		@media print {
+			h1, p, textarea, #selection, #audio, #warnings, hr {
+				display: none;
+			}
+		}
+		p {
+			max-width: 600px;
+		}
+	</style>
+</head>
+<body>
+<h1>abcjs demo page</h1>
+<p>See <a href=http://abcnotation.com/wiki/abc:standard:v2.1>abcnotation wiki</a> for more information.
+</p>
+<textarea name="abc" id="abc" cols="80" rows="15">
+
+  X: ata_dhooma_dhaama
+T: Ata Dhooma Dhaama Aaye (अत धूम धाम आए)
+M: 3/4
+L: 1/4
+R: Prempiya (Faiyaz Khan)
+K: Cmix % C mixolydian (ni komal)
+|:D B | G2 F | D/F/ G/F/ D/C/ | D2 B, |  C
+w: अ त | धू म |    धा . . . म . | आ  ए | .
+D D | D/G/ F2| C D2- | D2 C- | C
+w: ते . |  बा . . | द र  | .  वा  | -
+B, C | C D- D | G F/B/ F/G/ |G D B | C
+w: ह म | रे . म | न भा . .  | . . ये | .
+
+
+
+
+
+
+
+T: Ata Dhooma Dhaama Aaye (अत धूम धाम आए)
+M: 3/4
+L: 1/8
+R: Prempiya (Faiyaz Khan)
+K: Cmix % C mixolydian (ni komal)
+|:D2 B2 | G4 F2 | DF GF DC | D4 B,2 |  C2
+w: अ त | धू म |    धा. .. म. | आ  ए | .
+D2 D2 | DG F4| C2 D4- | D4 C2 | z2
+w: ते . |  बा . . | द र  | .  वा  | -
+B,2 C2 | C2 D2 D2 | G2 FB FG | G2 D2 B2 | C2
+w: ह म | रे . म | न भा . .  | . . ये | .
+
+
+
+
+
+
+</textarea>
+
+<hr />
+<div id="audio"></div>
+<div id="warnings"></div>
+<div id="paper0" class="paper"></div>
+<div id="paper1" class="paper"></div>
+<div id="paper2" class="paper"></div>
+<div id="paper3" class="paper"></div>
+<div id="selection"></div>
+
+<script type="text/javascript">
+	function selectionCallback(abcelem) {
+		var note = {};
+		for (var key in abcelem) {
+			if (abcelem.hasOwnProperty(key) && key !== "abselem")
+				note[key] = abcelem[key];
+		}
+		console.log(abcelem);
+		var el = document.getElementById("selection");
+		el.innerHTML = "<b>selectionCallback parameter:</b><br>" + JSON.stringify(note);
+	}
+
+	function initEditor() {
+		new ABCJS.Editor("abc", { paper_id: "paper0",
+			synth: {
+				el: "#audio",
+				options: { displayLoop: true, displayRestart: true, displayPlay: true, displayProgress: true, displayWarp: true }
+			},
+			generate_warnings: true,
+			warnings_id:"warnings",
+			abcjsParams: {
+				generateDownload: true,
+				clickListener: selectionCallback
+			}
+		});
+	}
+
+	window.addEventListener("load", initEditor, false);
+</script>
+</body>
+</html>
