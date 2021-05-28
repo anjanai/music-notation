@@ -27,29 +27,44 @@
 <h1>abcjs demo page</h1>
 <p>See <a href=http://abcnotation.com/wiki/abc:standard:v2.1>abcnotation wiki</a> for more information.
 </p>
-<textarea name="abc" id="abc" cols="80" rows="15">
-
+<textarea name="abc" id="abc" cols="80" rows="25">
 X: ata_dhooma_dhaama
 T: Ata Dhooma Dhaama Aaye (अत धूम धाम आए)
 M: 3/4
 L: 1/4
 R: Prempiya (Faiyaz Khan)
 K: Cmix % C mixolydian (ni komal)
-|:D B | G2 F | D/F/ G/F/ D/C/ | D2 B, |  C
+|:D B | G2 F | D/F/ G/F/ D/C/ | D2 B, |  C || :|
 w: r n     p  m   r m p m r s    r  n   s
 w: अ त | धू म |    धा . . . म . | आ  ए | .
-D D | D/G/ F2| C D2- | D2 C- | C
+D D | D/G/ F2| C D2- | D2 C- | C ||
 w: r r     r p m   s r      - s    - 
 w: ते . |  बा . . | द र  | .  वा  | -
-B, C | C- D- D | G F/B/ F/G/ |G D B, | C
+B, C | C- D D | G F/B/ F/G/ |G D B, | C ||
 w: n s    s r r  p  m n m p     m r n  s
 w: ह म | रे . म | न भा . .  | . . ये | .
-D B | G2 F | D/F/ G/F/ D/C/ | D2 B, |  C3
+D B | G2 F | D/F/ G/F/ D/C/ | D2 B, |  C3 |]
 w: r n     p  m   r m p m r s    r  n   s 
 w: अ त | धू म |    धा . . . म . | आ  ए | . . .
-F2 F | G B G | c c c | c c c
+%
+%
+ F2 F | G B G | c c c | c c c | 
 w: m  m   p n p    S S S     S S S
 w: रै  ​न | अं धे री | दा मि नी | द म के
+B2 F | G B G | c c c | c c c|
+w: n  m   p n p    S S S     S S S
+w: रै  ​न | अं धे री | दा मि नी | द म के
+B c B | B/c/ d c | B c G | B G G |
+w: n S n    n S R S   n S p    n p p 
+w: प पी हा पि . . यु | पि यु पि | यु क रे
+f2  d |  d c c | c c c | B d d |
+w: M  R | R S S |  S S S | n R R 
+w: प्रे  म | पि या को | ऐ से स | मय को उ
+c B G | F D2- | D B, C | z D B |
+w: S n p | m r -   n s | - r n
+w: ला . . | . . . ये . |  अ त
+
+
 </textarea>
 
 <hr />
@@ -82,8 +97,8 @@ w: रै  ​न | अं धे री | दा मि नी | द म के
 			generate_warnings: true,
 			warnings_id:"warnings",
 			abcjsParams: {
-				generateDownload: true,
-				clickListener: selectionCallback
+	generateDownload: true,
+	clickListener: selectionCallback
 			}
 		});
 	}
