@@ -15,13 +15,16 @@ M: 4/4
 Q:1/4=180
 R: Kavi Iyer
 K: Cdor % C doria(ga, ni komal)
-z z z z | |: C D2 C | B, G, C B,  | G B G F | 
+z4 | |: C D2 C | B, G, C B,  | G B G F | 
 w:        s r s | n p s n | p n p m | p
 w: त नोम त | द रे दा नी ना दिर दिर त | नोम
 % 
-G4 | :|
-w: p
-w: नोम
+G4 | :||: F G E E | F D C B, | C B, G, B, | 
+w: p      m p g g   m r s n    s n p n
+w: नोम    दे रे ना दे   रे ना दा नी   त न त न
+C4 | :|
+w: s
+w: नोम  
 `;
 
 function loadNotation() {
