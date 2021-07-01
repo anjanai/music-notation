@@ -172,6 +172,10 @@ function copyNotationText() {
 }
 
 
+function createAbc() {
+    let orig = $("#notation").val().trim();
+}
+    
 function createVishwamohini() {
     let orig = $("#notation").val().trim();
 

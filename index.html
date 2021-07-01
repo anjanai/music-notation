@@ -1,81 +1,50 @@
-<!DOCTYPE html>
+<!DOCTYPE HTML>
 <html>
-  <head>
-    <meta charset="utf-8"/>
-    <title> Notate.Music </title>
-    <script
-      src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
-      integrity="sha256-4+XzXVhsDmqanXGHaHvgh1gMQKX40OUvDEBTu8JcmNs="
-      crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="notate_music.css">
-    <script src=notate-music.js></script>
-  </head>
-  
-  <body>
-    <div class="wrapper">
-      <header class="header">
-	<big>Notate.Music </big>
-      </header>
+<head>
+	<meta charset='utf-8'>
+	<meta http-equiv="content-type" content="text/html" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="icon" href="favicon.ico" type="image/x-icon"/>
+	<title>Raag Yaman</title>
+	<link href="https://www.abcjs.net/abcjs-audio.css" media="all" rel="stylesheet" type="text/css" />
+	<script src="https://www.abcjs.net/abcjs-basic-min.js" type="text/javascript"></script>
+	<script src=raag_yaman.js></script>
+	<style>
+		.abcjs-inline-audio {
+			max-width: 770px;
+		}
+		p {
+			max-width: 600px;
+		}
+	</style>
+</head>
+<body >
+<h1>Raag Yaman</h1>
+<div id="play1"></div>
+<div id="notation1" class="abc-rendered" ></div>
+<div id="warnings1" class="abc-warnings"  style="display: none;"></div>
+<textarea name="abc" id="abc-text1" class="abc-text" rows="4" cols=80 style="display: none;">
+</textarea>
 
-      <article class="content">
-	For lyrics, start each line with a ~
-	<textarea id="notation" rows="14" cols="100"></textarea>
-	Taal: <select id="taal" size="1">
-	  <option selected>Teentaal</option>
-	  <option>Ektaal</option>
-	  <option>Jhaptaal</option>
-	  <option>Rupak</option>
-	  <option>Keherva</option>
-	</select>
-	
-	<p></p>
-	<button id="show_text" type="button" class="collapsible">Show Formatted Text</button>
-	<div class="coll_content">
-	  <button onclick="createNotation()">Regenerate</button>
-	  <table class=zui-table id=formatted cellspacing=0 ><tbody></tbody></table>
-	</div>
-	<button onclick="copyNotationText()">Copy Formatted text as Text</button>
-	<button onclick="copyNotationHtml()">Copy Formatted text as HTML</button>
-	
-	<p></p>
-	<button id="show_vishwa" type="button" class="collapsible">Show Vishwamohini Notation</button>
-	<div class="coll_content">
-	  <button onclick="createVishwamohini()">Regenerate</button>
-	  <pre><span id=vishwa></span></pre>
-	</div>
-	<button onclick="copyVishwamohini()">Copy Vishwamohini Notation</button>
+<h2> Bandish in drut ektaal 
+  composed by <a href=https://www.swarganga.org/artist_details.php?id=164>Pt. Chhota Gandharva ji</a> </h2>
+<a href=https://youtu.be/rXahDAflCG4?t=47>Listen to Gauri Pathare sing this. </a>
+<pre>
+स्थायी
 
-	
-	<p></p>
-	<button id="show_abc" type="button" class="collapsible">Show ABC Notation</button>
-	<div class="coll_content">
-	  <button onclick="createAbc()">Regenerate</button>
-	  <pre><span id=abc></span></pre>
-	</div>
-	<button onclick="copyAbc()">Copy Abc Notation</button>
+बौरे मत कर गुमान, गुरु सन राखो ईमान |
 
-      </article>
+अंतरा
 
-      <aside class="sidebar">
-	<span id=swaras></span>
-	<p></p>
-	<a class="trigger_popup_subset">Click here to create subset of notes</a>
-	
-	<div class="hover_bkgr_subset">
-	  <span class="helper"></span>
-	  <div>
-            <div class="popupCloseButton">&times;</div>
-	    Click on any note to include/exclude it.
-	    <div id=popup_swaras></div>
-	    <p></p>
-	    <button onClick="createSubset()">Apply</button> 
-	  </div>
-	</div>
-      </aside>
-      
-    <footer class="footer">
-      <a href=README.html target="_blank">Help</a>
-    </footer>
-    </div>
-  </body>
+गुन सागर गुरु महान, सत गुन के गुरु निधान
+
+गुन घट में गुरु ही प्राण, बेगुनी गुरु को पहचान  ||
+</pre>
+<div id="play2"></div>
+<div id="notation2" class="abc-rendered"></div>
+<div id="warnings2" class="abc-warnings"  ></div>
+<textarea name="abc" id="abc-text2" class="abc-text" rows="9" cols=80  style="display: none;">
+</textarea>
+<script type="text/javascript">loadNotation();</script>
+</body>
 </html>

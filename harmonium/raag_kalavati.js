@@ -1,4 +1,7 @@
+// see https://paulrosen.github.io/abcjs/overview/examples.html for examples
 // See https://paulrosen.github.io/abcjs/ for help on abcjs
+// See https://configurator.abcjs.net/ for configuration options
+
 
 const scale_header = `T: Raag Kalavati : scale
 K: Cmix % C mixolydian(ni komal)
@@ -69,37 +72,28 @@ function loadNotation() {
 
 
 function initEditors() {
-    new ABCJS.Editor("abc-text1", { paper_id: "notation1",
-				    synth: {
-					el: "#play1",
-					options: {
-					    displayLoop: true,
-					    displayRestart: true,
-					    displayPlay: true,
-					    displayProgress: true,
-					    displayWarp: true }
-				    },
-				    generate_warnings: true,
-				    warnings_id:"warnings1",
-				    abcjsParams: {
-					generateDownload: true,
-				    }
-				  });
-
-    new ABCJS.Editor("abc-text2", { paper_id: "notation2",
-				    synth: {
-					el: "#play2",
-					options: { displayLoop: true, displayRestart: true, displayPlay: true, displayProgress: true, displayWarp: true }
-				    },
-				    generate_warnings: true,
-				    warnings_id:"warnings2",
-				    abcjsParams: {
-					generateDownload: true,
-					
-				    }
-				  });
+    for (let i of "12") {
+	new ABCJS.Editor("abc-text" + i,
+			 { paper_id: "notation" + i,
+			   synth: {
+			       el: "#play" + i,
+			       options: {
+				   displayLoop: true,
+				   displayRestart: true,
+				   displayPlay: true,
+				   displayProgress: true,
+				   displayWarp: true
+			       }
+			   },
+			   generate_warnings: true,
+			   warnings_id:"warnings" + i,
+			   abcjsParams: {
+			       generateDownload: true,
+			   }
+			 });
+	
+    }
 }
-
 
 
 window.addEventListener("load", initEditors, false);

@@ -3,43 +3,12 @@
 // See https://configurator.abcjs.net/ for configuration options
 
 
-const scale_header = `T: Raag Yaman : scale
-Q: 1/8=100
-`;
-
-const scale = `n, r g m d n S -  | S n d p m g r s - `;
-
-const gat_header = `T: Raag Yaman : Bandish in drut ektaal
-C: Saudagar Nagnath Gore 'Chhota Gandharva'
+const header = `T: Taal: Ektaal;  Raag: Kedar
 L: 1/4
-M: 4/4
-Q:1/4=200
+Q: 1/4=100
 `;
 
-
-const gat_notation = `|: p - r - | s n, s g | r g - g :|
-| बौ - रे - म त क र गु मा - न
-|: m g m p | n/ d/ n/ d/ p - | p r - s :|
-गु रु स न रा ~ ~ ~ खो ई मा न
-| p - r - | s n, s g | r g - g |
-बौ - रे - म त क र गु मा - न    
-%    
-|: p p S - | S S d n | R S - S :|
-गु न सा ग र गु रु म हा न
-| n R G R | S - n/ d/ n | d p - p | 
-स त गु न के गु रु  नि धा ~ न
-| g g n d | p - r g | r s - s | 
-गु न घ ट में गु रु ही प्रा ण 
-| n, r g m | d n n/ n/ d/ n/ | p r m p |
-बे ~ गु नी गु रु को ~ ~ ~ प ह चा न 
-% 
-| p - r - | s n, s g | r g - g |
-| बौ - रे - म त क र गु मा - न
-|: p - r - | s n, :|
-| बौ - रे - म त 
-| p - r - | s n, s g | r (g - - - r s - - - ) 
-| बौ - रे - म त क र गु मा - न
-`; 
+const notation = `|p////S S d p | m p s////d p |  g////r s m p|`;
 
 
 let key = "C#";  // C, C#, D, D#, E, F, F#, G, G#, A, A#, B
@@ -84,11 +53,30 @@ function convert_notation (str, header) {
 }
 
 
+function setText(e) {
+    console.log(e.target.value);
+}
+
 
 
 function loadNotation() {
-    document.getElementById("abc-text1").value = convert_notation(scale, scale_header);
-    document.getElementById("abc-text2").value = convert_notation(gat_notation, gat_header);
+    let div = document.getElementById("leheras");
+    let play = document.createElement("div");
+    play.id = "play1";
+
+
+    h = document.createElement("h4");
+    h.innerHTML = header.split("\n")[0].substr(2);
+    div.append (h, play);
+
+    
+    div = document.getElementById("hidden");
+    let text = document.createElement("textarea");
+    text.id = "abc-text";
+    text.value = convert_notation(notation, header);
+    div.appendChild(text);
+
+    
 }    
 
 
@@ -97,9 +85,10 @@ function initEditors() {
     // key has to be one of: C, C#, D, D#, E, F, F#, G, G#, A, A#, B
     let transpose = key[0].charCodeAt() - 'C'.charCodeAt() + key.length - 1;
 
-    for (let i of "12") {
-	ed = new ABCJS.Editor("abc-text" + i,
-			 { paper_id: "notation" + i,
+    for (let i of "1") {
+	
+	let ed = new ABCJS.Editor("abc-text",
+			 { paper_id: "notation",
 			   synth: {
 			       el: "#play" + i,
 			       options: {
@@ -112,13 +101,13 @@ function initEditors() {
 			       }
 			   },
 			   generate_warnings: true,
-			   warnings_id:"warnings" + i,
+			   warnings_id:"warnings",
 			   abcjsParams: {
 			       generateDownload: true,
 			       visualTranspose: transpose,
 			   }
 			 });
-	
+	ed.synth.synthControl.toggleLoop();
     }
 
 }
