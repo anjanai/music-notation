@@ -3,16 +3,27 @@
 // See https://configurator.abcjs.net/ for configuration options
 
 
-const header = `T: Taal: Ektaal;  Raag: Kedar
+const leheras = [
+    {
+	T: "Taal: Ektaal;  Raag: Kedar",
+	K: "Lyd",
+	notation: `|p////S S d p | m p s////d p |  g////r s m p|`
+    },
+    {
+	T: "Taal: Ektaal;  Raag: Hamsadhwani",
+	K: "maj",
+	notation: `|S n p g | r s p,/p,/ n,/n,/ |  r g p n/n/|`
+    }
+
+    
+];
+
+const tempo = `
 L: 1/4
 Q: 1/4=100
 `;
 
-const notation = `|p////S S d p | m p s////d p |  g////r s m p|`;
-
-
 let key = "C#";  // C, C#, D, D#, E, F, F#, G, G#, A, A#, B
-let mode = "Lyd"
 let note = "C"
 let notemap = new Map();
 for (let swar of "srgmpdn") {
@@ -24,12 +35,13 @@ for (let swar of "srgmpdn") {
 
 
 
-function convert_notation (str, header) {
-    str = str.replace(/ +/g, ' ');
+function convert_notation (lehera) {
+    let header = "T:" + lehera.T + tempo; 
+    str = lehera.notation.replace(/ +/g, ' ');
     let abc = header;
 
     // The notation is always using C. The transposition is done later in the editor
-    abc += "K: C" + mode + "\n";
+    abc += "K: C" + lehera.K + "\n";
     
     re = /^[srgmpdn/|,:\(\)\-\s]+$/ig;
     for (let line of str.split("\n")) {
@@ -53,31 +65,24 @@ function convert_notation (str, header) {
 }
 
 
-function setText(e) {
-    console.log(e.target.value);
+function loadLeheras() {
+    for (let i=0; i<leheras.length; i++) {
+	let div = document.getElementById("leheras");
+	let lehera = leheras[i];
+	let play = document.createElement("div");
+	play.id = "play" + i;
+
+	h = document.createElement("h4");
+	h.innerHTML =     lehera.T;
+	div.append (h, play);
+	
+	div = document.getElementById("hidden");
+	let text = document.createElement("textarea");
+	text.id = "abc-text" + i;
+	text.value = convert_notation(lehera);
+	div.appendChild(text);
+    }
 }
-
-
-
-function loadNotation() {
-    let div = document.getElementById("leheras");
-    let play = document.createElement("div");
-    play.id = "play1";
-
-
-    h = document.createElement("h4");
-    h.innerHTML = header.split("\n")[0].substr(2);
-    div.append (h, play);
-
-    
-    div = document.getElementById("hidden");
-    let text = document.createElement("textarea");
-    text.id = "abc-text";
-    text.value = convert_notation(notation, header);
-    div.appendChild(text);
-
-    
-}    
 
 
 function initEditors() {
@@ -85,9 +90,8 @@ function initEditors() {
     // key has to be one of: C, C#, D, D#, E, F, F#, G, G#, A, A#, B
     let transpose = key[0].charCodeAt() - 'C'.charCodeAt() + key.length - 1;
 
-    for (let i of "1") {
-	
-	let ed = new ABCJS.Editor("abc-text",
+     for (let i=0; i<leheras.length; i++) {
+	 let ed = new ABCJS.Editor("abc-text" + i,
 			 { paper_id: "notation",
 			   synth: {
 			       el: "#play" + i,

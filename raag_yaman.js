@@ -9,7 +9,7 @@ Q: 1/8=100
 
 const scale = `n, r g m d n S -  | S n d p m g r s - `;
 
-const gat_header = `T: Raag Yaman : Bandish in drut ektaal
+const bandish_header = `T: Raag Yaman : Bandish in drut ektaal
 C: Saudagar Nagnath Gore 'Chhota Gandharva'
 L: 1/4
 M: 4/4
@@ -17,7 +17,7 @@ Q:1/4=200
 `;
 
 
-const gat_notation = `|: p - r - | s n, s g | r g - g :|
+const bandish_notation = `|: p - r - | s n, s g | r g - g :|
 | बौ - रे - म त क र गु मा - न
 |: m g m p | n/ d/ n/ d/ p - | p r - s :|
 गु रु स न रा ~ ~ ~ खो ई मा न
@@ -46,14 +46,13 @@ let key = "C#";  // C, C#, D, D#, E, F, F#, G, G#, A, A#, B
 let mode = "Lyd"
 let note = "C"
 let notemap = new Map();
+
 for (let swar of "srgmpdn") {
     notemap.set(swar, note);
     notemap.set(swar.toUpperCase(), note.toLowerCase());
     note = String.fromCharCode(note.charCodeAt() + 1)
     if (note > 'G') note = 'A';
 }
-
-
 
 function convert_notation (str, header) {
     str = str.replace(/ +/g, ' ');
@@ -76,19 +75,16 @@ function convert_notation (str, header) {
 	    abc += ( notemap.get(notes[i]) || notes[i] );
 	
 	abc += "\n";
-	line = line.replace(/[-:]/g, "") ;
+	line = line.replace(/[-:]/g, "");
 	abc += "w:" + line + "\n";
     }
     console.log (abc);
     return abc;
 }
 
-
-
-
 function loadNotation() {
     document.getElementById("abc-text1").value = convert_notation(scale, scale_header);
-    document.getElementById("abc-text2").value = convert_notation(gat_notation, gat_header);
+    document.getElementById("abc-text2").value = convert_notation(bandish_notation, bandish_header);
 }    
 
 
@@ -97,31 +93,55 @@ function initEditors() {
     // key has to be one of: C, C#, D, D#, E, F, F#, G, G#, A, A#, B
     let transpose = key[0].charCodeAt() - 'C'.charCodeAt() + key.length - 1;
 
+    var ed;
     for (let i of "12") {
 	ed = new ABCJS.Editor("abc-text" + i,
-			 { paper_id: "notation" + i,
-			   synth: {
-			       el: "#play" + i,
-			       options: {
-				   displayLoop: true,
-				   displayRestart: true,
-				   displayPlay: true,
-				   displayProgress: true,
-				   displayWarp: true,
-				   midiTranspose: transpose,
-			       }
-			   },
-			   generate_warnings: true,
-			   warnings_id:"warnings" + i,
-			   abcjsParams: {
-			       generateDownload: true,
-			       visualTranspose: transpose,
-			   }
-			 });
+			      { paper_id: "notation" + i,
+				generate_warnings: true,
+				warnings_id:"warnings" + i,
+				synth: {
+				    el: "#play" + i,
+				    options: {
+					displayLoop: true,
+					displayRestart: true,
+					displayPlay: true,
+					displayProgress: true,
+					displayWarp: true,
+					midiTranspose: transpose,
+				    }
+				},
+				abcjsParams: {
+				    generateDownload: true,
+				    downloadLabel:"Download MIDI",
+				    visualTranspose: transpose,
+				}
+			      });
 	
     }
 
+    /* for animation .. 
+    const target = ed.tunes[0];
+    console.log (target);
+    const timer = new ABCJS.TimingCallbacks(target, {
+	qpm: 200,
+	extraMeasuresAtBeginning: 2,
+	beatCallback: beatCallback,
+	eventCallback: eventCallback,
+    });
+
+    console.log(timer);
+*/
+
 }
+
+function beatCallback(num) {
+  console.log(num);
+}
+
+function eventCallback(ev) {
+  console.log(ev);
+}
+
 
 window.addEventListener("load", initEditors, false);
 
