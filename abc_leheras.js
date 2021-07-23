@@ -72,20 +72,35 @@ function convert_notation (lehera) {
 
 function loadLeheras() {
     for (let i=0; i<leheras.length; i++) {
-	let div = document.getElementById("leheras");
+	let topdiv = document.getElementById("leheras");
 	let lehera = leheras[i];
+	[taal,raag] = lehera.T.split(';');
+	taal = taal.split(/\s+/)[1];
+	console.log (taal,raag);
+
+	let taaldiv = document.getElementById(taal);
+	if (!taaldiv) {
+	    taaldiv = document.createElement("div");
+	    taaldiv.id = taal;
+	    topdiv.append (taaldiv);
+	    let h = document.createElement("h2");
+	    h.innerHTML = taal;
+	    taaldiv.append (h);
+	}
+	
 	let play = document.createElement("div");
 	play.id = "play" + i;
 
-	h = document.createElement("h4");
-	h.innerHTML =     lehera.T;
-	div.append (h, play);
+	let h  = document.createElement("label");
+	h.innerHTML = raag.split(/\s+/)[2];
+	taaldiv.append (h, play);
 	
-	div = document.getElementById("hidden");
+	let div = document.getElementById("hidden");
 	let text = document.createElement("textarea");
 	text.id = "abc-text" + i;
 	text.value = convert_notation(lehera);
 	div.appendChild(text);
+
     }
 }
 
