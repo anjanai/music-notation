@@ -13,7 +13,12 @@ const leheras = [
 	T: "Taal: Ektaal;  Raag: Hamsadhwani",
 	K: "maj",
 	notation: `|S n p g | r s p,/p,/ n,/n,/ |  r g p n/n/|`
-    }
+    },
+    {
+	T: "Taal: Teentaal;  Raag: Janasammohini",
+	K: "mix",
+	notation: `|S S S S//G//R//S// | n d//n//p//z// g g//n//d//p// | g r n,/n,/ s | g p n d//n//p//z//|`
+    },
 
     
 ];
@@ -43,7 +48,7 @@ function convert_notation (lehera) {
     // The notation is always using C. The transposition is done later in the editor
     abc += "K: C" + lehera.K + "\n";
     
-    re = /^[srgmpdn/|,:\(\)\-\s]+$/ig;
+    re = /^[srgmpdnz/|,:\(\)\-\s]+$/ig;
     for (let line of str.split("\n")) {
 	if (! line.match(re)) {
 	    abc += "w:" + line.replace(/[-:]/g, "") + "\n";

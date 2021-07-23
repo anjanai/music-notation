@@ -14,7 +14,10 @@ const matras = {
     'Jhaptaal' : [2, 3, 2, 3],
     'Rupak': [3, 2, 2],
     'Keherva': [4, 4],
+    'Dadra': [3, 3, 3, 3],
 };
+
+console.log (matras);
 
 const isUpperCase = (string) => /^[A-Z]*$/.test(string)
 
