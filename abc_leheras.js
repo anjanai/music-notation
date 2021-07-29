@@ -25,8 +25,13 @@ const leheras = [
 	notation: `|g g g r | n,/n,/ r/r/ s n, | d, n, r n,/r/ | g/m/ d//n//d//z// m//g//r//z// n,//r//s//z//|`,
     },
     {
+	T: "Taal: Teentaal;  Raag: Unknown",
+	K: "aeo",
+	notation: `|S S S S/R/ | n/n/ d p p//d//S//n//|   d/d/ m r/m/ g/s/ | g p d S/p/ | `,
+    },
+    {
 	T: "Taal: Jhaptaal;  Raag: Yaman",
-	K: "dor",
+	K: "lyd",
 	notation: `|p p//^d//m//p// | m r n,| s r | ^g/m/ r r/s/`
     },
 
