@@ -9,7 +9,7 @@ Q: 1/8=100
 
 //S - m - mP - gm - n - DNS'R'S'
 //S' - NdP - MGM-G - M - G - r - S
-const scale = `s m m/p/ _g/m/ _n d =n S/R/ S - | S =n _d p ^m =g m/g/ _r s`;
+const scale = `s m2 m/p/ _g m2 _n d =n2 S2 R S2  | S =n _d p ^m2 =g m/g/ _r2 s`;
 
 const bandish_header = `T: Raag Basant-Bahar : Bandish in teentaal
 C: S N Ratanjankar
@@ -19,15 +19,32 @@ Q:1/4=140
 `;
 
 
-const bandish_notation = `|S - _n/ p/  p   | m p _g m | z _n d =n |  S - d n |
-फू ली ऽ न | ई न ई  | बे ऽ ल | री  स खि |
+const bandish_notation = `|S - _n   p   | m p _g m | z _n d =n |  S - d n |
+फू ली  न | ई न ई ऽ | बे ऽ ल | री  स खि |
 |S - _n/ p/  p   | m p _g m | z _n d =n |  S - _d n |
-फू ली ऽ न | ई न ई  | बे ऽ ल | री  स खि |
+फू ऽ ऽ ली | न ई न ई  | बे ऽ ल | री  स खि |
 | _R ^M =G _R | S - _n =d |    =n S _n p |   =m p _g m |
 | रं ग र स | सों  भ री | अ त ह र | खे  ऽ म न |
 | =r - s - |  s s =m =g |    ^m _d =n  S |  _R S =n _d
 | मे - रो - | जि या हु ल | स त नि हा | रे नि हा रे ।
-`; 
+|S - _n   p   | m p _g m | z _n d =n |  S - - - |
+फू ली  न | ई न ई ऽ | बे ऽ ल | री   |
+|: _g m _n d |   =n S - S |	S - S n |   n/R/ S _n d :|
+| अ म्बु वा - | की डा - र | बै - ठी को | य  ऽ  लि या  ऽ |
+| d =n S _R | S =n _d S |  =n  - - p |   ^m - =g ^m |
+| कु हू कु हू | क र त पु | का  र | मा - नो म |
+| =g - _r s |  z  s/m/ m p  |  _g m _n =d |   =n z/S/ =d =n |
+| ना - व त | - स र स ब | सं ऽ त ब | हा -र स खि |
+|S - _n   p   | m p _g m | z _n d =n |  S - - - |
+फू ली  न | ई न ई ऽ | बे ऽ ल | री   |
+|S - _n   p   | m p _g m | 
+फू ली  न | ई न ई ऽ 
+|S - _n   p   | m p _g m | 
+फू ली  न | ई न ई ऽ 
+|S - _n   p   | m p _g m | z _n d =n |  S - - - |
+फू ली  न | ई न ई ऽ बे ऽ ल | री   |
+
+`;
 
 
 let key = "C";  // C, C#, D, D#, E, F, F#, G, G#, A, A#, B
