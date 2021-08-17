@@ -4,12 +4,13 @@
 
 
 const scale_header = `T: Raag Basant-Bahar 
-Q: 1/8=100
+L: 1/4
+Q: 1/4=100
 `;
 
 //S - m - mP - gm - n - DNS'R'S'
 //S' - NdP - MGM-G - M - G - r - S
-const scale = `s m2 m/p/ _g m2 _n d =n2 S2 R S2  | S =n _d p ^m2 =g m/g/ _r2 s`;
+const scale = `s m2 m/p/ _g m _n d =n2 S2 R S2  | S =n _d p ^m2 =g m/g/ _r2 s`;
 
 const bandish_header = `T: Raag Basant-Bahar : Bandish in teentaal
 C: S N Ratanjankar
@@ -20,6 +21,7 @@ Q:1/4=140
 
 
 const bandish_notation = `|S - _n   p   | m p _g m | z _n d =n |  S - d n |
+
 फू ली  न | ई न ई ऽ | बे ऽ ल | री  स खि |
 |S - _n/ p/  p   | m p _g m | z _n d =n |  S - _d n |
 फू ऽ ऽ ली | न ई न ई  | बे ऽ ल | री  स खि |
@@ -59,6 +61,17 @@ for (let swar of "srgmpdn") {
     if (note > 'G') note = 'A';
 }
 
+let hindi_notes = `सां  रें॒  रें  गं॒  गं  मं॑  मं  पं  धं॒  धं  निं॒  निं
+सा  रे॒  रे  ग॒  ग  म॑  म  प  ध॒  ध  नि॒  नि`.split(/\s+/);
+
+let eng_notes = `S _R R _G G M ^M P _D D _N N
+s _r r _g g m ^m p _d d _n n`.split(/\s+/);
+
+let eng2hin = new Map();
+for (i=0; i<hindi_notes.length; i++) {
+    eng2hin.set(eng_notes[i], hindi_notes[i]);
+}
+
 function convert_notation (str, header) {
     str = str.replace(/ +/g, ' ');
     let abc = header;
@@ -80,11 +93,16 @@ function convert_notation (str, header) {
 	    abc += ( notemap.get(notes[i]) || notes[i] );
 	
 	abc += "\n";
-	line = line.replace(/[-:]/g, "");
-	//abc += "w:" + line + "\n";
+	//abc += "w:" + hindi_notation(line) + "\n";
     }
     console.log (abc);
     return abc;
+}
+
+function hindi_notation(line) {
+    line = line.replace(/[-:/0-9=]/g, "");
+    console.log(line);
+    return line;
 }
 
 function loadNotation() {
@@ -124,29 +142,7 @@ function initEditors() {
 	
     }
 
-    /* for animation .. 
-    const target = ed.tunes[0];
-    console.log (target);
-    const timer = new ABCJS.TimingCallbacks(target, {
-	qpm: 200,
-	extraMeasuresAtBeginning: 2,
-	beatCallback: beatCallback,
-	eventCallback: eventCallback,
-    });
-
-    console.log(timer);
-*/
-
 }
-
-function beatCallback(num) {
-  console.log(num);
-}
-
-function eventCallback(ev) {
-  console.log(ev);
-}
-
 
 window.addEventListener("load", initEditors, false);
 
