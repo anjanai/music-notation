@@ -15,10 +15,17 @@ const leheras = [
 	notation: `|S n p g | r s p,/p,/ n,/n,/ |  r g p n/n/|`
     },
     {
+	T: "Taal: Ektaal;  Raag: Gavati",
+	K: "mix",
+	notation: `|S n S d | m p g s | g m p n/p/|`
+    },
+    
+    {
 	T: "Taal: Teentaal;  Raag: Janasammohini",
 	K: "mix",
 	notation: `|S S S S//G//R//S// | n d//n//p//z// g g//n//d//p// | g r n,/n,/ s | g p n d//n//p//z//|`
     },
+    
     {
 	T: "Taal: Teentaal;  Raag: Yaman",
 	K: "lyd",
