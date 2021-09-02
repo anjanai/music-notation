@@ -5,6 +5,12 @@
 
 const leheras = [
     {
+	T: "Taal: Matta;  Raag: Jaijaiwanti",
+	K: "Maj",
+	notation: `|s s | n,/s/ d,/_n,/ | r r/g/ | m/g/ r/_g/ r/=n,/ `
+    },
+    
+    {
 	T: "Taal: Ektaal;  Raag: Kedar",
 	K: "Lyd",
 	notation: `|p////S S d p | m p s////d p |  g////r s m p|`
