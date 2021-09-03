@@ -9,7 +9,13 @@ const leheras = [
 	K: "Maj",
 	notation: `|s s | n,/s/ d,/_n,/ | r r/g/ | m/g/ r/_g/ r/=n,/ `
     },
-    
+
+    {
+	T: "Taal: Matta;  Raag: Shivaranjani",
+	K: "Dor",
+	notation: `| S S | S G | R S  | p g p `
+    },
+
     {
 	T: "Taal: Ektaal;  Raag: Kedar",
 	K: "Lyd",
@@ -160,6 +166,13 @@ function initEditors() {
 			   }
 			 });
 	ed.synth.synthControl.toggleLoop();
+     }
+
+    let tempo = localStorage["lehera_bpm"] || 100;
+
+    let synths = document.getElementsByClassName("abcjs-midi-tempo");
+    for (let i = 0; i < synths.length; ++i) {
+	synths[i].value = tempo;
     }
 
 }
