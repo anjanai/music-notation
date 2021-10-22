@@ -207,7 +207,7 @@ function show_tempo_value(t) {
 }
 function add(x) {
     show_tempo_value(tempo+=x);
-    document.getElementById("tempo_slider").value(tempo);
+    document.getElementById("tempo_slider").value = tempo;
 }
 
 window.addEventListener("load", initEditors, false);
