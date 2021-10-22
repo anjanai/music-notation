@@ -5,6 +5,25 @@
 
 const leheras = [
     {
+	T: "Taal: Ada-chautaal;  Raag: Nat-Bhairav",
+	K: "Maj",
+	notation: `|s r | r g | g m | m p | g/m/ _d | _d p | g/m/ r `
+    },
+
+    {
+	T: "Taal: Ada-chautaal;  Raag: Shyam-Kalyan",
+	K: "Maj",
+	notation: `|S S | n d |  ^m p | g m | r n,/s/ | r ^m | p n `
+    },
+
+    
+    {
+	T: "Taal: Ada-chautaal;  Raag: Charukeshi",
+	K: "Aeo",
+	notation: `|S d | n =g | m r | s d, | n, s | =g m | d n/d/ `
+    },
+    
+    {
 	T: "Taal: Matta;  Raag: Jaijaiwanti",
 	K: "Maj",
 	notation: `|s s | n,/s/ d,/_n,/ | r r/g/ | m/g/ r/_g/ r/=n,/ `
@@ -57,7 +76,8 @@ const leheras = [
     
 ];
 
-const tempo = `
+var tempo = 100;
+const tempo_str = `
 L: 1/4
 Q: 1/4=100
 `;
@@ -75,7 +95,7 @@ for (let swar of "srgmpdn") {
 
 
 function convert_notation (lehera) {
-    let header = "T:" + lehera.T + tempo; 
+    let header = "T:" + lehera.T + tempo_str; 
     str = lehera.notation.replace(/ +/g, ' ');
     let abc = header;
 
@@ -168,13 +188,26 @@ function initEditors() {
 	ed.synth.synthControl.toggleLoop();
      }
 
-    let tempo = localStorage["lehera_bpm"] || 100;
+    //tempo = localStorage["lehera_bpm"] || 100;
+    //if (tempo != 100) show_tempo_value(tempo);
 
+    document.getElementById("tempo_value").innerHTML=tempo;
+    
+}
+
+
+function show_tempo_value(t) {
+    document.getElementById("tempo_value").innerHTML=t;
     let synths = document.getElementsByClassName("abcjs-midi-tempo");
+    let event = new Event('change');
     for (let i = 0; i < synths.length; ++i) {
-	synths[i].value = tempo;
+	synths[i].value = t;
+	synths[i].dispatchEvent(event);
     }
-
+}
+function add(x) {
+    show_tempo_value(tempo+=x);
+    document.getElementById("tempo_slider").value(tempo);
 }
 
 window.addEventListener("load", initEditors, false);
