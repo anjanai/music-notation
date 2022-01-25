@@ -4,80 +4,93 @@
 
 
 const leheras = [
-    
     {
-	T: "Taal: Rudra;  Raag: Kafi",
+	T: "Taal: Matta(9);  Raag: Shivaranjani",
 	K: "Dor",
-	notation: `|p p p/d/ m/p/ | g r s s | r g m | `
+	notation: `| S S | S G | R S  | p g p `
     },
 
     {
-	T: "Taal: Ada-chautaal;  Raag: Nat-Bhairav",
+	T: "Taal: Matta(9);  Raag: Jaijaiwanti",
+	K: "Maj",
+	notation: `|s s | n,/s/ d,/_n,/ | r r/g/ | m/g/ r/_g/ r/=n,/ `
+    },
+    {
+	T: "Taal: Jhaptaal(10);  Raag: Ahir-Bhairav",
+	K: "mix",
+	notation: `|p p//d//m//p// | m r n,| s _r | g/m/ _r _r/s/`
+    },
+
+    {
+	T: "Taal: Rudra(11);  Raag: Kafi",
+	K: "Dor",
+	notation: `|p  p/d/ m/p/ | g r s s | r g m | `
+    },
+
+
+    {
+	T: "Taal: Ektaal(12);  Raag: Kedar",
+	K: "Lyd",
+	notation: `|p////S S d p | m p s////d p |  g////r s m p|`
+    },
+    {
+	T: "Taal: Ektaal(12);  Raag: Hamsadhwani",
+	K: "maj",
+	notation: `|S n p g | r s p,/p,/ n,/n,/ |  r g p n/n/|`
+    },
+    {
+	T: "Taal: Ektaal(12);  Raag: Gavati",
+	K: "mix",
+	notation: `|S n S d | m p g s | g m p n/p/|`
+    },
+    
+    
+    {
+	T: "Taal: Jai(13);  Raag: Kafi",
+	K: "Dor",
+	notation: `|s s r/g/ | m/p/ m | p m/p/ | d/d/ n/d/ | m g | r n, |`
+    },
+
+    {
+	T: "Taal: Ada-chautaal(14);  Raag: Nat-Bhairav",
 	K: "Maj",
 	notation: `|s r | r g | g m | m p | g/m/ _d | _d p | g/m/ r `
     },
 
     {
-	T: "Taal: Ada-chautaal;  Raag: Shyam-Kalyan",
+	T: "Taal: Ada-chautaal(14);  Raag: Shyam-Kalyan",
 	K: "Maj",
 	notation: `|S S | n d |  ^m p | g m | r n,/s/ | r ^m | p n `
     },
 
     
     {
-	T: "Taal: Ada-chautaal;  Raag: Charukeshi",
+	T: "Taal: Ada-chautaal(14);  Raag: Charukeshi",
 	K: "Aeo",
 	notation: `|S d | n =g | m r | s d, | n, s | =g m | d n/d/ `
     },
-    
-    {
-	T: "Taal: Matta;  Raag: Jaijaiwanti",
-	K: "Maj",
-	notation: `|s s | n,/s/ d,/_n,/ | r r/g/ | m/g/ r/_g/ r/=n,/ `
-    },
 
     {
-	T: "Taal: Matta;  Raag: Shivaranjani",
-	K: "Dor",
-	notation: `| S S | S G | R S  | p g p `
-    },
-
-    {
-	T: "Taal: Ektaal;  Raag: Kedar",
-	K: "Lyd",
-	notation: `|p////S S d p | m p s////d p |  g////r s m p|`
-    },
-    {
-	T: "Taal: Ektaal;  Raag: Hamsadhwani",
-	K: "maj",
-	notation: `|S n p g | r s p,/p,/ n,/n,/ |  r g p n/n/|`
-    },
-    {
-	T: "Taal: Ektaal;  Raag: Gavati",
+	T: "Taal: Pancham-sawari(15);  Raag: Gavati",
 	K: "mix",
-	notation: `|S n S d | m p g s | g m p n/p/|`
+	notation: `|S S S/n/ | S/d/ p g | m m/g/ m/r/ |  n, s s/g/ | m p/p/ n/n/ `
     },
     
     {
-	T: "Taal: Teentaal;  Raag: Janasammohini",
+	T: "Taal: Teentaal(16);  Raag: Janasammohini",
 	K: "mix",
 	notation: `|S S S S//G//R//S// | n d//n//p//z// g g//n//d//p// | g r n,/n,/ s | g p n d//n//p//z//|`
     },
     
     {
-	T: "Taal: Teentaal;  Raag: Yaman",
+	T: "Taal: Teentaal(16);  Raag: Yaman",
 	K: "lyd",
 	notation: `|g g g r | n,/n,/ r/r/ s n, | d, n, r n,/r/ | g/m/ d//n//d//z// m//g//r//z// n,//r//s//z//|`,
     },
     {
-	T: "Taal: Teentaal;  Raag: Mishra-Kirwani",
+	T: "Taal: Teentaal(16);  Raag: Mishra-Kirwani",
 	K: "aeo",
 	notation: `|S S S S/R/ | n/n/ d p p//d//S//n//|   d/d/ m r/m/ g/s/ | g p d S/p/ | `,
-    },
-    {
-	T: "Taal: Jhaptaal;  Raag: Ahir-Bhairav",
-	K: "mix",
-	notation: `|p p//d//m//p// | m r n,| s _r | g/m/ _r _r/s/`
     },
 
     
