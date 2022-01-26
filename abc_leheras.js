@@ -139,7 +139,7 @@ function convert_notation (lehera) {
 	line = line.replace(/[-:]/g, "") ;
 	abc += "w:" + line + "\n";
     }
-    console.log (abc);
+    //console.log (abc);
     return abc;
 }
 
@@ -150,7 +150,7 @@ function loadLeheras() {
 	let lehera = leheras[i];
 	[taal,raag] = lehera.T.split(';');
 	taal = taal.split(/\s+/)[1];
-	console.log (taal,raag);
+	//console.log (taal,raag);
 
 	let taaldiv = document.getElementById(taal);
 	if (!taaldiv) {
@@ -178,7 +178,6 @@ function loadLeheras() {
     }
 }
 
-
 function initEditors() {
     // number of steps to transpose from C.
     // key has to be one of: C, C#, D, D#, E, F, F#, G, G#, A, A#, B
@@ -196,25 +195,29 @@ function initEditors() {
 				   displayProgress: true,
 				   displayWarp: true,
 				   midiTranspose: transpose,
-			       }
+						       }
 			   },
 			   generate_warnings: true,
 			   warnings_id:"warnings",
 			   abcjsParams: {
-			       generateDownload: true,
 			       visualTranspose: transpose,
 			   }
 			 });
-	ed.synth.synthControl.toggleLoop();
-     }
+	 ed.synth.synthControl.toggleLoop();
 
-    //tempo = localStorage["lehera_bpm"] || 100;
-    //if (tempo != 100) show_tempo_value(tempo);
+	 let  timingCallbacks = new ABCJS.TimingCallbacks(ed.tunes[0], {
+	     beatCallback: beatCallback,
+	 });
+	 
+     }
 
     document.getElementById("tempo_value").innerHTML=tempo;
     
 }
 
+function beatCallback(beatNumber, totalBeats, totalTime, position, debugInfo) {
+    console.log (beatNumber, totalBeats);
+}
 
 function show_tempo_value(t) {
     document.getElementById("tempo_value").innerHTML=t;

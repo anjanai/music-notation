@@ -1,0 +1,103 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://paulrosen.github.io/abcjs/examples/examples-styles.css"/>
+
+    <link rel="icon" href="favicon.ico" type="image/x-icon"/>
+    <title>abcjs: Lehera Switcher Demo</title>
+
+    <style>
+        main {
+            max-width: 770px;
+            margin: 0 auto;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        .row {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+        }
+
+        .status {
+            padding: 2px 10px 10px 10px;
+            background-color: #f0f0f0;
+            width: 250px;
+        }
+
+        @media (prefers-color-scheme: dark) {
+            .status {
+                background-color: #000000;
+            }
+        }
+    </style>
+
+    <script src="https://paulrosen.github.io/abcjs/dist/abcjs-basic.js" type="text/javascript"></script>
+    <script src="lehera_scores.js" type="text/javascript"></script>
+</head>
+<body onload="load()">
+<main>
+    <header>
+        <img src="https://paulrosen.github.io/abcjs/img/abcjs_comp_extended_08.svg" alt="abcjs logo">
+        <h1>Lehera Switcher</h1>
+    </header>
+    <div class="container">
+        <div class="row">
+            <p>
+                <label for="taal-picker">
+                    Select taal:
+                    <select id="taal-picker">
+                        <option value="-1">Select a taal</option>
+                    </select>
+                </label>
+            </p>
+
+	    <p>
+                <label for="raag-picker">
+                    Select raag:
+                    <select id="raag-picker">
+                    </select>
+                </label>
+            </p>
+	    
+            <p>
+                <label for="instrument-picker">
+                    Select instrument:
+                    <select id="instrument-picker">
+                        <option value="0">Acoustic Piano</option>
+                        <option value="4">Electric Piano</option>
+                        <option value="6">Harpsichord</option>
+                        <option value="7">Clavi</option>
+                        <option value="8">Celesta</option>
+                        <option value="23">Tango Accordion</option>
+                        <option value="24">Acoustic Guitar (nylon)</option>
+                        <option value="25">Acoustic Guitar (steel)</option>
+                        <option value="26">Electric Guitar (jazz)</option>
+                        <option value="56">Trumpet</option>
+                        <option value="57">Trombone</option>
+                        <option value="58">Tuba</option>
+                        <option value="59">Muted Trumpet</option>
+                        <option value="60">French Horn</option>
+                    </select>
+                </label>
+            </p>
+            <p>
+                <button id="play">Play</button>
+                <button id="stop" class="hidden">Stop</button>
+            </p>
+        </div>
+	<div id="papers">
+	</div>
+          <p class="status">Tune status: <span id="tune-status"></span></p>
+        </div>
+    </div>
+</main>
+</body>
+</html>
