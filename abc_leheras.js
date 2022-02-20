@@ -4,6 +4,7 @@
 
 
 const leheras = [
+    /*
     {
 	T: "Taal: Matta(9);  Raag: Shivaranjani",
 	K: "Dor",
@@ -49,6 +50,12 @@ const leheras = [
 	T: "Taal: Jai(13);  Raag: Kafi",
 	K: "Dor",
 	notation: `|s s r/g/ | m/p/ m | p m/p/ | d/d/ n/d/ | m g | r n, |`
+    },
+*/
+    {
+	T: "Taal: Ada-chautaal(14);  Raag: Des",
+	K: "Mix",
+	notation: `|S - | n d | p d | m g | r/g/ s | r m | p =n `
     },
 
     {
@@ -139,7 +146,7 @@ function convert_notation (lehera) {
 	line = line.replace(/[-:]/g, "") ;
 	abc += "w:" + line + "\n";
     }
-    //console.log (abc);
+    console.log (abc);
     return abc;
 }
 

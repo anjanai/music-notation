@@ -157,7 +157,7 @@ function load() {
     function play() {
 	stop();
 	console.log(selectedTrack);
-	var buff = buffers[selectedTrack];
+	var buff = primeTune(tunes[selectedTrack]);
 	if (buff) buff.then(function (synth) {
 	    synth.start();
 	    playing = true;
@@ -169,7 +169,7 @@ function load() {
     function setInstrument(n) {
 	stop();
 	instrument = n;
-	buffers = tunes.map(primeTune);
+	buffers[0] = primeTune(tunes[selectedTrack]);
     }
 
     function convert_notation (lehera) {
@@ -288,7 +288,7 @@ var ready = 0;
     load_leheras();
 
     tunes = scores.map(renderTune);
-    buffers = tunes.map(primeTune);
+    buffers.push (primeTune(tunes[0]));
 
     for (let i=0; i<scores.length; i++) {
 	tracks[i] = scores[i].tune;
