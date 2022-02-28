@@ -55,7 +55,7 @@ const leheras = [
     {
 	T: "Taal: Ada-chautaal(14);  Raag: Des",
 	K: "Mix",
-	notation: `|S - | n d | p d | m g | r/g/ s | r m | p =n `
+	notation: `|S - | n d | p p//////d | m g | r/g/ s | m//////////r m | p =n `
     },
 
     {
@@ -107,6 +107,7 @@ var tempo = 100;
 const tempo_str = `
 L: 1/4
 Q: 1/4=100
+%%MIDI program 2
 `;
 
 let key = "C#";  // C, C#, D, D#, E, F, F#, G, G#, A, A#, B
