@@ -20,16 +20,23 @@ function convert_note(x) {
 
 
 $(document).ready(function () {
+    const urlParams = new URLSearchParams(window.location.search);
+    let comp = urlParams.get("get");
+    if (comp) {
+	loadsrg(comp);
+	return false;
+    }
+    if (location.hostname === "localhost") compositions.push('test');
     for (let i in compositions) {
 	let name=compositions[i];
 	let a = `<li><a id="comp${i}" title="Click to load ${name}"
-	href="#${name}" onclick="loadsrg(${i});return false;">${name}</a></li>`;
+	href="#${name}" onclick="loadsrg(${name});return false;">${name}</a></li>`;
 	$("#list").append(a);
-    }
+    }    
 });
 
-function loadsrg(i) {
-    fetch("harmonium/" + compositions[i] + ".srg")
+function loadsrg(name) {
+    fetch("harmonium/" + name + ".srg")
 	.then(response => response.text())
 	.then(data => create_abc(data.split("\n")));
 };
@@ -63,6 +70,7 @@ function convert_notation (line) {
 	abc += convert_note(notes[i] );
     
     abc = abc.replaceAll("|| ", '| "^X"');
+    abc = abc.replaceAll("||:", '|:"^X"');
     console.log (abc);
     return abc;
 }
