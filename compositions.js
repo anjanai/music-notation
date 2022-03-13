@@ -29,8 +29,8 @@ $(document).ready(function () {
     if (location.hostname === "localhost") compositions.push('test');
     for (let i in compositions) {
 	let name=compositions[i];
-	let a = `<li><a id="comp${i}" title="Click to load ${name}"
-	href="#${name}" onclick="loadsrg(${name});return false;">${name}</a></li>`;
+	let a = `<li><a title="Click to load ${name}"
+	href="#${name}" onclick="loadsrg('${name}');return false;">${name}</a></li>`;
 	$("#list").append(a);
     }    
 });
