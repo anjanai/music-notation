@@ -23,11 +23,17 @@ K: CDor % (Edit Key)
 P:आज बिरज में होरी रे रसिया, नन्दगांव के कुंअर कन्हैया   % (Edit text)
 `;
 
+function note_length(word) {
+    word = word.replaceAll(',', '');
+    return word.length;
+}
+
 function srg2abc() {
     let srg = document.getElementById("txt_srg").value;
+    srg = " n, s  d, ";
     let abc = header;
 
-    re = /^[srgmpdn=/|,:\(\)\[\]\-\s]+$/ig;
+    re = /^[,srgmpdn=/|,:\(\)\[\]\-\s]+$/ig;
     for (let line of srg.split("\n")) {
 	if (! line.match(re)) {
 	    abc += "w:" + line.replace(/[-:]/g, "") + "\n";
@@ -43,23 +49,19 @@ function srg2abc() {
 
 	let words = [];
 	for (let word of notes.split(" ")) {
-	    console.log (word);
-	    
-	    if (word.length == 2 && word.match(/^[srgmpdn]+$/ig)) {
+	    if (note_length(word) == 2 && word.match(/^[,srgmpdn]+$/ig)) {
 		let chars = word.split('');
 		word = chars.join('/') + '/';
 	    }
 	    words.push (word);
 	}
 	notes = words.join(' ');
+	console.log (notes);
 	for (let i = 0; i < notes.length; i++)
 	    abc += convert_note(notes[i] );
 
-	
-	
 	abc = abc.replaceAll("|| ", '| "^X"');
 	abc += "\n";
-	
     }
 
     document.getElementById("txt_abc").innerHTML = abc;
