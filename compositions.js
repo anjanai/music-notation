@@ -1,6 +1,6 @@
 let compositions = [
-    'harmonium/kafi',
-    'harmonium/malkauns_kaari-kaari',
+    'kafi',
+    'malkauns_kaari-kaari',
 ];
 
 let note = "C"
@@ -21,14 +21,15 @@ function convert_note(x) {
 
 $(document).ready(function () {
     for (let i in compositions) {
-	let a = `<li><a id="comp${i}" title="Click to load ${compositions[i]}"
-	href="#comp${i}" onclick="loadsrg(${i});return false;">${compositions[i]}</a></li>`;
+	let name=compositions[i];
+	let a = `<li><a id="comp${i}" title="Click to load ${name}"
+	href="#${name}" onclick="loadsrg(${i});return false;">${name}</a></li>`;
 	$("#list").append(a);
     }
 });
 
 function loadsrg(i) {
-    fetch(compositions[i] + ".srg")
+    fetch("harmonium/" + compositions[i] + ".srg")
 	.then(response => response.text())
 	.then(data => create_abc(data.split("\n")));
 };
