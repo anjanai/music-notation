@@ -39,6 +39,7 @@ function srg2abc() {
 	    continue;
 	}
 	notes = line.replaceAll("- - - -", "z4");
+	console.log (notes);
 	notes = notes.replaceAll(" - - -", "4");
 	notes = notes.replaceAll(" - -", "3");
 	notes = notes.replaceAll(" -", "2");

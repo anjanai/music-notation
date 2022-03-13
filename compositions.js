@@ -1,5 +1,6 @@
 let compositions = [
     'harmonium/kafi',
+    'harmonium/malkauns_kaari-kaari',
 ];
 
 let note = "C"
@@ -38,6 +39,7 @@ function note_length(word) {
 }
 
 function convert_notation (line) {
+    line = line.replace( /  +/g, ' ' ) 
     let notes = line.replaceAll("- - - -", "z4");
     notes = notes.replaceAll(" - - -", "4");
     notes = notes.replaceAll(" - -", "3");
@@ -60,6 +62,7 @@ function convert_notation (line) {
 	abc += convert_note(notes[i] );
     
     abc = abc.replaceAll("|| ", '| "^X"');
+    console.log (abc);
     return abc;
 }
 
@@ -68,8 +71,9 @@ function create_abc (lines) {
     let abc="";
     for (let i in lines) {
 	let fields = lines[i].split(':');
-	if (fields[0] != "srg") abc += lines[i];
-	else abc += convert_notation(fields[1]);
+	if (lines[i].trim() === "") abc += "%" 
+	else if (fields[0] != "srg") abc += lines[i];
+	else abc += convert_notation(lines[i].substring(4));
 	abc += '\n';
     }
     showabc(abc);
