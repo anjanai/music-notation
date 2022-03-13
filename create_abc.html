@@ -1,0 +1,38 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<meta charset='utf-8'>
+	<meta http-equiv="content-type" content="text/html" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="icon" href="favicon.ico" type="image/x-icon"/>
+	<title>Create abc notation</title>
+	<link href="https://www.abcjs.net/abcjs-audio.css" media="all" rel="stylesheet" type="text/css" />
+	<script src="https://www.abcjs.net/abcjs-basic-min.js" type="text/javascript"></script>
+	<script src=create_abc.js></script>
+	<style>
+		.abcjs-inline-audio {
+			max-width: 770px;
+		}
+		p {
+			max-width: 600px;
+		}
+	</style>
+</head>
+<body >
+  <h1>Convert Notation to ABC notation</h1>
+  <textarea id=txt_srg rows="15" cols="100">
+s r g r | m p n d || p - pd nS | nd pm gr s |
+आ ऽ ज बि र ज में ऽ हो री ऽ रे ऽ र ऽ सि ऽ या ऽ ऽ
+m g r s | r m p d || m p d n | Sn dp mg rs |
+न ऽ न्द गां ऽ व के ऽ कुं अ र क न्है ऽ  या ऽ ऽ ऽ ऽ ऽ
+    
+m m p d | n n S - || R G R S | - n d p |
+उ ड़ त गु  ला ऽ ल    ला ल भ ये    बा द र
+dn SR G R | S n d p || mp d pd n | Sn dp mg rs |
+मा ऽ ऽ ऽ  र त  भ र भ र    रो ऽ ऽ री ऽ रे   र ऽ सि ऽ या ऽ ऽ ऽ
+  </textarea>
+  </br><button  onClick="srg2abc()">Convert</button>
+  </br><textarea id=txt_abc rows="15" cols="100"> </textarea>
+  </br>Copy and paste this text into <a href=https://editor.drawthedots.com/>https://editor.drawthedots.com/</a>
+</body>
+</html>
