@@ -30,7 +30,6 @@ function note_length(word) {
 
 function srg2abc() {
     let srg = document.getElementById("txt_srg").value;
-    srg = " n, s  d, ";
     let abc = header;
 
     re = /^[,srgmpdn=/|,:\(\)\[\]\-\s]+$/ig;
