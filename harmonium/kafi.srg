@@ -6,13 +6,24 @@ M: 4/4
 Q:1/4=150 
 K: CDor
 P: आज बिरज में होरी रे रसिया, नन्दगांव के कुंअर कन्हैया
-srg: | s r g r | m p n d || p - pd nS | nd pm gr s |
+srg: |: s r g r | m p n d || p - pd nS | nd pm gr s :|
 w: आ ऽ ज बि र ज में ऽ हो री ऽ रे ऽ र ऽ सि ऽ या ऽ ऽ 
-srg: | m g r s | r m p d || m p d n | Sn dp mg
-w: न ऽ न्द गां ऽ व के ऽ कुं अ र क न्है ऽ  या ऽ ऽ ऽ ऽ ऽ
+srg: | m g r s | r m p d || m p d n | Sn dp mg rs |
+w: न ऽ न्द गां ऽ व के ऽ कुं अ र क न्है ऽ ऽ ऽ  या ऽ ऽ ऽ
+srg: | s r g r | m p n d || p - - - | p -  - - |
+w: आ ऽ ज बि र ज में ऽ हो री
 P: उड़त गुलाल लाल भये बादर, मारत भर-भर रोरी रे रसिया
-srg: | m m p d | n n S - || R G R S | - n d p |
+srg: |: m m p d | n n S - || R G R S | - n d p :|
 w:उ ड़ त गु  ला ऽ ल    ला ल भ ये    बा द र
 srg: | dn SR G R | S n d p || mp d pd n | Sn dp mg rs |
+w:   मा  ऽ ऽ  ऽ   र त भ र भ र रो ऽ ऽ री ऽ रे र ऽ सि  ऽ या ऽ ऽ ऽ
 
+srg: | s r g r | m p n d || p - - - | p -  - r |
+w: आ ऽ ज बि र ज में ऽ हो री  बि
+
+srg: | m p n d | p - - - || p - - r | m p n d |
+w: र ज में ऽ हो री  बि  र ज में ऽ
+
+srg: p - - - p12
+w: हो री
 

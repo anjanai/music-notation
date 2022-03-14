@@ -22,7 +22,7 @@ let compositions = [
 });
 
 function loadsrg(name) {
-    fetch("harmonium/" + name + ".srg")
+    fetch("harmonium/" + name + ".srg", {cache: "no-store"})
 	.then(response => response.text())
 	.then(data => showabc(create_abc(data.split("\n"))));
 };
