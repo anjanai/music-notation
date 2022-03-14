@@ -5,6 +5,8 @@
   <meta http-equiv="content-type" content="text/html" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="icon" href="favicon.ico" type="image/x-icon"/>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
   <title>Hindustani Music compositions in ABC notation</title>
   <script
     src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
@@ -13,13 +15,15 @@
   <script src=compositions.js></script>
 </head>
 <body >
-  <h1>Hindustani Music compositions in ABC notation</h1>
-  <table>
-    <tr><td>
-	Clicking on any of the links below will open up a new browser window. Click the play button in that window to hear the composition.
-      <td><img src=play_button.PNG width=200></img>
-    </tr>
-    </table>
-  <ol id=list> </ol>
+  <div class="alert alert-primary" role="alert">Hindustani Music compositions in ABC notation
+  </div>
+  <div class="alert alert-secondary">
+    Clicking on any of the links below will load the composition in a new window. Click the
+    <a href="" onmouseover="toggleImage()" onmouseout="toggleImage()">play button</a>
+  in that window to hear the composition.
+  <img id="popupImage" src=play_button.PNG></img>
+  </div>
+  
+  <ul class="list-group" id=list> </ul>
 </body>
 </html>

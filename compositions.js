@@ -1,6 +1,7 @@
 let compositions = [
     'kafi',
     'malkauns_kaari-kaari',
+    'gavati',
 ];
 
 let note = "C"
@@ -20,6 +21,7 @@ function convert_note(x) {
 
 
 $(document).ready(function () {
+    toggleImage();
     const urlParams = new URLSearchParams(window.location.search);
     let comp = urlParams.get("get");
     if (comp) {
@@ -29,7 +31,7 @@ $(document).ready(function () {
     if (location.hostname === "localhost") compositions.push('test');
     for (let i in compositions) {
 	let name=compositions[i];
-	let a = `<li><a title="Click to load ${name}"
+	let a = `<li  class="list-group-item"><a title="Click to load ${name}"
 	href="#${name}" onclick="loadsrg('${name}');return false;">${name}</a></li>`;
 	$("#list").append(a);
     }    
@@ -97,6 +99,11 @@ function loadabc(i) {
 function showabc(data) {
     let url = "https://editor.drawthedots.com/?t=" + encodeURIComponent(data);
     window.open(url);
+    //$('#iframe').attr('src', url);
+}
+
+function toggleImage() {
+    $( "#popupImage" ).toggle();
 }
 
     
