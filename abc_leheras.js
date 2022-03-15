@@ -213,18 +213,10 @@ function initEditors() {
 			 });
 	 ed.synth.synthControl.toggleLoop();
 
-	 let  timingCallbacks = new ABCJS.TimingCallbacks(ed.tunes[0], {
-	     beatCallback: beatCallback,
-	 });
+	 };
 	 
-     }
-
     document.getElementById("tempo_value").innerHTML=tempo;
     
-}
-
-function beatCallback(beatNumber, totalBeats, totalTime, position, debugInfo) {
-    console.log (beatNumber, totalBeats);
 }
 
 function show_tempo_value(t) {
@@ -243,6 +235,10 @@ function add(x) {
 function mult(x) {
     show_tempo_value(tempo*=x);
     document.getElementById("tempo_slider").value = tempo;
+}
+function tanpura() {
+    let tanpura = $('#tanpura')[0];
+    tanpura[tanpura.paused ? 'play' : 'pause']();
 }
 
 window.addEventListener("load", initEditors, false);

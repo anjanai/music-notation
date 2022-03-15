@@ -17,14 +17,17 @@
 </head>
 <body >
   <div class="alert alert-primary" role="alert">Hindustani Music compositions in ABC notation
-  </div>
+  <button type="button" class="btn btn-primary float-right" onclick="tanpura()">Tanpura on/off</button>  
+</div>
   <div class="alert alert-secondary">
     Clicking on any of the links below will load the composition in a new window. Click the
     <a href="" onmouseover="toggleImage()" onmouseout="toggleImage()">play button</a>
   in that window to hear the composition.
   <img id="popupImage" src=play_button.PNG ></img>
+  <audio id=tanpura loop>
+    <source src="https://ragajunglism.org/wp-content/uploads/2020/03/c-tanpura-thick.mp3">
+  </audio>
   </div>
-  
   <ul class="list-group" id=list> </ul>
 </body>
 </html>

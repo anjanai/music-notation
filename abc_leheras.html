@@ -6,6 +6,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link rel="icon" href="favicon.ico" type="image/x-icon"/>
 	<title>Leheras</title>
+	<script src="https://unpkg.com/jquery"></script>
 	<link href="https://www.abcjs.net/abcjs-audio.css" media="all" rel="stylesheet" type="text/css" />
 	<script src="https://www.abcjs.net/abcjs-basic-min.js" type="text/javascript"></script>
 	<script src=abc_leheras.js></script>
@@ -30,6 +31,11 @@
   <input type="button" value="+10" onClick="add(10)">
   <input type="button" value="x2" onClick="mult(2)">
   <label for="tempo">Tempo</label>
+  <p/>
+  <button class="btn" onclick="tanpura()">Tanpura On/off</button>
+  <audio id=tanpura loop>
+    <source src="../ear-training/Kali-1-Csharp-G-Pancham_low-volume.mp3">
+  </audio>
  <div id=leheras> </div>
   <div id=hidden style="display: none;" >
     <div id="notation"></div>

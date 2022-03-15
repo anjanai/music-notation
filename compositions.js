@@ -21,7 +21,16 @@ let compositions = [
     }    
 });
 
+function tanpura() {
+    let tanpura = $('#tanpura')[0];
+    tanpura[tanpura.paused ? 'play' : 'pause']();
+}
+
 function loadsrg(name) {
+    let tanpura = document.getElementById('tanpura');
+    tanpura.volume=0.6;
+    tanpura.play();
+    console.log ("playing");
     fetch("harmonium/" + name + ".srg", {cache: "no-store"})
 	.then(response => response.text())
 	.then(data => showabc(create_abc(data.split("\n"))));
