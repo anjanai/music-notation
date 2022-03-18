@@ -24,7 +24,10 @@ function note_split(word) {
     let prefix = '';
     for (let i=0; i<word.length; i++) {
 	if (word[i].match(/[_^=]/)) prefix = word[i];
-	else {
+	else if (word[i] == ',') {
+	    notes.push (prefix + notes.pop() + ',');
+	    prefix = '';
+	} else {
 	    notes.push(prefix + word[i]);
 	    prefix = '';
 	}
@@ -64,8 +67,8 @@ function convert_notation (line) {
 	    abc += c;
     }    
     
-    abc = abc.replaceAll("|| ", '| "^X"');
-    abc = abc.replaceAll("||:", '|:"^X"');
+    abc = abc.replaceAll("|| ", '| !+!');
+    abc = abc.replaceAll("||:", '|:!+!');
     return abc;
 }
 
