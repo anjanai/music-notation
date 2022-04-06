@@ -1,4 +1,6 @@
-let compositions = [
+let my_compositions = `example`.split(/\s+/);
+				      
+let harmonium_compositions = [
     'kafi',
     'malkauns_kaari-kaari',
     'gavati',
@@ -12,9 +14,8 @@ let compositions = [
 	loadsrg(comp);
 	return false;
     }
-    if (location.hostname === "localhost") compositions.push('test');
-    for (let i in compositions) {
-	let name=compositions[i];
+    if (location.hostname === "localhost") my_compositions.push('test');
+     for (let name of my_compositions.concat(harmonium_compositions)) {
 	let a = `<li  class="list-group-item"><a title="Click to load ${name}"
 	href="#${name}" onclick="loadsrg('${name}');return false;">${name}</a></li>`;
 	$("#list").append(a);
@@ -31,7 +32,10 @@ function loadsrg(name) {
     tanpura.volume=0.6;
     tanpura.play();
     console.log ("playing");
-    fetch("harmonium/" + name + ".srg", {cache: "no-store"})
+    name += ".srg";
+    if (harmonium_compositions.includes(name))
+	name = "harmonium/" + name ;
+    fetch(name, {cache: "no-store"})
 	.then(response => response.text())
 	.then(data => showabc(create_abc(data.split("\n"))));
 };
