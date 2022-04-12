@@ -3,6 +3,8 @@
 // See https://configurator.abcjs.net/ for configuration options
 
 
+let keys = `G G# A A# B C C# D D# E F F#`.split(' ');
+
 const scale_header = `T: Raag Yaman : scale
 Q: 1/8=100
 `;
@@ -42,9 +44,10 @@ const bandish_notation = `|: p - r - | s n, s g | r g - g :|
 `; 
 
 
-let key = "C#";  // C, C#, D, D#, E, F, F#, G, G#, A, A#, B
+let key = "C";  // C, C#, D, D#, E, F, F#, G, G#, A, A#, B
 let mode = "Lyd"
-let note = "C"
+const Sa = "C"			// this is the key that we are using in the notation for Sa. Do not change this.
+let note = Sa;
 let notemap = new Map();
 
 for (let swar of "srgmpdn") {
@@ -91,8 +94,8 @@ function loadNotation() {
 function initEditors() {
     // number of steps to transpose from C.
     // key has to be one of: C, C#, D, D#, E, F, F#, G, G#, A, A#, B
-    let transpose = key[0].charCodeAt() - 'C'.charCodeAt() + key.length - 1;
-
+    let transpose = keys.indexOf(key) - keys.indexOf('C');
+    console.log ("transpose is", transpose);
     var ed;
     for (let i of "12") {
 	ed = new ABCJS.Editor("abc-text" + i,

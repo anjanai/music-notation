@@ -6,7 +6,7 @@ let harmonium_compositions = [
     'gavati',
 ];
 
- $(document).ready(function () {
+$(document).ready(function () {
     toggleImage();
     const urlParams = new URLSearchParams(window.location.search);
     let comp = urlParams.get("get");

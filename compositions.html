@@ -5,29 +5,34 @@
   <meta http-equiv="content-type" content="text/html" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="icon" href="favicon.ico" type="image/x-icon"/>
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-
+  <link rel="canonical" href="https://getbootstrap.com/docs/5.0/components/dropdowns/">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+  
   <title>Hindustani Music compositions in ABC notation</title>
   <script
     src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
     integrity="sha256-4+XzXVhsDmqanXGHaHvgh1gMQKX40OUvDEBTu8JcmNs="
     crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
   <script src=abc.js></script>
   <script src=compositions.js></script>
 </head>
 <body >
+  <div class=container>
   <div class="alert alert-primary" role="alert">Hindustani Music compositions in ABC notation
-  <button type="button" class="btn btn-primary float-right" onclick="tanpura()">Tanpura on/off</button>  
-</div>
+        <button type="button" class="btn btn-primary" onclick="tanpura()">Tanpura on/off</button>  
+    </div>
   <div class="alert alert-secondary">
     Clicking on any of the links below will load the composition in a new window. Click the
     <a href="" onmouseover="toggleImage()" onmouseout="toggleImage()">play button</a>
-  in that window to hear the composition.
+    in that window to hear the composition.
+    <p> Note that all compositions use the key of "C" as the tonic (the "Sa").
   <img id="popupImage" src=play_button.PNG ></img>
-  <audio id=tanpura loop>
-    <source src="https://ragajunglism.org/wp-content/uploads/2020/03/c-tanpura-thick.mp3">
+  <audio id=tanpura loop src="/ear-training/c_quieter.mp3">
   </audio>
   </div>
   <ul class="list-group" id=list> </ul>
+  </div>
 </body>
 </html>
