@@ -32,9 +32,10 @@ function loadsrg(name) {
     tanpura.volume=0.6;
     tanpura.play();
     console.log ("playing");
-    name += ".srg";
     if (harmonium_compositions.includes(name))
 	name = "harmonium/" + name ;
+    name += ".srg";
+    console.log (name);
     fetch(name, {cache: "no-store"})
 	.then(response => response.text())
 	.then(data => showabc(create_abc(data.split("\n"))));
@@ -43,7 +44,6 @@ function loadsrg(name) {
 function showabc(data) {
     let url = "https://editor.drawthedots.com/?t=" + encodeURIComponent(data);
     window.open(url);
-    //$('#iframe').attr('src', url);
 }
 
 function toggleImage() {

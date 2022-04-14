@@ -4,7 +4,6 @@
 
 
 const leheras = [
-    /*
     {
 	T: "Taal: Matta(9);  Raag: Shivaranjani",
 	K: "Dor",
@@ -51,7 +50,7 @@ const leheras = [
 	K: "Dor",
 	notation: `|s s r/g/ | m/p/ m | p m/p/ | d/d/ n/d/ | m g | r n, |`
     },
-*/
+
     {
 	T: "Taal: Ada-chautaal(14);  Raag: Des",
 	K: "Mix",
