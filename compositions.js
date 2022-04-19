@@ -1,4 +1,5 @@
-let my_compositions = `example`.split(/\s+/);
+let my_compositions = `example
+patdeep_babhana`.split(/\s+/);
 				      
 let harmonium_compositions = [
     'kafi',
