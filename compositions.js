@@ -5,16 +5,14 @@ let harmonium_compositions = [
     'kafi',
     'malkauns_kaari-kaari',
     'gavati',
+    'bhoop_jaya-deva',
 ];
 
 $(document).ready(function () {
-    toggleImage();
+    $( "#popupImage" ).hide();
     const urlParams = new URLSearchParams(window.location.search);
     let comp = urlParams.get("get");
-    if (comp) {
-	loadsrg(comp);
-	return false;
-    }
+    if (comp) loadsrg(comp);
     if (location.hostname === "localhost") my_compositions.push('test');
      for (let name of my_compositions.concat(harmonium_compositions)) {
 	let a = `<li  class="list-group-item"><a title="Click to load ${name}"
@@ -32,7 +30,6 @@ function loadsrg(name) {
     let tanpura = document.getElementById('tanpura');
     tanpura.volume=0.6;
     tanpura.play();
-    console.log ("playing");
     if (harmonium_compositions.includes(name))
 	name = "harmonium/" + name ;
     name += ".srg";
