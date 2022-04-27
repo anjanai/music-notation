@@ -47,9 +47,10 @@ function convert_notation (line) {
     let words = [];
     for (let word of notes.split(/(\s+)/)) {
 	if (!word) continue;
-	if (word.match(/^[,srgmpdn=_^]+$/ig) && note_length(word) >= 2 ) {
+	if (word.match(/^[,srgmpdn=_^-]+$/ig) && note_length(word) >= 2 ) {
 	    let chars = note_split(word);
 	    word = chars.join('/') + '/';
+	    word = word.replace("-/", "-")
 	}
 	words.push (word);
     }
