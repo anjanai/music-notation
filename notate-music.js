@@ -237,7 +237,26 @@ function copyVishwamohini() {
     navigator.clipboard.writeText($("#vishwa").html());
 }
 
+function specialChar(id) {
+    let pos = $("#notation").prop('selectionEnd');
+    if (id === "backspace") {
+	let str  = $("#notation").val();
+	str = str.slice(0, pos-1) + str.slice(pos);
+	$("#notation").val(str);
+	pos--;
+    } else {
+	pos += parseInt(id);
+    }
+    
+    $("#notation").prop('selectionEnd', pos);
+    $("#notation").prop('selectionStart', pos);
+    $("#notation").focus();
+    
+}
+
 function insertnote(id) {
+    if (['backspace','-1','+1'].includes(id))
+	return specialChar(id);
     id = hindi_notes[id];
     $("#notation").insertAtCaret(id);
 }
@@ -252,7 +271,9 @@ function addSwar(text, id) {
     $("#swaras").append(b);
     hindi_notes[id] = text;
     english_notes[text] = id;
+    return b;
 }
+
 
 function addButtons() {
     notelist = "S r R g G m M P d D n N";
@@ -276,6 +297,11 @@ function addButtons() {
     addSwar(" ", 'spc');
     addSwar("-", '-');
     addSwar("ऽ", 'avagraha');
+    addSwar("Bkspc", 'backspace');
+    $("#swaras").append("<p>");
+    addSwar("←", '-1');
+    addSwar("→", "+1");
+
     
     html = $("#swaras").html();
     html = html.replace(/id="/g, 'id="A');
