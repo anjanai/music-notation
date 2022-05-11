@@ -161,6 +161,11 @@ function copyNotationHtml() {
     let html = document.getElementById("formatted").outerHTML;
     navigator.clipboard.writeText(html);
 }
+
+function copyNotationRaw() {
+    navigator.clipboard.writeText($("#notation").val().trim());
+}
+
 function copyNotationText() {
     createNotation();
     let txt = document.getElementById("formatted").innerHTML;
