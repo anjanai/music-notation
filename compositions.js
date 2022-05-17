@@ -17,11 +17,17 @@ $(document).ready(function () {
     let comp = urlParams.get("get");
     if (comp) loadsrg(comp);
     if (location.hostname === "localhost") my_compositions.push('test');
-     for (let name of my_compositions.concat(harmonium_compositions)) {
-	let a = `<li  class="list-group-item"><a title="Click to load ${name}"
-	href="#${name}" onclick="loadsrg('${name}');return false;">${name}</a></li>`;
-	$("#list").append(a);
-    }    
+    for (let name of my_compositions.sort()) 
+	$("#others").append(
+	    `<li  class="list-group-item"><a title="Click to load ${name}"
+	href="#${name}" onclick="loadsrg('${name}');return false;">${name}</a></li>`);
+
+    
+    for (let name of harmonium_compositions.sort()) 
+	 $("#harmonium").append(
+	     `<li  class="list-group-item"><a title="Click to load ${name}"
+	href="#${name}" onclick="loadsrg('${name}');return false;">${name}</a></li>`);
+    
 });
 
 function tanpura() {
