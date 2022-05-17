@@ -7,6 +7,7 @@ let harmonium_compositions = [
     'malkauns_kaari-kaari',
     'gavati',
     'bairagi_gat',
+    'vachaspati_gat',
     'bhoop_jaya-deva',
 ];
 
