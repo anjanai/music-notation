@@ -9,6 +9,7 @@ let harmonium_compositions = [
     'bairagi_gat',
     'vachaspati_gat',
     'bhoop_jaya-deva',
+    'bairagi_saghana-bana',
 ];
 
 $(document).ready(function () {
