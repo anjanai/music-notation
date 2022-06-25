@@ -4,6 +4,7 @@
 
 
 const leheras = [
+    /*
     {
 	T: "Taal: Matta(9);  Raag: Shivaranjani",
 	K: "Dor",
@@ -98,11 +99,17 @@ const leheras = [
 	K: "aeo",
 	notation: `|S S S S/R/ | n/n/ d p p//d//S//n//|   d/d/ m r/m/ g/s/ | g p d S/p/ | `,
     },
-
+    */
+    
+    {
+	T: "Taal: Teentaal(16);  Raag: Des",
+	K: "maj",
+	notation: `|S S S p//n//S//R// | _n d p r//m//p//d// | m g r/g/ n,/s/ | r m p n | ` ,
+    },
     
 ];
 
-var tempo = 100;
+var tempo = 40;
 const tempo_str = `
 L: 1/4
 Q: 1/4=100
@@ -146,7 +153,6 @@ function convert_notation (lehera) {
 	line = line.replace(/[-:]/g, "") ;
 	abc += "w:" + line + "\n";
     }
-    console.log (abc);
     return abc;
 }
 
