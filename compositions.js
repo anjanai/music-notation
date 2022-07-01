@@ -1,5 +1,6 @@
 let my_compositions = `example
 patdeep_babhana
+bhairav_ab-to
 bairagi_savariya`.split(/\s+/);
 				      
 let harmonium_compositions = [

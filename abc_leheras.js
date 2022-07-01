@@ -221,6 +221,7 @@ function initEditors() {
 	 };
 	 
     document.getElementById("tempo_value").innerHTML=tempo;
+    show_tempo_value(tempo);
     
 }
 
