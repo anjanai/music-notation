@@ -4,7 +4,17 @@
 
 
 const leheras = [
-    /*
+     {
+	T: "Taal: Dadra(6);  Raag: Jaunpuri",
+	K: "aeo",
+	 notation: `| S S R | n d p/d/`,
+    },
+    {
+	T: "Taal: Roopak(7);  Raag: Ahir-Bhairav",
+	K: "mix",
+	notation: `| S S d/n/ | p/d/ m | p/d/ n/_R/|`,
+    },
+
     {
 	T: "Taal: Matta(9);  Raag: Shivaranjani",
 	K: "Dor",
@@ -99,7 +109,7 @@ const leheras = [
 	K: "aeo",
 	notation: `|S S S S/R/ | n/n/ d p p//d//S//n//|   d/d/ m r/m/ g/s/ | g p d S/p/ | `,
     },
-    */
+    
     
     {
 	T: "Taal: Teentaal(16);  Raag: Des",
@@ -109,7 +119,7 @@ const leheras = [
     
 ];
 
-var tempo = 40;
+var tempo = 60;
 const tempo_str = `
 L: 1/4
 Q: 1/4=100
