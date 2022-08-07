@@ -13,6 +13,7 @@ let harmonium_compositions = [
     'bairagi_saghana-bana',
     'maru-bihag_begi',
     'multani_sundar',
+    'sarang_gat',
 ];
 
 $(document).ready(function () {
