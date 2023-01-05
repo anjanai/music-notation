@@ -33,9 +33,9 @@ const leheras = [
     },
 
     {
-	T: "Taal: Rudra(11);  Raag: Kafi",
+	T: "Taal: Rudra(11);  Raag: Bahar",
 	K: "Dor",
-	notation: `|p  p/d/ m/p/ | g r s s | r g m | `
+	notation: `| S S | d/=n/ S/R/ | G/R/ G/S/ | R/=n/ S/_n/ | p/m/ m/_n/ d/=n/ |`
     },
 
 
