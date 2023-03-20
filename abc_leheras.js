@@ -38,6 +38,12 @@ const leheras = [
 	notation: `| S S | d/=n/ S/R/ | G/R/ G/S/ | R/=n/ S/_n/ | p/m/ m/_n/ d/=n/ |`
     },
 
+    {
+	T: "Taal: Rudra(11);  Raag: Chandrakauns",
+	K: "Dor",
+	notation: `| S S | S S | n d | n S | n d m/d/ |`
+    },
+
 
     {
 	T: "Taal: Ektaal(12);  Raag: Kedar",
