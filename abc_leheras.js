@@ -14,6 +14,17 @@ const leheras = [
 	K: "mix",
 	notation: `| S S d/n/ | p/d/ m | p/d/ n/_R/|`,
     },
+    {
+	T: "Taal: Neel(7.5);  Raag: AmritVarshini",
+	K: "Lyd",
+	notation: `| s s s/g/ | m/p/ m/g/ | m/g/ s/n,/ p,/|`,
+    },
+    
+    {
+	T: "Taal: Neel(7.5);  Raag: Bihag",
+	K: "Maj",
+	notation: `| s s/g/ m/p/ | m/g/ m/p/ | m/g/ r/s/ n,/|`,
+    },
 
     {
 	T: "Taal: Matta(9);  Raag: Shivaranjani",
@@ -36,6 +47,20 @@ const leheras = [
 	T: "Taal: Rudra(11);  Raag: Bahar",
 	K: "Dor",
 	notation: `| S S | d/=n/ S/R/ | G/R/ G/S/ | R/=n/ S/_n/ | p/m/ m/_n/ d/=n/ |`
+    },
+
+    {
+	T: "Taal: Rudra(11);  Raag: Kalavati",
+	K: "Mix",
+	notation: `| S S/n/ | n/S/ G/S/ | S/n/ d | d/n/ S/G/ | S g/p/ d/n/`
+    },
+
+    
+
+    {
+	T: "Taal: Rudra(11);  Raag: Kedar",
+	K: "Lyd",
+	notation: `| p////S - | S////d p | m p | d////=m =m | s s////=m =m/////p |`
     },
 
     {
