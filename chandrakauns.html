@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8"/>
+    <title> Bhatkhande notation </title>
+    <script
+      src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+      integrity="sha256-4+XzXVhsDmqanXGHaHvgh1gMQKX40OUvDEBTu8JcmNs="
+      crossorigin="anonymous"></script>
+    
+    <link rel="stylesheet" href="https://webfonts.omenad.net/fonts.css">
+    <style>
+      table.composition {
+	  border: none;
+      }
+      
+      table.composition td {
+	  width: 25%;
+	  border: none;
+	  border-right: 1px solid black;
+      }
+      
+      table.composition td:last-child {
+	  border-right: none;
+      }
+      
+      table.composition.bhatkhande_english td  {
+	  white-space: pre;
+	  font-family: 'ome_bhatkhande_english';
+      }
+      
+      table.composition.bhatkhande_hindi td  {
+	  white-space: pre;
+	  font-family: 'ome_bhatkhande_hindi';
+      }
+      
+    </style>
+    <script src=bhatkhande.js></script>
+  </head>
+  <body>
+    <button id=button_changeScript onclick="changeScript()">Change to Hindi</button>
+    <h1> Gat in Chandrakauns </h1>
+    <span hidden other=gat>
+      g m d m | d n d n || S - n d | m g s - |
+s m g m | - m d m || d - m g | m d n S |
+GS nS G M | G S dn S || - md n - | gm d mg s |
+
+g m dn S | - n d n || S - - n | S G S - | 
+Sn dn SG M | G S - n || S n d - | m d n - |
+s - - m | - - n - || - S nd md | n dm gm gs  |
+    </span>
+    <span id=gat> </span>
+      
+    <h2> Alaaps </h2>
+    <h3> Alaap 1 </h3>
+    <span hidden other = alaap1>
+      | s m - - | g m g s || 1 - - - | - - - - |
+| s m - - | g m g s || 2 - – - | - - - - |
+| 2 2 1 - | 2 2 1 - || 2 s - - | 2 s - - |
+</span>
+    <span id=alaap1> </span>
+    
+  </body>
+</html>

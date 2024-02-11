@@ -4,6 +4,7 @@ bhairav_ab-to
 bairagi_savariya`.split(/\s+/);
 				      
 let harmonium_compositions = [
+    'yaman_chatgpt',
     'kafi',
     'malkauns_kaari-kaari',
     'gavati',
@@ -14,6 +15,7 @@ let harmonium_compositions = [
     'maru-bihag_begi',
     'multani_sundar',
     'sarang_gat',
+    'bihag_chhumak',
 ];
 
 $(document).ready(function () {

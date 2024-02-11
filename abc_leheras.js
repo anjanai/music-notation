@@ -21,6 +21,12 @@ const leheras = [
     },
     
     {
+	T: "Taal: Neel(7.5);  Raag: Madhukauns",
+	K: "Dor",
+	notation: `| S n p | ^m p g | ^m/p/ n/|`,
+    },
+    
+    {
 	T: "Taal: Neel(7.5);  Raag: Bihag",
 	K: "Maj",
 	notation: `| s s/g/ m/p/ | m/g/ m/p/ | m/g/ r/s/ n,/|`,
