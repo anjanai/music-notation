@@ -15,11 +15,11 @@
       }
       
       table.composition td {
-	  width: 25%;
 	  border: none;
 	  border-right: 1px solid black;
       }
-      
+
+    
       table.composition td:last-child {
 	  border-right: none;
       }
@@ -39,26 +39,73 @@
   </head>
   <body>
     <button id=button_changeScript onclick="changeScript()">Change to Hindi</button>
-    <h1> Gat in Chandrakauns </h1>
+    <h1> Gat in Chandrakauns </h1> <span id=gat> </span>
+      
+    <h3> Alaap 1 </h3> <span id=alaap1> </span>
+    <h3> Alaap 2 </h3> <span id=alaap2> </span>
+    <h3> Alaap 3 </h3> <span id=alaap3> </span>
+    <h3> Alaap 4 </h3> <span id=alaap4> </span> (to antara ...)
+    <h3> Alaap 5 </h3> <span id=alaap5> </span> (to antara ...)
+    
+    
+    <h3> Taans </h3> <span id=taans> </span>
+    
     <span hidden other=gat>
       g m d m | d n d n || S - n d | m g s - |
-s m g m | - m d m || d - m g | m d n S |
-GS nS G M | G S dn S || - md n - | gm d mg s |
-
-g m dn S | - n d n || S - - n | S G S - | 
-Sn dn SG M | G S - n || S n d - | m d n - |
-s - - m | - - n - || - S nd md | n dm gm gs  |
-    </span>
-    <span id=gat> </span>
+      s m g m | - m d m || d - m g | m d n S |
+      GS nS G M | G S dn S || - md n - | gm d mg s |
       
-    <h2> Alaaps </h2>
-    <h3> Alaap 1 </h3>
-    <span hidden other = alaap1>
-      | s m - - | g m g s || 1 - - - | - - - - |
-| s m - - | g m g s || 2 - – - | - - - - |
-| 2 2 1 - | 2 2 1 - || 2 s - - | 2 s - - |
-</span>
-    <span id=alaap1> </span>
+      g m dn S | - n d n || S - - n | S G S - | 
+      Sn dn SG M | G S - n || S n d - | m d n - |
+      s - - m | - - n - || - S nd md | n dm gm gs  |
+    </span>
+
     
+    <span hidden other=alaap1>
+      | s m - - | g m g s || 1 - - - | - - - - |
+      | s m - - | g m g s || 2 - – - | - - - - |
+      | 2 2 1 - | 2 2 1 - || 2 s - - | 2 s - - |
+    </span>
+
+    <span hidden other=alaap2>
+      | s g m d | g m d g || m d g m | d - - - |
+      | s g m d | g m d g || m d g m | d - - - |
+      | g s n - | - - g s || n - g s | n - n g |
+      | s - - m | d n d n || S - n d | m g s - |
+    </span>
+
+    
+    <span hidden other=alaap3>
+      | s s g g | m m d d || m - d d | m - d d |
+      | m - - - | - - - - || g g m m | d d n d |
+      | n - n d | n - n d || n - - - | - - - - |
+      | - - n n | d d m m || g m d n | d m g s |
+    </span>
+
+    
+    <span hidden other=alaap4>
+      | 1 1  s - | g g m - || n d m - | - - - - |
+      | 1 1 s - | g g m - || n d n - | - - - - |
+      | 1 1 s - | g g m - || n d S - | gm dn SG S |
+    </span>
+    
+    <span hidden other=alaap5>
+     | n n S - | n S G S || g g m - | g m d m |
+     | 1 1 s - | 1 s g s || - - gm d | md n dn S |
+    </span>
+
+     <span hidden other=taans>
+       || dn dn S -  | 21 21  s -  |
+       || dn SG S -  | 21 sg s -  |
+       || dn SG S S | 21 sg s s |
+       || dn S S S | 21 s s s |
+       || dn d md m | gm g sg s |
+       || dn dm gs ns | - -  gs ns |
+       || Sn S mg m | mg m s1 s- |
+       || Sn S- mg m- | - - s1 s- |
+       || Sn Sn dn SG | S -  S -  |
+       </span>
+
+     
   </body>
 </html>

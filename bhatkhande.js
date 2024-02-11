@@ -38,17 +38,28 @@ $(document).ready(function () {
 function convert_notation(obj) {
     let notation = obj.text().trim().replace(/\|\|/g, '|');
     let bhat = '<table class="composition bhatkhande_english"><tbody>';
-    bhat += "<tr><td>0<td>4<td>x<td>3</tr>";
+    let line_num = 0;
     let lines = notation.split("\n");
+
     for (let line of lines) {
 	line = line.trim();
 	if (line === "") continue;
 	line = line.replace(/^\|+/, "");
-
+	
 	bhat += "\n<tr>"
 	let divs = line.split("|");
+	if (line_num == 0) {
+	    if (divs.length > 3)  bhat += "<td>0</td><td>4</td><td>x</td><td>3</td><td></tr><tr>";
+	    else  bhat += "<td></td><td>x<td>3<td></tr><tr>";
+	}
+	line_num++;
+	if (obj.attr('other') === "taans")
+	    bhat += "<td width=10%><pre>" + line_num + "</pre></td>";
+
+	
 	for (let div of divs) {
 	    bhat += "\n<td>";
+		
 	    let beats = div.trim().split(/\s+/g);
 	    for (let beat of beats) {
 		if (beat.length == 2)
