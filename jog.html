@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8"/>
+    <title> Bandish in Jog</title>
+    <script
+      src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+      integrity="sha256-4+XzXVhsDmqanXGHaHvgh1gMQKX40OUvDEBTu8JcmNs="
+      crossorigin="anonymous"></script>
+    
+    <link rel="stylesheet" href="https://webfonts.omenad.net/fonts.css">
+    <style>
+      table.composition {
+	  border: none;
+      }
+      
+      table.composition td {
+	  border: none;
+	  border-right: 1px solid black;
+      }
+
+    
+      table.composition td:last-child {
+	  border-right: none;
+      }
+      
+      table.composition.bhatkhande_english td  {
+	  white-space: pre;
+	  font-family: 'ome_bhatkhande_english';
+      }
+      
+      table.composition.bhatkhande_hindi td  {
+	  white-space: pre;
+	  font-family: 'ome_bhatkhande_hindi';
+      }
+      
+    </style>
+    <script src=bhatkhande.js></script>
+  </head>
+  <body>
+    <input type=hidden id=raag value="jog" />
+    <button id=button_changeScript onclick="changeScript()">Change to Hindi</button>
+    <h1> Bandish in Jog </h1> 
+
+    <pre>
+      रुत बरखा आई छाई री 
+      बूँदनिया बरस रही 
+      मेहरवा सनन बाजे री 
+      
+      घनघोर घटा छाई री 
+      पिहरवा घर नहीं आये री
+      मन मोरा तरसाये री
+    </pre>
+
+    Sthayi:
+    <span id=bandish_sthayi> </span>
+    <p>
+    Antara:
+    <span id=bandish_antara> </span>
+
+    
+    <span hidden other=bandish_sthayi taal="ada-chautaal" start_at=11>
+      g g m p || m - m g | m s _g _g | s -
+      रु त ब र || खा - आ - | ई छा - ई | री -
+      
+      pl nl s m || g - - - | g m p m | p -
+      बूँ - द नि || या - - - | ब र स र | ही -
+
+      - g m p || (S)n - n p | m g - p | m - 
+      - मे ह र || वा - स न | न बा - जे | री - 
+      </span>
+
+     <span hidden other=bandish_antara taal="ada-chautaal" start_at=13>
+      g m    pS n n n   S - - S    - n S - 
+      घ न || घो- - र घ | टा - - छा | - ई री - |
+
+      p n    S G - G   G G G n   G S S -
+      पि ह || र वा - घ | र न हीं आ | - ये री - |
+
+      G S   n p - p    m g - p   m - 
+      म न || मो रा - त | र सा - ये | री -  
+
+
+      
+    </span>
+
+  </body>
+</html>

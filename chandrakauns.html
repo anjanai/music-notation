@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta charset="utf-8"/>
-    <title> Bhatkhande notation </title>
+    <title> Gat in Chandrakauns</title>
     <script
       src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
       integrity="sha256-4+XzXVhsDmqanXGHaHvgh1gMQKX40OUvDEBTu8JcmNs="
@@ -38,6 +38,7 @@
     <script src=bhatkhande.js></script>
   </head>
   <body>
+    <input type=hidden id=raag value="chandrakauns" />
     <button id=button_changeScript onclick="changeScript()">Change to Hindi</button>
     <h1> Gat in Chandrakauns </h1> <span id=gat> </span>
       
@@ -50,7 +51,7 @@
     
     <h3> Taans </h3> <span id=taans> </span>
     
-    <span hidden other=gat>
+    <span hidden other=gat taal=teentaal start_at=9>
       g m d m | d n d n || S - n d | m g s - |
       s m g m | - m d m || d - m g | m d n S |
       GS nS G M | G S dn S || - md n - | gm d mg s |
@@ -61,21 +62,21 @@
     </span>
 
     
-    <span hidden other=alaap1>
-      | s m - - | g m g s || 1 - - - | - - - - |
-      | s m - - | g m g s || 2 - – - | - - - - |
-      | 2 2 1 - | 2 2 1 - || 2 s - - | 2 s - - |
+    <span hidden other=alaap1  taal=teentaal start_at=9>
+      | s m - - | g m g s || nl - - - | - - - - |
+      | s m - - | g m g s || dl - – - | - - - - |
+      | dl dl nl - | dl dl nl - || dl s - - | dl s - - |
     </span>
 
-    <span hidden other=alaap2>
+    <span hidden other=alaap2 taal=teentaal start_at=9>
       | s g m d | g m d g || m d g m | d - - - |
       | s g m d | g m d g || m d g m | d - - - |
-      | g s 1 - | - - g s || 1 - g s | 1 - 1 g |
+      | g s nl - | - - g s || nl - g s | nl - nl g |
       | s - - m | d n d n || S - n d | m g s - |
     </span>
 
     
-    <span hidden other=alaap3>
+    <span hidden other=alaap3 taal=teentaal start_at=9>
       | s s g g | m m d d || m - d d | m - d d |
       | m - - - | - - - - || g g m m | d d n d |
       | n - n d | n - n d || n - - - | - - - - |
@@ -83,26 +84,26 @@
     </span>
 
     
-    <span hidden other=alaap4>
-      | 1 1  s - | g g m - || n d m - | - - - - |
-      | 1 1 s - | g g m - || n d n - | - - - - |
-      | 1 1 s - | g g m - || n d S - | gm dn SG S |
+    <span hidden other=alaap4 taal=teentaal start_at=9>
+      | nl nl  s - | g g m - || n d m - | - - - - |
+      | nl nl s - | g g m - || n d n - | - - - - |
+      | nl nl s - | g g m - || n d S - | gm dn SG S |
     </span>
     
-    <span hidden other=alaap5>
+    <span hidden other=alaap5 taal=teentaal start_at=9>
      | n n S - | n S G S || g g m - | g m d m |
-     | 1 1 s - | 1 s g s || - - gm d | md n dn S |
+     | nl nl s - | nl s g s || - - gm d | md n dn S |
     </span>
 
-     <span hidden other=taans>
-       || dn dn S -  | 21 21  s -  |
-       || dn SG S -  | 21 sg s -  |
-       || dn SG S S | 21 sg s s |
-       || dn S S S | 21 s s s |
+     <span hidden other=taans taal=teentaal start_at=1 number>
+       || dn dn S -  | dlnl dlnl  s -  |
+       || dn SG S -  | dlnl sg s -  |
+       || dn SG S S | dlnl sg s s |
+       || dn S S S | dlnl s s s |
        || dn d md m | gm g sg s |
        || dn dm gs ns | - -  gs ns |
-       || Sn S mg m | mg m s1 s |
-       || Sn S mg m | - - s1 s |
+       || Sn S mg m | mg m snl s |
+       || Sn S mg m | - - snl s |
        || Sn Sn dn SG | S -  S -  |
        </span>
 
