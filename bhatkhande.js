@@ -148,23 +148,41 @@ function format_taal(taal, start_at) {
     return str;
 }
 
+function find_sam (arr) {
+    for (let i=0, j=0; i<arr.length; i++) {
+	if (arr[i] === "||") return j;
+	if (arr[i] === "|") continue;
+	j++;
+    }
+    return -1;
+}
+    
 function convert_notation(obj) {
     let raag = $('#raag').val();
-    let taal = obj.attr('taal');
-
-    let str = '<table class="composition bhatkhande_english"><tbody>';
+    let taal = obj.prevAll('.taal:first').val();
+    
+    let str = '<table class="composition bhatkhande_hindi"><tbody>';
     let lines = obj.text().trim().split("\n");
 
+    let avartan = matras[taal].reduce(function(a, b){
+	return a + b;
+    });
+
+    let start_at = avartan - find_sam (lines[0].split(/\s+/)) + 1;
+    
     // taal
-    str += format_taal(taal, obj.attr('start_at'))
+    str += format_taal(taal, start_at)
     let linenum = 1
     for (let line of lines) {
+	if (line.trim() === "") continue;
 	str += "<tr>" + format(line, taal, raag);
 	if (obj.attr('other') === "taans")
 	    str += "<td><pre>Taan " + linenum++;
 	str += "</tr>";	
     }
     str += "</tbody></table>";
+
+
     $("#" + obj.attr('other')).html(str);
 }
     

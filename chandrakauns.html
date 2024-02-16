@@ -34,12 +34,19 @@
 	  font-family: 'ome_bhatkhande_hindi';
       }
       
+
+      tr:nth-child(1) { 
+          background-color: Lightgreen; 
+      }
+
     </style>
     <script src=bhatkhande.js></script>
   </head>
   <body>
     <input type=hidden id=raag value="chandrakauns" />
-    <button id=button_changeScript onclick="changeScript()">Change to Hindi</button>
+    <input type=hidden class=taal value="teentaal" />
+    
+    <button id=button_changeScript onclick="changeScript()">Change to English</button>
     <h1> Gat in Chandrakauns </h1> <span id=gat> </span>
       
     <h3> Alaap 1 </h3> <span id=alaap1> </span>
@@ -48,10 +55,10 @@
     <h3> Alaap 4 </h3> <span id=alaap4> </span> (to antara ...)
     <h3> Alaap 5 </h3> <span id=alaap5> </span> (to antara ...)
     
-    
+ 
     <h3> Taans </h3> <span id=taans> </span>
     
-    <span hidden other=gat taal=teentaal start_at=9>
+    <span hidden other=gat >
       g m d m | d n d n || S - n d | m g s - |
       s m g m | - m d m || d - m g | m d n S |
       GS nS G M | G S dn S || - md n - | gm d mg s |
@@ -61,14 +68,13 @@
       s - - m | - - n - || - S nd md | n dm gm gs  |
     </span>
 
-    
-    <span hidden other=alaap1  taal=teentaal start_at=9>
+    <span hidden other=alaap1  >
       | s m - - | g m g s || nl - - - | - - - - |
       | s m - - | g m g s || dl - – - | - - - - |
       | dl dl nl - | dl dl nl - || dl s - - | dl s - - |
     </span>
 
-    <span hidden other=alaap2 taal=teentaal start_at=9>
+    <span hidden other=alaap2 >
       | s g m d | g m d g || m d g m | d - - - |
       | s g m d | g m d g || m d g m | d - - - |
       | g s nl - | - - g s || nl - g s | nl - nl g |
@@ -76,7 +82,7 @@
     </span>
 
     
-    <span hidden other=alaap3 taal=teentaal start_at=9>
+    <span hidden other=alaap3 >
       | s s g g | m m d d || m - d d | m - d d |
       | m - - - | - - - - || g g m m | d d n d |
       | n - n d | n - n d || n - - - | - - - - |
@@ -84,18 +90,21 @@
     </span>
 
     
-    <span hidden other=alaap4 taal=teentaal start_at=9>
+    <span hidden other=alaap4 >
       | nl nl  s - | g g m - || n d m - | - - - - |
       | nl nl s - | g g m - || n d n - | - - - - |
       | nl nl s - | g g m - || n d S - | gm dn SG S |
     </span>
     
-    <span hidden other=alaap5 taal=teentaal start_at=9>
+    <span hidden other=alaap5 >
      | n n S - | n S G S || g g m - | g m d m |
      | nl nl s - | nl s g s || - - gm d | md n dn S |
     </span>
 
-     <span hidden other=taans taal=teentaal start_at=1 number>
+
+
+
+     <span hidden other=taans>
        || dn dn S -  | dlnl dlnl  s -  |
        || dn SG S -  | dlnl sg s -  |
        || dn SG S S | dlnl sg s s |
