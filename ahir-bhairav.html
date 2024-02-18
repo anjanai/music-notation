@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8"/>
+    <title> Bandish in Ahir Bhairav</title>
+    <script
+      src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+      integrity="sha256-4+XzXVhsDmqanXGHaHvgh1gMQKX40OUvDEBTu8JcmNs="
+      crossorigin="anonymous"></script>
+    
+    <link rel="stylesheet" href="https://webfonts.omenad.net/fonts.css">
+    <style>
+      table.composition {
+	  border: none;
+      }
+      
+      table.composition td {
+	  border: none;
+	  border-right: 1px solid black;
+      }
+
+    
+      table.composition td:last-child {
+	  border-right: none;
+      }
+      
+      table.composition.bhatkhande_english td  {
+	  white-space: pre;
+	  font-family: 'ome_bhatkhande_english';
+      }
+      
+      table.composition.bhatkhande_hindi td  {
+	  white-space: pre;
+	  font-family: 'ome_bhatkhande_hindi';
+      }
+
+      tr:nth-child(1) { 
+          background-color: Lightgreen; 
+      }
+      tr:nth-child(even) { 
+          background-color: Lightgrey; 
+      } 
+    </style>
+    <script src=bhatkhande.js></script>
+  </head>
+  <body>
+    <input type=hidden id=raag value="ahir-bhairav" />
+    
+    <h1> Bandish in Ahir Bhairav in Jhaptaal </h1>
+    <h2> Composer: Pt. Vinayakrao Kale </h2>
+    <pre>
+      लगी राम की लगन 
+      हूँ तो आयो तोरी शरन 
+      चित रूप आनंद 
+      तोहे लगन की
+</pre>
+    
+   
+    <h2> Notation     <button id=button_changeScript onclick="changeScript()">Change to English</button> </h2>
+    <h3>Sthayi:</h3>
+    <span id=bandish_sthayi> </span>
+
+    <h3>Antara:</h3>
+    <span id=bandish_antara> </span>
+
+    <input type=hidden class=taal value="jhaptaal" />
+    <span hidden other=bandish_sthayi>
+      || . . | . . . | . . | . .  -s
+      ||. . . . . . . . .  -ल
+      
+      ||    p -   m r nl   s  r   m r s-
+      || गी - | रा म - | की - | ल ग न-  
+
+      || s s | nl dlpl dl | nl slr | m r s 
+      || हूँ तो | आ -- यो | तो री- | श र न
+
+   </span>
+
+    <span hidden other=bandish_antara>
+      || p p  | pndn pdpp d   n S   R R Sndp 
+      || चि त | रू--- ---- प | आ - | नं - द---
+
+      || p p  | pndn pdpp d   n S   R R S
+      || चि त | रू--- ---- प | आ - | नं - द
+      
+      || - - | S Snnd dppm | g -m | gm r s 
+      || - - | तो हे--- ---- | - -ल | गन की -  
+
+
+     </span>
+
+  </body>
+</html>

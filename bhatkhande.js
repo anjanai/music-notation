@@ -20,7 +20,9 @@ const matras = {
 	
 };
 
-    
+function isASCII(str) {
+    return /^[\x00-\x7F]*$/.test(str);
+} 
 
 
 function changeScript() {
@@ -35,12 +37,21 @@ function changeScript() {
 
 function to_bhatkhande(raag, str) {
     switch (raag) {
+    case "ahir-bhairav":
+	str = str.replace(/R/g, 'Ru');
+	str = str.replace(/G/g, 'gu');
+	str = str.replace(/M/g, 'mu');
+	str = str.replace(/P/g, 'pu');
+	
+	str = str.replace(/r/g, 'R');
+	str = str.replace(/n/g, 'N');
+	str = str.replace(/S/g, 'su');
+	break;
+	
     case "jog":
 	/*
 	  Input:
-	  Lower octave:
-	  m p n
-	  ml pl nl
+	  Lower octave: ml pl nl
 	  Middle octave: s _g g m p n
 	  Higher octave: S _G G M P
 	  
@@ -49,10 +60,6 @@ function to_bhatkhande(raag, str) {
 	  Middle octave: s G g m p n
 	  Higher octave: Su Gu gu mu pu
 	*/
-		
-	str = str.replace(/1/g, 'Nl');
-	str = str.replace(/2/g, 'pl');
-	
 	str = str.replace(/G/g, 'gu');
 	str = str.replace(/_G/g, 'Gu');
 	str = str.replace(/M/g, 'mu');
@@ -96,16 +103,22 @@ $(document).ready(function () {
     });
 });
 
+const group_char = ['', '', '@', '#', '$'];
+
 function format(line, taal, raag, start_at) {
     str = "";
     line = line.replace(/\|/g, "").trim();
     if (line === "") return "";
 
     line = to_bhatkhande(raag, line);
+    line = line.replace(/\./g, "&nbsp;");
+    if (!isASCII(line))
+	line = line.replace(/\-/g, 'ऽ');
     
     let beats = line.split(/\s+/);
     let divs = matras[taal];
-
+    
+    
     let i=0;
     for (let div of divs) {
 	let vibhag = beats.slice(i, i+div);
@@ -113,8 +126,8 @@ function format(line, taal, raag, start_at) {
 	for (let v of vibhag) {
 	    if (v.length > 1 &&  /[srgmpdn-]/i.test(v[0])) {
 		let removed_ul = v.replace(/[u|l]/g, '');
-		if (removed_ul.length == 2)
-		    v = "@"+v;	
+		if (removed_ul.length > 1)
+		    v = group_char[removed_ul.length]+v;	
 	    }
 	    str += v + " ";
 
@@ -169,7 +182,7 @@ function convert_notation(obj) {
     });
 
     let start_at = avartan - find_sam (lines[0].split(/\s+/)) + 1;
-    
+        
     // taal
     str += format_taal(taal, start_at)
     let linenum = 1
