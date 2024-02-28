@@ -67,7 +67,7 @@ $(document).ready(function () {
 
 const group_char = ['', '', '@', '#', '$'];
 
-function format(line, taal, raag, start_at) {
+function format(line, taal, raag) {
     str = "";
     line = line.replace(/\|/g, "").trim();
     if (line === "") return "";
@@ -80,7 +80,7 @@ function format(line, taal, raag, start_at) {
     let beats = line.split(/\s+/);
     let divs = matras[taal];
     
-    
+
     let i=0;
     for (let div of divs) {
 	let vibhag = beats.slice(i, i+div);
@@ -144,7 +144,7 @@ function convert_notation(obj) {
     });
 
     let start_at = avartan - find_sam (lines[0].split(/\s+/)) + 1;
-        
+    
     // taal
     str += format_taal(taal, start_at)
     let linenum = 1
