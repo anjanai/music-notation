@@ -35,67 +35,29 @@ function changeScript() {
     }
 }
 
-function to_bhatkhande(raag, str) {
-    switch (raag) {
-    case "ahir-bhairav":
-	str = str.replace(/R/g, 'Ru');
-	str = str.replace(/G/g, 'gu');
-	str = str.replace(/M/g, 'mu');
-	str = str.replace(/P/g, 'pu');
-	
-	str = str.replace(/r/g, 'R');
-	str = str.replace(/n/g, 'N');
-	str = str.replace(/S/g, 'su');
-	break;
-	
-    case "jog":
-	/*
-	  Input:
-	  Lower octave: ml pl nl
-	  Middle octave: s _g g m p n
-	  Higher octave: S _G G M P
-	  
-	  Output:
-	  Lower ocatve: pl Nl
-	  Middle octave: s G g m p n
-	  Higher octave: Su Gu gu mu pu
-	*/
-	str = str.replace(/G/g, 'gu');
-	str = str.replace(/_G/g, 'Gu');
-	str = str.replace(/M/g, 'mu');
-	
-	str = str.replace(/_g/g, 'G');
-	str = str.replace(/n/g, 'N');
-	str = str.replace(/S/g, 'su');
-	break;
-	
-    case "chandrakauns" :
-	/*
-	  Input:
-	  Lower octave: ml dl nl
-	  Middle octave: s g m d n
-	  Higher octave: S G M
-	  
-	  Output:
-	  Lower ocatve: Dl nl
-	  Middle octave: s G m D n
-	  Higher octave: Su Gu mu
-	*/
-	
-	str = str.replace(/G/g, 'Gu');
-	str = str.replace(/M/g, 'mu');
-	
-	str = str.replace(/g/g, 'G');
-	str = str.replace(/d/g, 'D');
-	str = str.replace(/S/g, 'su');
-	break;
-    }
 
-    str = str.replace(/\(/g, "<sup>");
-    str = str.replace(/\)/g, "</sup>");
+function to_bhatkhande(raag, str) {
+    let map= new Map([
+	["ahir-bhairav", "R,Ru,G,gu,M,mu,r,R,n,N"],
+	["jog", "G,gu,_G,Gu,M,mu,_g,G,n,N"],
+	["chandrakauns", "G,Gu,M,mu,g,G,d,D"],
+    ]);
+
+    str = tr(str, map.get(raag));
+    
+    // for all raags
+    str = tr(str, "P,pu,S,su,(,<sup>,),</sup>");
     return str;
 }
 
+function tr (str, lookup) {
+    // Translate the string character by character.
+    let dict = lookup.split(',');
+    for (let i = 0; i < dict.length; i += 2) {
+	str = str.replaceAll(dict[i], dict[i + 1]);
+    }
+    return str;
+}
 
 $(document).ready(function () {
     $('span:hidden').each(function() {
@@ -189,13 +151,12 @@ function convert_notation(obj) {
     for (let line of lines) {
 	if (line.trim() === "") continue;
 	str += "<tr>" + format(line, taal, raag);
-	if (obj.attr('other') === "taans")
+	if (obj.attr('id') === "taans")
 	    str += "<td><pre>Taan " + linenum++;
 	str += "</tr>";	
     }
     str += "</tbody></table>";
 
-
-    $("#" + obj.attr('other')).html(str);
+    obj.after(str);
 }
     
