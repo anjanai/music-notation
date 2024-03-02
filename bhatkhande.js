@@ -50,6 +50,7 @@ function to_bhatkhande(raag, str) {
     return str;
 }
 
+
 function tr (str, lookup) {
     // Translate the string character by character.
     let dict = lookup.split(',');
@@ -69,13 +70,14 @@ const group_char = ['', '', '@', '#', '$'];
 
 function format(line, taal, raag) {
     str = "";
-    line = line.replace(/\|/g, "").trim();
+    line = line.replaceAll('|', "").trim();
     if (line === "") return "";
 
     line = to_bhatkhande(raag, line);
-    line = line.replace(/\./g, "&nbsp;");
+    line = line.replaceAll('...', "").trim();
+    line = line.replaceAll('.', "&nbsp;");
     if (!isASCII(line))
-	line = line.replace(/\-/g, 'ऽ');
+	line = line.replaceAll('-', 'ऽ');
     
     let beats = line.split(/\s+/);
     let divs = matras[taal];
@@ -149,9 +151,11 @@ function convert_notation(obj) {
     str += format_taal(taal, start_at)
     let linenum = 1
     for (let line of lines) {
-	if (line.trim() === "") continue;
+	line = line.trim();
+	if (line === "") continue;
 	str += "<tr>" + format(line, taal, raag);
-	if (obj.attr('id') === "taans")
+	console.log (line[0]);
+	if (obj.attr('id') === "taans" && line[0] !== '.')
 	    str += "<td><pre>Taan " + linenum++;
 	str += "</tr>";	
     }
