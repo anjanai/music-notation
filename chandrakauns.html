@@ -10,6 +10,13 @@
     
     <link rel="stylesheet" href="https://webfonts.omenad.net/fonts.css">
     <style>
+      html, body {
+	  font-family: Verdana,sans-serif;
+      }
+      li {
+	  padding: 5px;
+      }
+      
       table.composition {
 	  border: none;
       }
@@ -39,6 +46,26 @@
           background-color: Lightgreen; 
       }
 
+      .sthayi1 {
+          background-color: lightblue;
+	  padding-x: 20px;
+      }
+      .sthayi2 {
+          background-color: lightpink; 
+      }
+      
+      .antara1 {
+          background-color: khaki; 
+      }
+      .antara2 {
+          background-color: lightsalmon; 
+      }
+      li {
+          background-color: lavender;
+	  padding: 10px;
+
+      }	  
+      
     </style>
     <script src=bhatkhande.js></script>
   </head>
@@ -47,8 +74,45 @@
     <input type=hidden class=taal value="teentaal" />
     
     <button id=button_changeScript onclick="changeScript()">Change to English</button>
+
+    <button onclick="$('#sequence').toggle()"> See/Hide Performance sequence </button>
+    <div  id=sequence>
+<ul>
+<li> Aroha/Avroha 
+<li> <span class=sthayi1> 1st line of sthayi : n times until the leader shows two fingers  </span>
+<li> <span class=sthayi2> 2nd line of sthayi
+<li> <span class=sthayi1> 1st line of sthayi : <b>twice</b>
+<li> <span class=sthayi2> 2nd line of sthayi
+<li> <span class=sthayi1> 1st line of sthayi: <b>twice</b>
+<li> Alaap 1
+<li> <span class=sthayi1> 1st line of sthayi
+<li> Alaap 2
+<li> <span class=sthayi1> 1st line of sthayi
+<li> Alaap 3
+<li> <span class=sthayi1> 1st line of sthayi
+<li> Alaap 4
+<li> <span class=antara1> 1st line of antara: <b>twice</b>
+<li> Alaap 5 
+<li> <span class=antara1> 1st line of antara: <b>twice</b>
+<li> <span class=antara2> 2nd line of antara
+<li> <span class=sthayi1> 1st line of sthayi : <b>twice</b>
+<li> <span class=sthayi2> 2nd line of sthayi
+<li> <span class=antara1> 1st line of antara: <b>twice</b>
+<li> <span class=antara2> 2nd line of antara
+<li> <span class=sthayi1> 1st line of sthayi : <b>twice</b>
+<li> <span class=sthayi1> Half of 1st line of sthayi
+<li> Taans 1-9 (8- beat taans each preceded by half of sthayi first line)
+<li> <span class=sthayi1> 1st line of sthayi:  <b>twice</b>
+<li> Taans 10-14 (each taan preceded by sthayi first line)
+<li> <span class=sthayi1> 1st line of sthayi
+<li> Jhaala
+<li> <span class=sthayi1> 1st line of sthayi
+<li> <span class=sthayi2> 2nd line of sthayi
+<li> tihai
+  </ul>
+    </div>
     
-    <h1> Gat in Chandrakauns </h1> 
+    <h1> Gat in Chandrakauns </h1>
     <span hidden >
       g m d m | d n d n || S - n d | m g s - |
       s m g m | - m d m || d - m g | m d n S |
