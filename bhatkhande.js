@@ -72,10 +72,12 @@ function format(line, taal, raag) {
     str = "";
     line = line.replaceAll('|', "").trim();
     if (line === "") return "";
-
+    
+    
     line = to_bhatkhande(raag, line);
     line = line.replaceAll('...', "").trim();
     line = line.replaceAll('.', "&nbsp;");
+    console.log (line, isASCII(line));
     if (!isASCII(line))
 	line = line.replaceAll('-', 'ऽ');
     
@@ -154,7 +156,6 @@ function convert_notation(obj) {
 	line = line.trim();
 	if (line === "") continue;
 	str += "<tr>" + format(line, taal, raag);
-	console.log (line[0]);
 	if (obj.attr('id') === "taans" && line[0] !== '.')
 	    str += "<td><pre>Taan " + linenum++;
 	str += "</tr>";	
