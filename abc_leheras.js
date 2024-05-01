@@ -100,6 +100,13 @@ const leheras = [
     },
 
     {
+	T: "Taal: Jai(13);  Raag: Lalit",
+	K: "maj",
+	notation: `|m m ^m =m | g _r g ^m | g _r | s n,/_r/ g/_r/`
+    },
+
+    
+    {
 	T: "Taal: Ada-chautaal(14);  Raag: Des",
 	K: "Mix",
 	notation: `|S - | n d | p p//////d | m g | r/g/ s | m//////////r m | p =n `
@@ -160,8 +167,9 @@ var tempo = 60;
 const tempo_str = `
 L: 1/4
 Q: 1/4=100
-%%MIDI program 2
+%%MIDI program 22 
 `;
+// https://en.wikipedia.org/wiki/General_MIDI - instruments or MIDI Programs
 
 let key = "C#";  // C, C#, D, D#, E, F, F#, G, G#, A, A#, B
 let note = "C"
@@ -182,7 +190,7 @@ function convert_notation (lehera) {
 
     // The notation is always using C. The transposition is done later in the editor
     abc += "K: C" + lehera.K + "\n";
-    
+
     re = /^[srgmpdnz/|,:^_=\(\)\{\}\-\s]+$/ig;
     for (let line of str.split("\n")) {
 	if (! line.match(re)) {
@@ -234,7 +242,7 @@ function loadLeheras() {
 	text.id = "abc-text" + i;
 	text.value = convert_notation(lehera);
 	div.appendChild(text);
-
+	console.log (taal,raag, text.value);
     }
 }
 
