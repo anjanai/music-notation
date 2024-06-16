@@ -160,6 +160,13 @@ const leheras = [
 	K: "maj",
 	notation: `|S S S p//n//S//R// | _n d p r//m//p//d// | m g r/g/ n,/s/ | r m p n | ` ,
     },
+
+    {
+	T: "Taal: Teentaal(16);  Raag: Tilak-Kamod?",
+	K: "mix",
+	notation: `|S S S S/R/ | n d p g//p//d//n//|  d m g r/s/ | g p =n d/p/ | `,
+    },
+    
     
 ];
 
@@ -167,7 +174,7 @@ var tempo = 60;
 const tempo_str = `
 L: 1/4
 Q: 1/4=100
-%%MIDI program 22 
+%%MIDI program 1
 `;
 // https://en.wikipedia.org/wiki/General_MIDI - instruments or MIDI Programs
 
