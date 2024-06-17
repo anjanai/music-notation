@@ -28,9 +28,13 @@ function isASCII(str) {
 function changeScript() {
     if ($('#button_changeScript').text() === "Change to Hindi") {
 	$('table').removeClass("bhatkhande_english").addClass("bhatkhande_hindi");
+	$('.english').show();
+	$('.hindi').hide();
 	$('#button_changeScript').text("Change to English");
     } else {
 	$('table').removeClass("bhatkhande_hindi").addClass("bhatkhande_english");
+	$('.english').hide();
+	$('.hindi').show();
 	$('#button_changeScript').text("Change to Hindi");
     }
 }
