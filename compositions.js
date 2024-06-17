@@ -17,6 +17,7 @@ let harmonium_compositions = [
     'sarang_gat',
     'bihag_chhumak',
     'bhairavi_kesar-rang',
+    'bihag_bas-rahi',
 ];
 
 $(document).ready(function () {
