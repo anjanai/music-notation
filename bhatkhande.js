@@ -46,6 +46,7 @@ function to_bhatkhande(raag, str) {
 	["jog", "G,gu,_G,Gu,M,mu,_g,G,n,N"],
 	["chandrakauns", "G,Gu,M,mu,g,G,d,D"],
 	["bihag", "R,Ru,G,gu,^m,M"],
+	["keervani","R,Ru,G,Gu,g,G,d,D"],
     ]);
 
     str = tr(str, map.get(raag));
