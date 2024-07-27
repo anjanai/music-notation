@@ -1,0 +1,109 @@
+<xx!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8"/>
+    <title> Keervani</title>
+    <script
+      src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+      integrity="sha256-4+XzXVhsDmqanXGHaHvgh1gMQKX40OUvDEBTu8JcmNs="
+      crossorigin="anonymous"></script>
+    
+    <link rel="stylesheet" href="https://webfonts.omenad.net/fonts.css">
+    <style>
+      html, body {
+	  font-family: Verdana,sans-serif;
+      }
+      li {
+	  padding: 5px;
+      }
+      
+      table.composition {
+	  border: none;
+      }
+      
+      table.composition td {
+	  border: none;
+	  border-right: 1px solid black;
+      }
+
+    
+      table.composition td:last-child {
+	  border-right: none;
+      }
+      
+      table.composition.bhatkhande_english td  {
+	  white-space: pre;
+	  font-family: 'ome_bhatkhande_english';
+      }
+      
+      table.composition.bhatkhande_hindi td  {
+	  white-space: pre;
+	  font-family: 'ome_bhatkhande_hindi';
+      }
+
+      tr:nth-child(1) { 
+          background-color: Lightgreen; 
+      }
+      tr:nth-child(even) { 
+          background-color: Lightgrey; 
+      } 
+
+    </style>
+    <script src=bhatkhande.js></script>
+  </head>
+  <body>
+    <input type=hidden id=raag value="keervani" />
+    <input type=hidden class=taal value="ada-chautaal" />
+
+    
+
+    
+    
+    <button id=button_changeScript onclick="changeScript()">Change to English</button>
+    
+    <h1> Gat in ada-chautaal by Vivek Datar
+    </h1>
+
+    <a href=https://youtu.be/2IcmQgAOTY0> Sthayi on harmonium</a>
+
+    <div>
+      <pre>
+	नाहीं बोलूँ तोसे नन्द के लाला 
+	बरजोरी करत हो छेडत हो साँवरो
+	ऐसो ढीठ लंगर पकरि मोरी बैयाँ
+	बिनती करत हूँ परत तोरे पैयाँ
+	चरचा करे सब बिरज की लुगइया    
+      </pre>
+    </div>
+    
+
+    <h2> Sthayi </h2>
+    
+    <span hidden >
+      || . . . .  . . . .   . . .  dp | mg rs
+      || . . . .  . . . .   . . .  ना- हीं- बो- 
+      || r - - - | s r g m | p d p dp | mg rs
+      || लूँ - - - | तो से न न्द  के ला ला ना- हीं- बो-
+      
+      || r - - - | - nl s r | dl - - s | r g
+      || लूँ - - - | - ब र जो   री - -  क   र त 
+      || m - - r | g m d - | - m d S | n -
+      || हो - - छे  ड त हो -   - साँ - व   रो -
+           
+      || - dn dn dn | dn dn dn dn | -n pd pd pd | pd pd
+      || - ऐसो ढीठ लंग  रप करि मोरी बै-  -याँ बिन तीक रत  हूँप रत 
+      || pd pd -d mp | mp mp mp mp | mp mp -p dp | mg rs
+      || तोरे पै- -याँ चर  चाक रेस बबि रज  कीलु गइ -या ना- हीं- बो-    
+      || r
+      || लूँ
+
+      
+    </span>
+
+    <h2> Antara </h2>
+    <span hidden >
+    </span>
+    
+    
+  </body>
+</html>
