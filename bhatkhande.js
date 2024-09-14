@@ -7,6 +7,7 @@ const taali_khali = {
     'keherva': [x, 0],
     'dadra': [x, 0],
     'ada-chautaal': [x, 2, 0, 3, 0, 4, 0],
+    'vil-rupak': [1, 2, 3, 4, 5, 6, 7],
 };
 
 const matras = {
@@ -17,6 +18,7 @@ const matras = {
     'keherva': [4, 4],
     'dadra': [3, 3],
     'ada-chautaal': [2, 2, 2, 2, 2, 2, 2],
+    'vil-rupak': [4, 4, 4, 4, 4, 4, 4]
 	
 };
 
@@ -46,6 +48,7 @@ function to_bhatkhande(raag, str) {
 	["jog", "G,gu,_G,Gu,M,mu,_g,G,n,N"],
 	["chandrakauns", "G,Gu,M,mu,g,G,d,D"],
 	["bihag", "R,Ru,G,gu,^m,M"],
+	["maru-bihag", "R,Ru,G,gu,M,Mu,m,M,µ,m"],
 	["keervani","R,Ru,G,Gu,g,G,d,D"],
     ]);
 
