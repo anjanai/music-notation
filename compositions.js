@@ -20,6 +20,7 @@ let harmonium_compositions = [
     'bihag_bas-rahi',
     'keervani_naahin-bolun',
     'maru-bihag_mhaare-dere',
+    'maru-bihag_gat',
 ];
 
 $(document).ready(function () {
