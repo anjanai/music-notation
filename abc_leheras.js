@@ -178,7 +178,9 @@ Q: 1/4=100
 `;
 // https://en.wikipedia.org/wiki/General_MIDI - instruments or MIDI Programs
 
-let key = "C#";  // C, C#, D, D#, E, F, F#, G, G#, A, A#, B
+// the tanpura and key is set in tanpura.js
+//let key = "C#";  // C, C#, D, D#, E, F, F#, G, G#, A, A#, B
+
 let note = "C"
 let notemap = new Map();
 for (let swar of "srgmpdn") {
@@ -254,9 +256,12 @@ function loadLeheras() {
 }
 
 function initEditors() {
+    initTanpura();
     // number of steps to transpose from C.
     // key has to be one of: C, C#, D, D#, E, F, F#, G, G#, A, A#, B
-    let transpose = key[0].charCodeAt() - 'C'.charCodeAt() + key.length - 1;
+
+    // tranpose is set in tanpura.js
+    //let transpose = key[0].charCodeAt() - 'C'.charCodeAt() + key.length - 1;
 
      for (let i=0; i<leheras.length; i++) {
 	 let ed = new ABCJS.Editor("abc-text" + i,
