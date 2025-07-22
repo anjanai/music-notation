@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8"/>
+    <title> Bandish in Charukeshi</title>
+    <script
+      src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+      integrity="sha256-4+XzXVhsDmqanXGHaHvgh1gMQKX40OUvDEBTu8JcmNs="
+      crossorigin="anonymous"></script>
+    
+    <link rel="stylesheet" href="https://webfonts.omenad.net/fonts.css">
+    <style>
+      table.composition {
+	  border: none;
+      }
+      
+      table.composition td {
+	  border: none;
+	  border-right: 1px solid black;
+      }
+
+    
+      table.composition td:last-child {
+	  border-right: none;
+      }
+      
+      table.composition.bhatkhande_english td  {
+	  white-space: pre;
+	  font-family: 'ome_bhatkhande_english';
+      }
+      
+      table.composition.bhatkhande_hindi td  {
+	  white-space: pre;
+	  font-family: 'ome_bhatkhande_hindi';
+      }
+
+      tr:nth-child(1) { 
+          background-color: Lightgreen; 
+      }
+      tr:nth-child(even) { 
+          background-color: Lightgrey; 
+      } 
+    </style>
+    <script src=bhatkhande.js></script>
+  </head>
+  <body>
+    <input type=hidden id=raag value="charukeshi" />
+    
+    <h1> Bandish in Charukeshi in Rupak </h1>
+    <h2> Composer: Vivek Datar </h2>
+    <pre>
+      काहे बिसरायो कान्हा 
+      संदेसवा लेइ जा 
+      गोपियन सो गोविन्द को 
+      ऊधो 
+      दरस बिना तरसे जिया बरसे नैना 
+</pre>
+    
+   
+    <h2> Notation     <button id=button_changeScript onclick="changeScript()">Change to English</button> </h2>
+ 
+    <input type=hidden class=taal value="rupak" />
+    <h3>Sthayi:</h3>
+    <span hidden>
+      || . . . | . . | --gr -g-m
+      || . . . | . . | --काहे -बि-स
+
+      || r--- r--- s--- | dl-nl- dl-s- | --rg -md-
+      || रा--- ---- यो--- | का--- | न्हा--- | --सं- -देस-
+
+      || p--- dnS- SRGM | GRSd nRS- | n-d- ppdn
+      || वा--- लेइजा- गोपियन | सो-गो- विन्दको- | ऊ--- धोदरस 
+
+      || d-m- -mpd m-g- | -rgm r-s- | g-
+      || बि-ना- -तरसे जि-या- | -बरसे नै-ना- | -- 
+
+         </span>
+
+    <h3>Antara:</h3>
+    <span hidden>
+       </span>
+
+  </body>
+</html>
