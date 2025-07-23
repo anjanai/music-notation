@@ -1,0 +1,57 @@
+काहे बिसरायो कान्हा 
+संदेसवा लेइ जा   
+गोपियन सो गोविन्द को, ऊधो 
+दरस बिना तरसे जिया बरसे नैना
+
+जब से गयो मदन मोहन मधुबन सो 
+तरप तरप सगरी उमर 
+हरि से कहियो, ऊधो 
+बेगि आवो बेगि आवो बेगि आवो
+
+[melody start]
+<settings start>
+[50][tempo]
+[1][repetitions]
+[S1][notations-scale]
+[S1][tabla-scale]
+[S1][baya-scale]
+[devnagari][language]
+<settings end>
+[1|2|3|4|5|6|7][lyrics]
+
+
+[T2--K2|	T2T2|	N1K1T2T8|	D2D2|		N1N1|		D2T7D2D2|	N1-N1N1	][theka]
+[-|		-|	-|		-|		-|		--G1R1|		-G1-m1][notations]
+[-|		-|	-|		-|		-|		--काहे|		 ऽबिऽस][lyrics]
+
+
+[R1|		 R1|	S1| 		d0-n0-|	 	d0-S1- | 	--R1G1 |	 -m1d1- ][notations]
+[रा| 		 ऽ| 	यो | 		काऽऽऽ |  	न्हाऽऽऽ | 	 ऽऽसंऽ |  	 ऽदेसऽ][lyrics]
+
+[P1|		  d1n1S2-| 	   S2R2G2m2 | 	G2R2S2d1|  		n1R2S2- | 		 n1-d1-| 		 P1P1d1n1] [notations]
+[वा|		   लेइजाऽ|	    गोपियन | 	सोऽगोऽ| 			विन्दकोऽ | 		 ऊऽऽऽ| 		 धोदरस ][lyrics]
+
+[d1-m1-|		    -m1P1d1|	     m1-G1- | 	-R1G1m1|	R1-S1- | 		 G1-G1R1|		-G1-m1][notations]
+[बिऽनाऽ|		    ऽतरसे|	      जिऽयाऽ | 	ऽबरसे|		 नैऽनाऽ | 		 ऽऽकाहे|		 ऽबिऽस][lyrics]
+
+[R1|		 R1|	S1| 		-|	 	- | 	--m1P1|	  -d1-n1  ][notations]
+[रा| 		 ऽ| 	यो | 		ऽ|	 	ऽ| 	ऽऽजब |	  ऽसेऽग][lyrics]
+
+[S2|		  S2| 	S2R2G2m2|		G2R2S2d1|		n1R2S2- | 	--G2R2|	 R2-S2n1] [notations]
+[यो|		  ऽ| 	मदनमो        | 		हनमधु|          		बनसोऽ | 	ऽऽतर|      पऽतर][lyrics]
+
+[n1-S2n1| 	d1P1m1G1| 	 R1	| 	G1m1d1P1|		d1n1S2- | n1-d1- |	   P1P1d1n1] [notations]
+[पऽसग|		  रीऽउम|	       र   | 	हरिसेऽ|          कहियोऽ | ऊऽऽऽ| धोबेऽगि][lyrics]
+
+[d1-m1-|	-m1P1d1|	     m1-G1- | 	-R1G1m1|	R1-S1- | 		 G1-G1R1|		-G1-m1][notations]
+[आऽवोऽ|		 ऽबेऽगि|	     	     आऽवोऽ | 	ऽबेऽगि| 		आऽवोऽ | ऽऽकाहे|		 ऽबिऽस	][lyrics]  
+
+[R1|		 R1|	S1| 	d0-n0-|	 	d0-S1- | 	-
+-G1R1|		-G1-m1][notations]
+[रा| 		 ऽ|	 यो | 	काऽऽऽ |  	न्हाऽऽऽ | 	 ऽऽकाहे|		 ऽबिऽ	][lyrics]  	
+
+[R1|		 S1][notations]
+[रा| 		 यो	][lyrics]  
+
+
+[melody end]
