@@ -4,6 +4,7 @@ bhairav_ab-to
 bairagi_savariya`.split(/\s+/);
 				      
 let harmonium_compositions = [
+    'charukeshi_rupak_kaahe-bisarayo',
     'yaman_sakhi-hoon',
     'yaman_chatgpt',
     'kafi',
