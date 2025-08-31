@@ -4,6 +4,7 @@ bhairav_ab-to
 bairagi_savariya`.split(/\s+/);
 				      
 let harmonium_compositions = [
+    'ojas_bhairavi',
     'charukeshi_rupak_kaahe-bisarayo',
     'yaman_sakhi-hoon',
     'yaman_chatgpt',
@@ -52,7 +53,7 @@ function tanpura() {
 function loadsrg(name) {
     let tanpura = document.getElementById('tanpura');
     tanpura.volume=0.6;
-    tanpura.play();
+    //tanpura.play();
     if (harmonium_compositions.includes(name))
 	name = "harmonium/" + name ;
     name += ".srg";
