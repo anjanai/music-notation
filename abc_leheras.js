@@ -136,6 +136,12 @@ const leheras = [
 	K: "mix",
 	notation: `|S S S/n/ | S/d/ p g | m m/g/ m/r/ |  n, s s/g/ | m p/p/ n/n/ `
     },
+
+    {
+	T: "Taal: Teentaal(16);  Raag: Megh",
+	K: "mix",
+	notation: `|S S S n/R//S// | n m p r//m//p//n// | p m r n,/s/ | r m p n/p/ | `
+    },
     
     {
 	T: "Taal: Teentaal(16);  Raag: Janasammohini",
