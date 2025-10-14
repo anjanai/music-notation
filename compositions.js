@@ -24,7 +24,7 @@ let harmonium_compositions = [
     'keervani_naahin-bolun',
     'maru-bihag_mhaare-dere',
     'maru-bihag_gat',
-];
+ ];
 
 $(document).ready(function () {
     $( "#popupImage" ).hide();

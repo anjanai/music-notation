@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8"/>
+    <title> Bandish in Bhairavi</title>
+    <script
+      src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+      integrity="sha256-4+XzXVhsDmqanXGHaHvgh1gMQKX40OUvDEBTu8JcmNs="
+      crossorigin="anonymous"></script>
+    
+    <link rel="stylesheet" href="https://webfonts.omenad.net/fonts.css">
+    <style>
+      table.composition {
+	  border: none;
+      }
+      
+      table.composition td {
+	  border: none;
+	  border-right: 1px solid black;
+      }
+
+    
+      table.composition td:last-child {
+	  border-right: none;
+      }
+      
+      table.composition.bhatkhande_english td  {
+	  white-space: pre;
+	  font-family: 'ome_bhatkhande_english';
+      }
+      
+      table.composition.bhatkhande_hindi td  {
+	  white-space: pre;
+	  font-family: 'ome_bhatkhande_hindi';
+      }
+
+      tr:nth-child(1) { 
+          background-color: lavender; 
+      }
+      tr:nth-child(even) { 
+          background-color: Lightgrey; 
+      } 
+    </style>
+    <script src=bhatkhande.js></script>
+  </head>
+  <body>
+    <input type=hidden id=raag value="bhairavi" />
+    
+    <h1> Bandish in Bhairavi in Teentaal </h1>
+    <!-- <h2> Composer: Ojas; Words: Anjana </h2> -->
+    
+
+<table border=0>
+  <tr> <td>
+    <pre>
+धन धन भाग तेरो जसोदा माँ 
+खेलत अंगना कुंवर कन्हाई 
+लाल तेरो अन्तर्यामी 
+ज्ञानी ध्यानी जाको भेद पायो नाही 
+
+नाचे गाये गोपी ग्वाले नन्द के द्वारे 
+हरख हरख सब देत बधाई 
+बाल गोपाल को देख्यो 
+मन हुलसाये तन पुलकाये बरनि न जाए 
+
+    </pre>
+    <td>
+    <pre>
+dhana dhana bhāga tero jasodā māṁ 
+khelata aṃganā kuṃvara kanhāī 
+lāla tero antaryāmī 
+jñānī dhyānī jāko bheda pāyo nāhī 
+
+nāce gāye gopī gvāle nanda ke dvāre 
+harakha hārakha saba deta badhāī 
+bāla gopāla ko dekhyo 
+mana hulasāye tana pulakāye barani na jāe 
+
+    </pre>
+    <td>
+    Here's a rough translation:
+    <pre>
+      Blessed are you, Mother Yashoda
+      You have Krishna playing in your courtyard
+      Your son is omniscient
+      The wise men and thinkers haven't been able to decipher this secret.
+
+      The cowherds are singing and dancing at Nand's door.
+      Delighted, they all congratulate him.
+      Having seen baby Krishna,
+      their hearts rejoice, their bodies enraptured, it's beyond description!
+    </pre>
+</table>
+
+<input type=hidden class=taal value="teentaal" />
+<h2> Notation     <button id=button_changeScript onclick="changeScript()">Change to English</button> </h2>
+
+    	 
+    <h3>Sthayi:</h3>
+    धन धन भाग तेरो जसोदा माँ / खेलत अंगना कुंवर कन्हाई / लाल तेरो अन्तर्यामी  / ज्ञानी ध्यानी जाको भेद पायो नाही 
+
+    <span hidden>
+      || . . . . | . . . . | s g =r g | s r s nl  |
+      || . . . . | . . . . | ध न ध न | भा - - ग | 
+
+      || s - s nl | dl nl s s | - g =r g | s r s n  |
+      || ते - रो ज | सो दा माँ ध | - न ध न | - भा - ग ते |
+
+      || s - s nl | dl nl s dl | - nl s =r | - g s r |   
+      || ते - रो ज | सो दा माँ खे | - ल त अं | - ग ना - | 
+
+      || m p d p | m g r s | s g m d | p d p p | 
+      || कुं व र क | न्हा - ई - | ला - ल ते | - रो - अ | 
+
+      || d n R S | R S =R G | M R - S | d n S d | 
+      || न्त - र्या - | मी - ज्ञा - | नी ध्या - नी | जा - को भे | 
+
+      || - p =r g | m r - s |
+      || - द पा - | यो ना - ही |
+      
+      
+         </Span>
+
+    <h3>Antara:</h3>
+    नाचे गाये गोपी ग्वाले नन्द के द्वारे / हरख हरख सब देत बधाई / बाल गोपाल को देख्यो / मन हुलसाये तन पुलकाये बरनि न जाए 
+    <span hidden>
+      || . . . . | . . . . |  gm g md m | dn d nS n |  
+      || . . . . | . . . . | ना- चे गा- ये | गो- पी ग्वा- ले | 
+
+      || S - S n | G R S - | S M M G | =R G S R  | 
+      || न - न्द के | द्वा - रे - | ह र ख ह | र ख स ब | 
+
+      || S - S n | d n S - | nl s g  m | d n S R |  
+      || दे - त ब | धा - ई - | बा - ल गो | पा - ल को | 
+
+      || S =R G =R | =R G M R | - S e e | n S d - | 
+      || दे - ख्यो म | न हु ल सा | - ये त न | पु ल का - | 
+
+      || p =r =r g | m r - s
+      || ये ब र नि | न जा - ए 
+       </span>
+
+ 
+
+  </body>
+</html>
+
