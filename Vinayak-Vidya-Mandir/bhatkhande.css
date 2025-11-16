@@ -1,0 +1,31 @@
+table.composition {
+    border: none;
+}
+
+table.composition td {
+    border: none;
+    border-right: 1px solid black;
+}
+
+
+table.composition td:last-child {
+    border-right: none;
+}
+
+table.composition.bhatkhande_english td  {
+    white-space: pre;
+    font-family: 'ome_bhatkhande_english';
+}
+
+table.composition.bhatkhande_hindi td  {
+    white-space: pre;
+    font-family: 'ome_bhatkhande_hindi';
+}
+
+tr:nth-child(1) { 
+    background-color: lavender; 
+}
+tr:nth-child(even) { 
+    background-color: Lightgrey; 
+} 
+      
