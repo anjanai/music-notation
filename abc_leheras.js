@@ -138,6 +138,13 @@ const leheras = [
     },
 
     {
+	T: "Taal: Pancham-sawari(15);  Raag: Asa-Maand",
+	K: "Maj",
+	notation: `|p p p | p/d/ m p | d S/d/ S | d m g | r/g/ g/s/ r `
+    },
+
+    
+    {
 	T: "Taal: Teentaal(16);  Raag: Megh",
 	K: "mix",
 	notation: `|S S S n/R//S// | n m p r//m//p//n// | p m r n,/s/ | r m p n/p/ | `

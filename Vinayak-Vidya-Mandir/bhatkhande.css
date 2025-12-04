@@ -22,10 +22,13 @@ table.composition.bhatkhande_hindi td  {
     font-family: 'ome_bhatkhande_hindi';
 }
 
-tr:nth-child(1) { 
-    background-color: lavender; 
-}
 tr:nth-child(even) { 
-    background-color: Lightgrey; 
+    background-color: ivory;
+}
+tr:nth-child(odd) {
+    background-color: lightblue;
 } 
-      
+tr:nth-child(1) { 
+    background-color: lavender;
+}
+     
